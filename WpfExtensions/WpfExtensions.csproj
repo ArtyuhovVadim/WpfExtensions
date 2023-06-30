@@ -7,4 +7,10 @@
     <LangVersion>latest</LangVersion>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Folder Include="Themes\" />
+    <Folder Include="Styles\" />
+    <Folder Include="Converters\" />
+  </ItemGroup>
+
 </Project>
