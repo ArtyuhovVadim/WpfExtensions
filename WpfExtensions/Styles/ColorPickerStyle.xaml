@@ -25,7 +25,6 @@
                                 <Grid.Resources>
                                     <Style x:Key="BrushBorder" TargetType="{x:Type Border}">
                                         <Setter Property="BorderThickness" Value="1" />
-                                        <Setter Property="CornerRadius" Value="2" />
                                         <Setter Property="BorderBrush" Value="Black" />
                                         <Setter Property="MaxWidth" Value="16" />
                                         <Setter Property="ToolTip" Value="{Binding Path=Background, RelativeSource={RelativeSource Self}}" />
@@ -35,7 +34,7 @@
                                                 <Setter Property="Effect">
                                                     <Setter.Value>
                                                         <DropShadowEffect
-                                                            BlurRadius="5"
+                                                            BlurRadius="7"
                                                             ShadowDepth="0"
                                                             Color="Red" />
                                                     </Setter.Value>
@@ -53,10 +52,7 @@
                                     <ItemsControl.ItemTemplate>
                                         <DataTemplate DataType="{x:Type controls:PaletteBrush}">
                                             <StackPanel>
-                                                <Border
-                                                    Margin="2"
-                                                    Background="{Binding Path=GrayscaleBrush}"
-                                                    Style="{StaticResource BrushBorder}">
+                                                <Border Background="{Binding Path=GrayscaleBrush}" Style="{StaticResource BrushBorder}">
                                                     <Border.InputBindings>
                                                         <MouseBinding
                                                             Command="{Binding Path=SelectedColorCommand,
@@ -66,7 +62,7 @@
                                                     </Border.InputBindings>
                                                 </Border>
                                                 <Border
-                                                    Margin="2"
+                                                    Margin="0,5,0,5"
                                                     Background="{Binding Path=MainBrush}"
                                                     Style="{StaticResource BrushBorder}">
                                                     <Border.InputBindings>
@@ -77,7 +73,7 @@
                                                             MouseAction="LeftClick" />
                                                     </Border.InputBindings>
                                                 </Border>
-                                                <ItemsControl Margin="0,6,0,0" ItemsSource="{Binding Path=Brushes}">
+                                                <ItemsControl ItemsSource="{Binding Path=Brushes}">
                                                     <ItemsControl.ItemsPanel>
                                                         <ItemsPanelTemplate>
                                                             <UniformGrid Rows="6" />
@@ -86,8 +82,9 @@
                                                     <ItemsControl.ItemTemplate>
                                                         <DataTemplate>
                                                             <Border
-                                                                Margin="2"
+                                                                Margin="0,0,0,-1"
                                                                 Background="{Binding Path=.}"
+                                                                CornerRadius="0"
                                                                 Style="{StaticResource BrushBorder}">
                                                                 <Border.InputBindings>
                                                                     <MouseBinding
@@ -103,7 +100,6 @@
                                             </StackPanel>
                                         </DataTemplate>
                                     </ItemsControl.ItemTemplate>
-
                                 </ItemsControl>
                             </Grid>
                             <Separator Grid.Row="1" Margin="-6,6" />

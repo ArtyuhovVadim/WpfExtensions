@@ -199,7 +199,7 @@ public class ColorPicker : Control
 
     private static Color StringToColor(string str, bool isTransparencySupported, Color fallbackColor)
     {
-        var pattern = $$"""#[0-9A-F]{{{(isTransparencySupported ? 8 : 6)}}}$""";
+        var pattern = $$"""#[0-9A-Fa-f]{{{(isTransparencySupported ? 8 : 6)}}}$""";
         var matchResult = Regex.Match(str, pattern);
 
         if (!matchResult.Success)
