@@ -1,10 +1,13 @@
 ﻿using System.Globalization;
 using System.Text.RegularExpressions;
-using System.Windows.Data;
 using System;
+using System.Windows.Data;
+using System.Windows.Markup;
 
 namespace WpfExtensions.Converters;
 
+[ValueConversion(typeof(int), typeof(string))]
+[MarkupExtensionReturnType(typeof(IntToStringConverter))]
 public class IntToStringConverter : BaseConverter
 {
     public override object Convert(object value, Type targetType, object parameter, CultureInfo culture)
