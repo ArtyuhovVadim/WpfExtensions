@@ -12,10 +12,7 @@
             <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
             <converters:IntToStringConverter x:Key="IntToStringConverter" />
             <converters:HueValueToColorConverter x:Key="HueValueToColorConverter" />
-            <converters:Linear
-                x:Key="Linear"
-                B="1"
-                K="-1" />
+            
             <Style x:Key="ColorPickerToggleButtonStyle" TargetType="{x:Type ToggleButton}">
                 <Setter Property="Template">
                     <Setter.Value>
@@ -44,7 +41,7 @@
         </ResourceDictionary>
     </ResourceDictionary.MergedDictionaries>
 
-    <Style TargetType="{x:Type controls:ColorPicker}">
+    <Style TargetType="{x:Type controls:ColorPickerOld}">
         <Setter Property="FocusVisualStyle" Value="{x:Null}" />
         <Setter Property="UseLayoutRounding" Value="True" />
         <Setter Property="SnapsToDevicePixels" Value="True" />
@@ -59,7 +56,7 @@
         <Setter Property="Background" Value="#5C5C5C" />
         <Setter Property="Template">
             <Setter.Value>
-                <ControlTemplate TargetType="{x:Type controls:ColorPicker}">
+                <ControlTemplate TargetType="{x:Type controls:ColorPickerOld}">
                     <Grid>
                         <ToggleButton
                             x:Name="ToggleButton"
@@ -159,7 +156,7 @@
                                                             <Border.InputBindings>
                                                                 <MouseBinding
                                                                     Command="{Binding Path=SelectedColorCommand,
-                                                                                      RelativeSource={RelativeSource AncestorType=controls:ColorPicker}}"
+                                                                                      RelativeSource={RelativeSource AncestorType=controls:ColorPickerOld}}"
                                                                     CommandParameter="{Binding Path=GrayscaleBrush.(SolidColorBrush.Color)}"
                                                                     MouseAction="LeftClick" />
                                                             </Border.InputBindings>
@@ -171,7 +168,7 @@
                                                             <Border.InputBindings>
                                                                 <MouseBinding
                                                                     Command="{Binding Path=SelectedColorCommand,
-                                                                                      RelativeSource={RelativeSource AncestorType=controls:ColorPicker}}"
+                                                                                      RelativeSource={RelativeSource AncestorType=controls:ColorPickerOld}}"
                                                                     CommandParameter="{Binding Path=MainBrush.(SolidColorBrush.Color)}"
                                                                     MouseAction="LeftClick" />
                                                             </Border.InputBindings>
@@ -192,7 +189,7 @@
                                                                         <Border.InputBindings>
                                                                             <MouseBinding
                                                                                 Command="{Binding Path=SelectedColorCommand,
-                                                                                                  RelativeSource={RelativeSource AncestorType=controls:ColorPicker}}"
+                                                                                                  RelativeSource={RelativeSource AncestorType=controls:ColorPickerOld}}"
                                                                                 CommandParameter="{Binding Path=(SolidColorBrush.Color)}"
                                                                                 MouseAction="LeftClick" />
                                                                         </Border.InputBindings>
@@ -302,7 +299,7 @@
                                                 <Setter Property="Margin" Value="0,0,5,0" />
                                             </Style>
                                         </Grid.Resources>
-                                        <TextBox Grid.Column="0" Text="{Binding Path=HexColor, RelativeSource={RelativeSource AncestorType=controls:ColorPicker}}" />
+                                        <TextBox Grid.Column="0" Text="{Binding Path=HexColor, RelativeSource={RelativeSource AncestorType=controls:ColorPickerOld}}" />
                                         <TextBlock Grid.Column="0" Text="Hex" />
                                         <TextBox Grid.Column="1" Text="{Binding Path=RComponent, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource IntToStringConverter}, RelativeSource={RelativeSource TemplatedParent}}" />
                                         <TextBlock Grid.Column="1" Text="R" />
@@ -320,7 +317,7 @@
                                             BorderThickness="1"
                                             CornerRadius="3">
                                             <Border.Background>
-                                                <SolidColorBrush Color="{Binding Path=CurrentColor, RelativeSource={RelativeSource AncestorType=controls:ColorPicker}}" />
+                                                <SolidColorBrush Color="{Binding Path=CurrentColor, RelativeSource={RelativeSource AncestorType=controls:ColorPickerOld}}" />
                                             </Border.Background>
                                         </Border>
                                     </Grid>

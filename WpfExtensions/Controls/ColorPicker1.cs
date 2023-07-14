@@ -48,7 +48,7 @@ public class Crosshair : FrameworkElement
 
 [TemplatePart(Name = ApplyButtonName, Type = typeof(Button))]
 [TemplatePart(Name = CancelButtonName, Type = typeof(Button))]
-public class ColorPicker : Control
+public class ColorPickerOld : Control
 {
     private const string ApplyButtonName = "PART_ApplyButton";
     private const string CancelButtonName = "PART_CancelButton";
@@ -58,9 +58,9 @@ public class ColorPicker : Control
     private Button _applyButton;
     private Button _cancelButton;
 
-    static ColorPicker()
+    static ColorPickerOld()
     {
-        DefaultStyleKeyProperty.OverrideMetadata(typeof(ColorPicker), new FrameworkPropertyMetadata(typeof(ColorPicker)));
+        DefaultStyleKeyProperty.OverrideMetadata(typeof(ColorPickerOld), new FrameworkPropertyMetadata(typeof(ColorPickerOld)));
     }
 
     #region SelectedColor
@@ -72,7 +72,7 @@ public class ColorPicker : Control
     }
 
     public static readonly DependencyProperty SelectedColorProperty =
-        DependencyProperty.Register(nameof(SelectedColor), typeof(Color), typeof(ColorPicker), new PropertyMetadata(Colors.Black));
+        DependencyProperty.Register(nameof(SelectedColor), typeof(Color), typeof(ColorPickerOld), new PropertyMetadata(Colors.Black));
 
     #endregion
 
@@ -85,11 +85,11 @@ public class ColorPicker : Control
     }
 
     public static readonly DependencyProperty CurrentColorProperty =
-        DependencyProperty.Register(nameof(CurrentColor), typeof(Color), typeof(ColorPicker), new PropertyMetadata(Colors.Black, OnCurrentColorChanged));
+        DependencyProperty.Register(nameof(CurrentColor), typeof(Color), typeof(ColorPickerOld), new PropertyMetadata(Colors.Black, OnCurrentColorChanged));
 
     private static void OnCurrentColorChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
     {
-        if (d is not ColorPicker picker) return;
+        if (d is not ColorPickerOld picker) return;
 
         var color = (Color)e.NewValue;
 
@@ -116,11 +116,11 @@ public class ColorPicker : Control
     }
 
     public static readonly DependencyProperty IsTransparencySupportedProperty =
-        DependencyProperty.Register(nameof(IsTransparencySupported), typeof(bool), typeof(ColorPicker), new PropertyMetadata(false, OnIsTransparencySupportedChanged));
+        DependencyProperty.Register(nameof(IsTransparencySupported), typeof(bool), typeof(ColorPickerOld), new PropertyMetadata(false, OnIsTransparencySupportedChanged));
 
     private static void OnIsTransparencySupportedChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
     {
-        if (d is not ColorPicker picker) return;
+        if (d is not ColorPickerOld picker) return;
 
         picker.InvalidateProperty(HexColorProperty);
     }
@@ -136,7 +136,7 @@ public class ColorPicker : Control
     }
 
     public static readonly DependencyProperty IsDefaultPaletteVisibleProperty =
-        DependencyProperty.Register(nameof(IsDefaultPaletteVisible), typeof(bool), typeof(ColorPicker), new PropertyMetadata(true));
+        DependencyProperty.Register(nameof(IsDefaultPaletteVisible), typeof(bool), typeof(ColorPickerOld), new PropertyMetadata(true));
 
     #endregion
 
@@ -149,7 +149,7 @@ public class ColorPicker : Control
     }
 
     public static readonly DependencyProperty IsRecentPaletteVisibleProperty =
-        DependencyProperty.Register(nameof(IsRecentPaletteVisible), typeof(bool), typeof(ColorPicker), new PropertyMetadata(true));
+        DependencyProperty.Register(nameof(IsRecentPaletteVisible), typeof(bool), typeof(ColorPickerOld), new PropertyMetadata(true));
 
     #endregion
 
@@ -162,7 +162,7 @@ public class ColorPicker : Control
     }
 
     public static readonly DependencyProperty IsOpenedProperty =
-        DependencyProperty.Register(nameof(IsOpened), typeof(bool), typeof(ColorPicker), new PropertyMetadata(false));
+        DependencyProperty.Register(nameof(IsOpened), typeof(bool), typeof(ColorPickerOld), new PropertyMetadata(false));
 
     #endregion
 
@@ -175,7 +175,7 @@ public class ColorPicker : Control
     }
 
     public static readonly DependencyProperty ContentWidthProperty =
-        DependencyProperty.Register(nameof(ContentWidth), typeof(double), typeof(ColorPicker), new PropertyMetadata(double.NaN));
+        DependencyProperty.Register(nameof(ContentWidth), typeof(double), typeof(ColorPickerOld), new PropertyMetadata(double.NaN));
 
     #endregion
 
@@ -188,7 +188,7 @@ public class ColorPicker : Control
     }
 
     public static readonly DependencyProperty ContentHeightProperty =
-        DependencyProperty.Register(nameof(ContentHeight), typeof(double), typeof(ColorPicker), new PropertyMetadata(double.NaN));
+        DependencyProperty.Register(nameof(ContentHeight), typeof(double), typeof(ColorPickerOld), new PropertyMetadata(double.NaN));
 
     #endregion
 
@@ -201,11 +201,11 @@ public class ColorPicker : Control
     }
 
     public static readonly DependencyProperty SaturationProperty =
-        DependencyProperty.Register(nameof(Saturation), typeof(double), typeof(ColorPicker), new PropertyMetadata(default(double), OnSaturationChanged));
+        DependencyProperty.Register(nameof(Saturation), typeof(double), typeof(ColorPickerOld), new PropertyMetadata(default(double), OnSaturationChanged));
 
     private static void OnSaturationChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
     {
-        if (d is not ColorPicker picker) return;
+        if (d is not ColorPickerOld picker) return;
 
         var (h, _, v) = ColorUtils.ToHsv(picker.CurrentColor);
         var color = ColorUtils.FromHsv(h, (double)e.NewValue, v);
@@ -226,11 +226,11 @@ public class ColorPicker : Control
     }
 
     public static readonly DependencyProperty BrightnessProperty =
-        DependencyProperty.Register(nameof(Brightness), typeof(double), typeof(ColorPicker), new PropertyMetadata(default(double), OnBrightnessChanged));
+        DependencyProperty.Register(nameof(Brightness), typeof(double), typeof(ColorPickerOld), new PropertyMetadata(default(double), OnBrightnessChanged));
 
     private static void OnBrightnessChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
     {
-        if (d is not ColorPicker picker) return;
+        if (d is not ColorPickerOld picker) return;
 
         var (h, s, _) = ColorUtils.ToHsv(picker.CurrentColor);
         var color = ColorUtils.FromHsv(h, s, (double)e.NewValue);
@@ -251,11 +251,11 @@ public class ColorPicker : Control
     }
 
     public static readonly DependencyProperty HueValueProperty =
-        DependencyProperty.Register(nameof(HueValue), typeof(double), typeof(ColorPicker), new PropertyMetadata(default(double), OnHueComponentChanged));
+        DependencyProperty.Register(nameof(HueValue), typeof(double), typeof(ColorPickerOld), new PropertyMetadata(default(double), OnHueComponentChanged));
 
     private static void OnHueComponentChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
     {
-        if (d is not ColorPicker picker) return;
+        if (d is not ColorPickerOld picker) return;
 
         var (_, s, v) = ColorUtils.ToHsv(picker.CurrentColor);
         var color = ColorUtils.FromHsv((double)e.NewValue, s, v);
@@ -276,18 +276,18 @@ public class ColorPicker : Control
     }
 
     public static readonly DependencyProperty HexColorProperty =
-        DependencyProperty.Register(nameof(HexColor), typeof(string), typeof(ColorPicker), new PropertyMetadata(string.Empty, OnHexColorChanged, OnCoerceHexColor));
+        DependencyProperty.Register(nameof(HexColor), typeof(string), typeof(ColorPickerOld), new PropertyMetadata(string.Empty, OnHexColorChanged, OnCoerceHexColor));
 
     private static object OnCoerceHexColor(DependencyObject d, object basevalue)
     {
-        if (d is not ColorPicker picker) return basevalue;
+        if (d is not ColorPickerOld picker) return basevalue;
 
         return ColorToString(StringToColor((string)basevalue, picker.IsTransparencySupported, picker.CurrentColor), picker.IsTransparencySupported);
     }
 
     private static void OnHexColorChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
     {
-        if (d is not ColorPicker picker) return;
+        if (d is not ColorPickerOld picker) return;
 
         picker.CurrentColor = StringToColor((string)e.NewValue, picker.IsTransparencySupported, Colors.Black);
     }
@@ -303,11 +303,11 @@ public class ColorPicker : Control
     }
 
     public static readonly DependencyProperty RComponentProperty =
-        DependencyProperty.Register(nameof(RComponent), typeof(int), typeof(ColorPicker), new PropertyMetadata(default(int), OnRComponentChanged, OnCoerceColorComponentValue));
+        DependencyProperty.Register(nameof(RComponent), typeof(int), typeof(ColorPickerOld), new PropertyMetadata(default(int), OnRComponentChanged, OnCoerceColorComponentValue));
 
     private static void OnRComponentChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
     {
-        if (d is not ColorPicker picker) return;
+        if (d is not ColorPickerOld picker) return;
 
         picker.CurrentColor = Color.FromRgb(Convert.ToByte(e.NewValue), picker.CurrentColor.G, picker.CurrentColor.B);
     }
@@ -323,11 +323,11 @@ public class ColorPicker : Control
     }
 
     public static readonly DependencyProperty GComponentProperty =
-        DependencyProperty.Register(nameof(GComponent), typeof(int), typeof(ColorPicker), new PropertyMetadata(default(int), OnGComponentChanged, OnCoerceColorComponentValue));
+        DependencyProperty.Register(nameof(GComponent), typeof(int), typeof(ColorPickerOld), new PropertyMetadata(default(int), OnGComponentChanged, OnCoerceColorComponentValue));
 
     private static void OnGComponentChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
     {
-        if (d is not ColorPicker picker) return;
+        if (d is not ColorPickerOld picker) return;
 
         picker.CurrentColor = picker.CurrentColor with { G = Convert.ToByte(e.NewValue) };
     }
@@ -343,11 +343,11 @@ public class ColorPicker : Control
     }
 
     public static readonly DependencyProperty BComponentProperty =
-        DependencyProperty.Register(nameof(BComponent), typeof(int), typeof(ColorPicker), new PropertyMetadata(default(int), OnBComponentChanged, OnCoerceColorComponentValue));
+        DependencyProperty.Register(nameof(BComponent), typeof(int), typeof(ColorPickerOld), new PropertyMetadata(default(int), OnBComponentChanged, OnCoerceColorComponentValue));
 
     private static void OnBComponentChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
     {
-        if (d is not ColorPicker picker) return;
+        if (d is not ColorPickerOld picker) return;
 
         picker.CurrentColor = picker.CurrentColor with { B = Convert.ToByte(e.NewValue) };
     }
@@ -395,7 +395,7 @@ public class ColorPicker : Control
 
     private static object OnCoerceColorComponentValue(DependencyObject d, object basevalue)
     {
-        if (d is not ColorPicker) return basevalue;
+        if (d is not ColorPickerOld) return basevalue;
 
         if (int.TryParse(basevalue.ToString(), out var result))
         {

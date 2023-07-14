@@ -1,0 +1,96 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:attachedDependencyProperties="clr-namespace:WpfExtensions.AttachedDependencyProperties"
+    xmlns:b="http://schemas.microsoft.com/xaml/behaviors"
+    xmlns:c="clr-namespace:WpfExtensions.Converters"
+    xmlns:controls="clr-namespace:WpfExtensions.Controls"
+    xmlns:parts="clr-namespace:WpfExtensions.Controls.ColorPicker.Parts"
+    xmlns:wpfExtensions="clr-namespace:WpfExtensions">
+    <Style TargetType="{x:Type parts:HsvColorPicker}">
+        <Style.Resources>
+            <ResourceDictionary>
+                <c:Linear
+                    x:Key="Linear"
+                    B="1"
+                    K="-1" />
+            </ResourceDictionary>
+        </Style.Resources>
+        <Setter Property="BorderBrush" Value="#222222" />
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="UseLayoutRounding" Value="True" />
+        <Setter Property="SnapsToDevicePixels" Value="True" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type parts:HsvColorPicker}">
+                    <Grid attachedDependencyProperties:GridProperties.RowDefinitionsEx="* auto auto" Background="{TemplateBinding Background}">
+                        <Border
+                            Grid.Row="0"
+                            Margin="0,0,0,5"
+                            Background="Black"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            CornerRadius="4">
+                            <Grid>
+                                <Rectangle RadiusX="3" RadiusY="3">
+                                    <Rectangle.Fill>
+                                        <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
+                                            <LinearGradientBrush.GradientStops>
+                                                <GradientStop Offset="0" Color="White" />
+                                                <GradientStop Offset="1" Color="Red" />
+                                            </LinearGradientBrush.GradientStops>
+                                        </LinearGradientBrush>
+                                    </Rectangle.Fill>
+                                    <Rectangle.OpacityMask>
+                                        <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                                            <LinearGradientBrush.GradientStops>
+                                                <GradientStop Offset="0" Color="#FFFFFFFF" />
+                                                <GradientStop Offset="1" Color="#00000000" />
+                                            </LinearGradientBrush.GradientStops>
+                                        </LinearGradientBrush>
+                                    </Rectangle.OpacityMask>
+                                </Rectangle>
+                                <Canvas Background="Transparent" ClipToBounds="True">
+                                    <b:Interaction.Behaviors>
+                                        <wpfExtensions:CanvasDragAndDropBehavior
+                                            NormalizedX="{Binding RelativeSource={RelativeSource TemplatedParent},
+                                                                  Path=ComplexColor.Saturation,
+                                                                  Mode=TwoWay}"
+                                            NormalizedY="{Binding RelativeSource={RelativeSource TemplatedParent},
+                                                                  Path=ComplexColor.Value,
+                                                                  Mode=TwoWay,
+                                                                  Converter={StaticResource Linear}}"
+                                            ObjectToDrag="{Binding ElementName=Crosshair}" />
+                                    </b:Interaction.Behaviors>
+                                    <controls:Crosshair x:Name="Crosshair" />
+                                </Canvas>
+                            </Grid>
+                        </Border>
+                        <Slider
+                            Grid.Row="1"
+                            Maximum="360"
+                            Minimum="0"
+                            Value="{Binding Path=ComplexColor.Hue,
+                                            RelativeSource={RelativeSource TemplatedParent}}">
+                            <Slider.Background>
+                                <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
+                                    <LinearGradientBrush.RelativeTransform>
+                                        <RotateTransform Angle="90" CenterX="0.5" CenterY="0.5" />
+                                    </LinearGradientBrush.RelativeTransform>
+                                    <GradientStop Offset="0" Color="Red" />
+                                    <GradientStop Offset="0.1666" Color="Fuchsia" />
+                                    <GradientStop Offset="0.3333" Color="Blue" />
+                                    <GradientStop Offset="0.5" Color="Aqua" />
+                                    <GradientStop Offset="0.6666" Color="Lime" />
+                                    <GradientStop Offset="0.8333" Color="Yellow" />
+                                    <GradientStop Offset="1" Color="Red" />
+                                </LinearGradientBrush>
+                            </Slider.Background>
+                        </Slider>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+</ResourceDictionary>
