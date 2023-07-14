@@ -4,6 +4,12 @@
     xmlns:adp="clr-namespace:WpfExtensions.AttachedDependencyProperties"
     xmlns:controls="clr-namespace:WpfExtensions.Controls"
     xmlns:converters="clr-namespace:WpfExtensions.Converters">
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary>
+            <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
+            <converters:IntToStringConverter x:Key="IntToStringConverter" />
+        </ResourceDictionary>
+    </ResourceDictionary.MergedDictionaries>
     <Style TargetType="{x:Type controls:ColorPicker}">
         <Setter Property="UseLayoutRounding" Value="True" />
         <Setter Property="SnapsToDevicePixels" Value="True" />
@@ -20,8 +26,22 @@
                         CornerRadius="3"
                         SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
                         UseLayoutRounding="{TemplateBinding UseLayoutRounding}">
-                        <Grid Margin="6" adp:GridProperties.RowDefinitionsEx="auto auto * auto auto auto auto">
-                            <Grid Grid.Row="0">
+                        <Grid Margin="6" adp:GridProperties.RowDefinitionsEx="auto auto auto auto * auto auto auto auto">
+                            <!--  Recent palette  -->
+                            <Grid Grid.Row="0" Visibility="{TemplateBinding IsRecentPaletteVisible, Converter={StaticResource BooleanToVisibilityConverter}}">
+                                <TextBlock
+                                    HorizontalAlignment="Center"
+                                    FontSize="24"
+                                    Text="Recent palette" />
+                            </Grid>
+                            <Separator
+                                Grid.Row="1"
+                                Margin="-6,6"
+                                Visibility="{TemplateBinding IsRecentPaletteVisible,
+                                                             Converter={StaticResource BooleanToVisibilityConverter}}" />
+
+                            <!--  Default palette  -->
+                            <Grid Grid.Row="2" Visibility="{TemplateBinding IsDefaultPaletteVisible, Converter={StaticResource BooleanToVisibilityConverter}}">
                                 <Grid.Resources>
                                     <Style x:Key="BrushBorder" TargetType="{x:Type Border}">
                                         <Setter Property="BorderThickness" Value="1" />
@@ -102,8 +122,14 @@
                                     </ItemsControl.ItemTemplate>
                                 </ItemsControl>
                             </Grid>
-                            <Separator Grid.Row="1" Margin="-6,6" />
-                            <Grid Grid.Row="2" adp:GridProperties.RowDefinitionsEx="* auto">
+                            <Separator
+                                Grid.Row="3"
+                                Margin="-6,6"
+                                Visibility="{TemplateBinding IsDefaultPaletteVisible,
+                                                             Converter={StaticResource BooleanToVisibilityConverter}}" />
+
+                            <!--  HUE picker  -->
+                            <Grid Grid.Row="4" adp:GridProperties.RowDefinitionsEx="* auto auto">
                                 <Border
                                     Grid.Row="0"
                                     MinHeight="120"
@@ -132,10 +158,13 @@
                                     </Rectangle>
                                 </Border>
                                 <Slider Grid.Row="1" />
+                                <Slider Grid.Row="2" Visibility="{TemplateBinding IsTransparencySupported, Converter={StaticResource BooleanToVisibilityConverter}}" />
                             </Grid>
-                            <Separator Grid.Row="3" Margin="-6,6" />
+                            <Separator Grid.Row="5" Margin="-6,6" />
+
+                            <!--  HEX/RGB picker  -->
                             <Grid
-                                Grid.Row="4"
+                                Grid.Row="6"
                                 VerticalAlignment="Center"
                                 adp:GridProperties.ColumnDefinitionsEx="2* * * * auto"
                                 adp:GridProperties.RowDefinitionsEx="* *">
@@ -151,11 +180,11 @@
                                 </Grid.Resources>
                                 <TextBox Grid.Column="0" Text="{Binding Path=HexColor, RelativeSource={RelativeSource AncestorType=controls:ColorPicker}}" />
                                 <TextBlock Grid.Column="0" Text="Hex" />
-                                <TextBox Grid.Column="1" Text="{Binding Path=RComponent, UpdateSourceTrigger=PropertyChanged, Converter={converters:IntToStringConverter}, RelativeSource={RelativeSource AncestorType=controls:ColorPicker}}" />
+                                <TextBox Grid.Column="1" Text="{Binding Path=RComponent, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource IntToStringConverter}, RelativeSource={RelativeSource TemplatedParent}}" />
                                 <TextBlock Grid.Column="1" Text="R" />
-                                <TextBox Grid.Column="2" Text="{Binding Path=GComponent, UpdateSourceTrigger=PropertyChanged, Converter={converters:IntToStringConverter}, RelativeSource={RelativeSource AncestorType=controls:ColorPicker}}" />
+                                <TextBox Grid.Column="2" Text="{Binding Path=GComponent, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource IntToStringConverter}, RelativeSource={RelativeSource TemplatedParent}}" />
                                 <TextBlock Grid.Column="2" Text="G" />
-                                <TextBox Grid.Column="3" Text="{Binding Path=BComponent, UpdateSourceTrigger=PropertyChanged, Converter={converters:IntToStringConverter}, RelativeSource={RelativeSource AncestorType=controls:ColorPicker}}" />
+                                <TextBox Grid.Column="3" Text="{Binding Path=BComponent, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource IntToStringConverter}, RelativeSource={RelativeSource TemplatedParent}}" />
                                 <TextBlock Grid.Column="3" Text="B" />
                                 <Border
                                     Grid.Row="0"
@@ -170,8 +199,10 @@
                                     </Border.Background>
                                 </Border>
                             </Grid>
-                            <Separator Grid.Row="5" Margin="-6,6" />
-                            <Grid Grid.Row="6" adp:GridProperties.ColumnDefinitionsEx="3* *">
+                            <Separator Grid.Row="7" Margin="-6,6" />
+
+                            <!--  Buttons  -->
+                            <Grid Grid.Row="8" adp:GridProperties.ColumnDefinitionsEx="3* *">
                                 <Button
                                     x:Name="PART_ApplyButton"
                                     Grid.Column="0"

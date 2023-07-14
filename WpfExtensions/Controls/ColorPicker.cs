@@ -76,7 +76,40 @@ public class ColorPicker : Control
     }
 
     public static readonly DependencyProperty IsTransparencySupportedProperty =
-        DependencyProperty.Register(nameof(IsTransparencySupported), typeof(bool), typeof(ColorPicker), new PropertyMetadata(false));
+        DependencyProperty.Register(nameof(IsTransparencySupported), typeof(bool), typeof(ColorPicker), new PropertyMetadata(false, OnIsTransparencySupportedChanged));
+
+    private static void OnIsTransparencySupportedChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+    {
+        if (d is not ColorPicker picker) return;
+
+        picker.InvalidateProperty(HexColorProperty);
+    }
+
+    #endregion
+
+    #region IsDefaultPaletteVisible
+
+    public bool IsDefaultPaletteVisible
+    {
+        get => (bool)GetValue(IsDefaultPaletteVisibleProperty);
+        set => SetValue(IsDefaultPaletteVisibleProperty, value);
+    }
+
+    public static readonly DependencyProperty IsDefaultPaletteVisibleProperty =
+        DependencyProperty.Register(nameof(IsDefaultPaletteVisible), typeof(bool), typeof(ColorPicker), new PropertyMetadata(true));
+
+    #endregion
+    
+    #region IsRecentPaletteVisible
+
+    public bool IsRecentPaletteVisible
+    {
+        get => (bool)GetValue(IsRecentPaletteVisibleProperty);
+        set => SetValue(IsRecentPaletteVisibleProperty, value);
+    }
+
+    public static readonly DependencyProperty IsRecentPaletteVisibleProperty =
+        DependencyProperty.Register(nameof(IsRecentPaletteVisible), typeof(bool), typeof(ColorPicker), new PropertyMetadata(true));
 
     #endregion
 
