@@ -1,7 +1,9 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Globalization;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Media;
 
 namespace WpfExtensions.AttachedDependencyProperties;
 
@@ -20,6 +22,32 @@ public static class GridProperties
     private const string AutoString = "auto";
 
     private const char StarChar = '*';
+
+    #region ShowGridLinesExProperty
+
+    public static readonly DependencyProperty ShowGridLinesExProperty =
+        DependencyProperty.RegisterAttached("ShowGridLinesEx", typeof(bool), typeof(GridProperties), new PropertyMetadata(false, OnShowGridLinesExPropertyChanged));
+
+    private static void OnShowGridLinesExPropertyChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+    {
+        if (d is not FrameworkElement element)
+            throw new InvalidOperationException($"{nameof(ShowGridLinesExProperty)} can not be set for {d.GetType()}!");
+
+        element.Loaded += OnElementLoaded;
+    }
+
+    private static void OnElementLoaded(object sender, RoutedEventArgs e)
+    {
+        var element = (FrameworkElement)sender;
+        element.Loaded -= OnElementLoaded;
+        SetShowGridLinesByVisualTree(element, GetShowGridLinesEx(element));
+    }
+
+    public static void SetShowGridLinesEx(DependencyObject o, bool value) => o.SetValue(ShowGridLinesExProperty, value);
+
+    public static bool GetShowGridLinesEx(DependencyObject o) => (bool)o.GetValue(ShowGridLinesExProperty);
+
+    #endregion
 
     #region ColumnDefinitionsExProperty
 
@@ -217,5 +245,32 @@ public static class GridProperties
     private static void AddRowToGrid(Grid grid, GridLength length, string groupName)
     {
         grid.RowDefinitions.Add(new RowDefinition { Height = length, SharedSizeGroup = groupName });
+    }
+
+    private static void SetShowGridLinesByVisualTree(DependencyObject root, bool showGridlines)
+    {
+        if (root is Grid grid)
+        {
+            grid.ShowGridLines = showGridlines;
+        }
+
+        var visualTree = new Stack<DependencyObject>(new[] { root });
+
+        while (visualTree.Count != 0)
+        {
+            var current = visualTree.Pop();
+
+            for (var i = 0; i < VisualTreeHelper.GetChildrenCount(current); i++)
+            {
+                var child = VisualTreeHelper.GetChild(current, i);
+
+                if (child is Grid newGrid)
+                {
+                    newGrid.ShowGridLines = showGridlines;
+                }
+
+                visualTree.Push(child);
+            }
+        }
     }
 }
