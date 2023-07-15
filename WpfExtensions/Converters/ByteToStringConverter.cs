@@ -6,10 +6,13 @@ using System.Windows.Markup;
 
 namespace WpfExtensions.Converters;
 
-[ValueConversion(typeof(int), typeof(string))]
-[MarkupExtensionReturnType(typeof(IntToStringConverter))]
-public class IntToStringConverter : BaseConverter
+[ValueConversion(typeof(byte), typeof(string))]
+[MarkupExtensionReturnType(typeof(ByteToStringConverter))]
+public partial class ByteToStringConverter : BaseConverter
 {
+    [GeneratedRegex("[^.0-9]")]
+    private static partial Regex IsDigitRegex();
+
     public override object Convert(object value, Type targetType, object parameter, CultureInfo culture)
     {
         return value?.ToString() ?? string.Empty;
@@ -19,6 +22,13 @@ public class IntToStringConverter : BaseConverter
     {
         if (value is not string str) return value;
 
-        return int.TryParse(Regex.Replace(str, "[^.0-9]", ""), out var result) ? result : 0;
+        var res = int.TryParse(IsDigitRegex().Replace(str, ""), out var result) ? result : 0;
+
+        return res switch
+        {
+            > 255 => 255,
+            < 0 => 0,
+            _ => res
+        };
     }
 }

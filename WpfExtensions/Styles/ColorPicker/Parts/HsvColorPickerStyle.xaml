@@ -4,12 +4,12 @@
     xmlns:attachedDependencyProperties="clr-namespace:WpfExtensions.AttachedDependencyProperties"
     xmlns:b="http://schemas.microsoft.com/xaml/behaviors"
     xmlns:c="clr-namespace:WpfExtensions.Converters"
-    xmlns:controls="clr-namespace:WpfExtensions.Controls"
     xmlns:parts="clr-namespace:WpfExtensions.Controls.ColorPicker.Parts"
     xmlns:wpfExtensions="clr-namespace:WpfExtensions">
     <Style TargetType="{x:Type parts:HsvColorPicker}">
         <Style.Resources>
             <ResourceDictionary>
+                <c:HueValueToColorConverter x:Key="HueValueToColorConverter" />
                 <c:Linear
                     x:Key="Linear"
                     B="1"
@@ -38,7 +38,7 @@
                                         <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
                                             <LinearGradientBrush.GradientStops>
                                                 <GradientStop Offset="0" Color="White" />
-                                                <GradientStop Offset="1" Color="Red" />
+                                                <GradientStop Offset="1" Color="{Binding Path=ComplexColor.Hue, Mode=TwoWay, Converter={StaticResource HueValueToColorConverter}, RelativeSource={RelativeSource TemplatedParent}}" />
                                             </LinearGradientBrush.GradientStops>
                                         </LinearGradientBrush>
                                     </Rectangle.Fill>
@@ -63,7 +63,7 @@
                                                                   Converter={StaticResource Linear}}"
                                             ObjectToDrag="{Binding ElementName=Crosshair}" />
                                     </b:Interaction.Behaviors>
-                                    <controls:Crosshair x:Name="Crosshair" />
+                                    <parts:Crosshair x:Name="Crosshair" />
                                 </Canvas>
                             </Grid>
                         </Border>
@@ -72,6 +72,7 @@
                             Maximum="360"
                             Minimum="0"
                             Value="{Binding Path=ComplexColor.Hue,
+                                            Mode=TwoWay,
                                             RelativeSource={RelativeSource TemplatedParent}}">
                             <Slider.Background>
                                 <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">

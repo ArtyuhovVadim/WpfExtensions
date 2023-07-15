@@ -19,7 +19,7 @@ public class HsvColorPicker : Control
     }
 
     public static readonly DependencyProperty ComplexColorProperty =
-        DependencyProperty.Register(nameof(ComplexColor), typeof(ComplexColor), typeof(HsvColorPicker), new PropertyMetadata(new ComplexColor()));
+        DependencyProperty.Register(nameof(ComplexColor), typeof(ComplexColor), typeof(HsvColorPicker), new PropertyMetadata(ComplexColor.Black));
 
     #endregion
 }

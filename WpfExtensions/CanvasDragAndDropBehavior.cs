@@ -58,7 +58,7 @@ public class CanvasDragAndDropBehavior : Behavior<Canvas>
     protected override void OnDetaching()
     {
         AssociatedObject.MouseLeftButtonDown -= OnMouseLeftButtonDown;
-        AssociatedObject.MouseMove -= OnMouseMove;
+        AssociatedObject.PreviewMouseMove -= OnMouseMove;
         AssociatedObject.MouseLeftButtonUp -= OnMouseLeftButtonUp;
 
         AssociatedObject.Loaded -= OnLoaded;
@@ -72,7 +72,7 @@ public class CanvasDragAndDropBehavior : Behavior<Canvas>
         {
             X = NormalizedX * AssociatedObject.ActualWidth,
             Y = NormalizedY * AssociatedObject.ActualHeight
-        });
+        }, true);
     }
 
     private void OnMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
@@ -81,7 +81,9 @@ public class CanvasDragAndDropBehavior : Behavior<Canvas>
 
         AssociatedObject.CaptureMouse();
 
-        SetPosition(e.GetPosition(AssociatedObject));
+        var pos = e.GetPosition(AssociatedObject);
+
+        SetPosition(pos, true);
     }
 
     private void OnMouseMove(object sender, MouseEventArgs e)
@@ -90,7 +92,9 @@ public class CanvasDragAndDropBehavior : Behavior<Canvas>
 
         if (e.LeftButton != MouseButtonState.Pressed) return;
 
-        SetPosition(e.GetPosition(AssociatedObject));
+        var pos = e.GetPosition(AssociatedObject);
+
+        SetPosition(pos, true);
     }
 
     private void OnMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
@@ -100,7 +104,7 @@ public class CanvasDragAndDropBehavior : Behavior<Canvas>
         Mouse.Capture(null);
     }
 
-    private void SetPosition(Point pos)
+    private void SetPosition(Point pos, bool updateNormalizedPosition)
     {
         if (ObjectToDrag is null) return;
 
@@ -109,8 +113,11 @@ public class CanvasDragAndDropBehavior : Behavior<Canvas>
         if (pos.Y < 0) pos.Y = 0;
         if (pos.Y > AssociatedObject.ActualHeight) pos.Y = AssociatedObject.ActualHeight;
 
-        NormalizedX = pos.X / AssociatedObject.ActualWidth;
-        NormalizedY = pos.Y / AssociatedObject.ActualHeight;
+        if (updateNormalizedPosition)
+        {
+            NormalizedX = pos.X / AssociatedObject.ActualWidth;
+            NormalizedY = pos.Y / AssociatedObject.ActualHeight;
+        }
 
         Canvas.SetLeft(ObjectToDrag, pos.X);
         Canvas.SetTop(ObjectToDrag, pos.Y);
@@ -126,6 +133,6 @@ public class CanvasDragAndDropBehavior : Behavior<Canvas>
         {
             X = behavior.NormalizedX * behavior.AssociatedObject.ActualWidth,
             Y = behavior.NormalizedY * behavior.AssociatedObject.ActualHeight
-        });
+        }, false);
     }
 }

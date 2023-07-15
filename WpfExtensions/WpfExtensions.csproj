@@ -8,10 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Controls\ColorPicker\Parts\" />
-    <Folder Include="Styles\ColorPicker\Parts\" />
     <Folder Include="Themes\" />
-    <Folder Include="Converters\" />
   </ItemGroup>
 
   <ItemGroup>

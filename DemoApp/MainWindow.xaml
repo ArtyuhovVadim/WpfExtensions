@@ -17,63 +17,63 @@
         <TabControl TabStripPlacement="Left">
             <TabItem Header="ColorPicker">
                 <Grid adp:GridProperties.ColumnDefinitionsEx="* 5*">
-                    <GroupBox Header="Properties">
+                    <GroupBox Header="Properties" Visibility="Collapsed">
                         <GroupBox.Resources>
                             <Style TargetType="{x:Type TextBlock}">
                                 <Setter Property="HorizontalAlignment" Value="Right" />
                                 <Setter Property="VerticalAlignment" Value="Center" />
-                                <Setter Property="Margin" Value="0,3,5,3" />
+                                <Setter Property="Margin" Value="0,0,5,0" />
                             </Style>
                             <Style TargetType="{x:Type TextBox}">
                                 <Setter Property="VerticalAlignment" Value="Center" />
-                                <Setter Property="Margin" Value="0,3,0,3" />
+                                <Setter Property="Margin" Value="0,0,0,0" />
                             </Style>
                         </GroupBox.Resources>
                         <con:StackPanelEx>
                             <GroupBox Grid.IsSharedSizeScope="True" Header="ComplexColor">
-                                <con:StackPanelEx>
+                                <con:StackPanelEx Spacing="3">
                                     <Grid adp:GridProperties.ColumnDefinitionsEx="auto:PropertyGroup *">
                                         <TextBlock Grid.Column="0" Text="Red" />
-                                        <TextBox Grid.Column="1" Text="{Binding ElementName=HsvColorPicker, Path=ComplexColor.Red}" />
+                                        <TextBox Grid.Column="1" Text="{Binding Path=.Red, Mode=TwoWay}" />
                                     </Grid>
                                     <Grid adp:GridProperties.ColumnDefinitionsEx="auto:PropertyGroup *">
                                         <TextBlock Grid.Column="0" Text="Green" />
-                                        <TextBox Grid.Column="1" Text="{Binding ElementName=HsvColorPicker, Path=ComplexColor.Green}" />
+                                        <TextBox Grid.Column="1" Text="{Binding Path=.Green, Mode=TwoWay}" />
                                     </Grid>
                                     <Grid adp:GridProperties.ColumnDefinitionsEx="auto:PropertyGroup *">
                                         <TextBlock Grid.Column="0" Text="Blue" />
-                                        <TextBox Grid.Column="1" Text="{Binding ElementName=HsvColorPicker, Path=ComplexColor.Blue}" />
+                                        <TextBox Grid.Column="1" Text="{Binding Path=.Blue, Mode=TwoWay}" />
                                     </Grid>
                                     <Grid adp:GridProperties.ColumnDefinitionsEx="auto:PropertyGroup *">
                                         <TextBlock Grid.Column="0" Text="Alpha" />
-                                        <TextBox Grid.Column="1" Text="{Binding ElementName=HsvColorPicker, Path=ComplexColor.Alpha}" />
+                                        <TextBox Grid.Column="1" Text="{Binding Path=.Alpha, Mode=TwoWay}" />
                                     </Grid>
                                     <Grid adp:GridProperties.ColumnDefinitionsEx="auto:PropertyGroup *">
                                         <TextBlock Grid.Column="0" Text="Hue" />
-                                        <TextBox Grid.Column="1" Text="{Binding ElementName=HsvColorPicker, Path=ComplexColor.Hue, StringFormat='0.000'}" />
+                                        <TextBox Grid.Column="1" Text="{Binding Path=.Hue, StringFormat='0.000', Mode=TwoWay}" />
                                     </Grid>
                                     <Grid adp:GridProperties.ColumnDefinitionsEx="auto:PropertyGroup *">
                                         <TextBlock Grid.Column="0" Text="Saturation" />
-                                        <TextBox Grid.Column="1" Text="{Binding ElementName=HsvColorPicker, Path=ComplexColor.Saturation, StringFormat='0.000'}" />
+                                        <TextBox Grid.Column="1" Text="{Binding Path=.Saturation, StringFormat='0.000', Mode=TwoWay}" />
                                     </Grid>
                                     <Grid adp:GridProperties.ColumnDefinitionsEx="auto:PropertyGroup *">
                                         <TextBlock Grid.Column="0" Text="Value" />
-                                        <TextBox Grid.Column="1" Text="{Binding ElementName=HsvColorPicker, Path=ComplexColor.Value, StringFormat='0.000'}" />
+                                        <TextBox Grid.Column="1" Text="{Binding Path=.Value, StringFormat='0.000', Mode=TwoWay}" />
                                     </Grid>
                                     <Grid adp:GridProperties.ColumnDefinitionsEx="auto:PropertyGroup * auto">
                                         <TextBlock Grid.Column="0" Text="Color" />
-                                        <TextBox Grid.Column="1" Text="{Binding ElementName=HsvColorPicker, Path=ComplexColor.Color}" />
+                                        <TextBox Grid.Column="1" Text="{Binding Path=.Color, Mode=TwoWay}" />
                                         <Border
                                             Grid.Column="2"
                                             Width="{Binding RelativeSource={RelativeSource Self},
                                                             Path=ActualHeight}"
-                                            Margin="5,3,0,3"
+                                            Margin="5,0,0,0"
                                             BorderBrush="Black"
                                             BorderThickness="1"
                                             SnapsToDevicePixels="True"
                                             UseLayoutRounding="True">
                                             <Border.Background>
-                                                <SolidColorBrush Color="{Binding ElementName=HsvColorPicker, Path=ComplexColor.Color}" />
+                                                <SolidColorBrush Color="{Binding Path=.Color}" />
                                             </Border.Background>
                                         </Border>
                                     </Grid>
@@ -90,8 +90,38 @@
                             Grid.Column="0"
                             Padding="5"
                             Header="HsvColorPicker">
-                            <parts:HsvColorPicker x:Name="HsvColorPicker" />
+                            <parts:HsvColorPicker ComplexColor="{Binding Path=.}" />
                         </GroupBox>
+
+                        <GroupBox
+                            Grid.Row="0"
+                            Grid.Column="1"
+                            Padding="5"
+                            Header="TextColorPicker">
+                            <parts:TextColorPicker ComplexColor="{Binding Path=.}" />
+                        </GroupBox>
+                        <GroupBox
+                            Grid.Row="0"
+                            Grid.Column="2"
+                            Padding="5"
+                            Header="ColorPalette" />
+                        <GroupBox
+                            Grid.Row="1"
+                            Grid.Column="0"
+                            Padding="5"
+                            Header="RecentColorPalette" />
+                        <GroupBox
+                            Grid.Row="1"
+                            Grid.Column="1"
+                            Padding="5"
+                            Header="ColorPicker">
+                            <!--<con:ColorPickerControl ComplexColor="{Binding Path=.}" IsTransparencySupported="False" />-->
+                        </GroupBox>
+                        <GroupBox
+                            Grid.Row="1"
+                            Grid.Column="2"
+                            Padding="5"
+                            Header="MinimizedColorPicker" />
                     </Grid>
                 </Grid>
             </TabItem>
