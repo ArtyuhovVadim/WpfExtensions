@@ -90,7 +90,7 @@
                             Grid.Column="0"
                             Padding="5"
                             Header="HsvColorPicker">
-                            <parts:HsvColorPicker ComplexColor="{Binding Path=.}" />
+                            <!--<parts:HsvColorPicker ComplexColor="{Binding Path=.}" />-->
                         </GroupBox>
 
                         <GroupBox
@@ -98,7 +98,7 @@
                             Grid.Column="1"
                             Padding="5"
                             Header="TextColorPicker">
-                            <parts:TextColorPicker ComplexColor="{Binding Path=.}" />
+                            <!--<parts:TextColorPicker ComplexColor="{Binding Path=.}" />-->
                         </GroupBox>
                         <GroupBox
                             Grid.Row="0"
@@ -115,7 +115,7 @@
                             Grid.Column="1"
                             Padding="5"
                             Header="ColorPicker">
-                            <!--<con:ColorPickerControl ComplexColor="{Binding Path=.}" IsTransparencySupported="False" />-->
+                            <con:ColorPickerControl ComplexColor="{Binding Path=.}" IsTransparencySupported="False" />
                         </GroupBox>
                         <GroupBox
                             Grid.Row="1"

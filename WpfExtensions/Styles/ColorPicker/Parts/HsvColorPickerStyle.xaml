@@ -53,15 +53,7 @@
                                 </Rectangle>
                                 <Canvas Background="Transparent" ClipToBounds="True">
                                     <b:Interaction.Behaviors>
-                                        <wpfExtensions:CanvasDragAndDropBehavior
-                                            NormalizedX="{Binding RelativeSource={RelativeSource TemplatedParent},
-                                                                  Path=ComplexColor.Saturation,
-                                                                  Mode=TwoWay}"
-                                            NormalizedY="{Binding RelativeSource={RelativeSource TemplatedParent},
-                                                                  Path=ComplexColor.Value,
-                                                                  Mode=TwoWay,
-                                                                  Converter={StaticResource Linear}}"
-                                            ObjectToDrag="{Binding ElementName=Crosshair}" />
+                                        <wpfExtensions:CanvasDragAndDropBehavior NormalizedPosition="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=ComplexColor.SatVal, Mode=TwoWay, IsAsync=True}" ObjectToDrag="{Binding ElementName=Crosshair}" />
                                     </b:Interaction.Behaviors>
                                     <parts:Crosshair x:Name="Crosshair" />
                                 </Canvas>

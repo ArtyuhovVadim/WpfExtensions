@@ -1,6 +1,9 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.Runtime.CompilerServices;
+using System.Windows;
 using System.Windows.Media;
 
 namespace WpfExtensions.Controls.ColorPicker;
@@ -49,9 +52,10 @@ public class ComplexColor : INotifyPropertyChanged
         get => (byte)(_r * 255d);
         set
         {
-            _r = value / 255d;
-            RecalculateHsvFromRgb();
-            OnPropertyChanged();
+            if (Set(ref _r, value / 255d))
+            {
+                RecalculateHsvFromRgb();
+            }
         }
     }
 
@@ -60,9 +64,10 @@ public class ComplexColor : INotifyPropertyChanged
         get => (byte)(_g * 255d);
         set
         {
-            _g = value / 255d;
-            RecalculateHsvFromRgb();
-            OnPropertyChanged();
+            if (Set(ref _g, value / 255d))
+            {
+                RecalculateHsvFromRgb();
+            }
         }
     }
 
@@ -71,9 +76,10 @@ public class ComplexColor : INotifyPropertyChanged
         get => (byte)(_b * 255d);
         set
         {
-            _b = value / 255d;
-            RecalculateHsvFromRgb();
-            OnPropertyChanged();
+            if (Set(ref _b, value / 255d))
+            {
+                RecalculateHsvFromRgb();
+            }
         }
     }
 
@@ -82,9 +88,26 @@ public class ComplexColor : INotifyPropertyChanged
         get => (byte)(_a * 255d);
         set
         {
-            _a = value / 255d;
+            if (Set(ref _a, value / 255d))
+            {
+                OnPropertyChanged(nameof(Color));
+            }
+        }
+    }
+
+    public Point SatVal
+    {
+        get => new(_s, _v);
+        set
+        {
+            _s = value.X;
+            _v = value.Y;
+
             OnPropertyChanged();
-            OnPropertyChanged(nameof(Color));
+            OnPropertyChanged(nameof(Saturation));
+            OnPropertyChanged(nameof(Value));
+
+            RecalculateRgbFromHsv();
         }
     }
 
@@ -93,9 +116,10 @@ public class ComplexColor : INotifyPropertyChanged
         get => _h;
         set
         {
-            _h = value;
-            OnPropertyChanged();
-            RecalculateRgbFromHsv();
+            if (Set(ref _h, value))
+            {
+                RecalculateRgbFromHsv();
+            }
         }
     }
 
@@ -104,9 +128,10 @@ public class ComplexColor : INotifyPropertyChanged
         get => _s;
         set
         {
-            _s = value;
-            OnPropertyChanged();
-            RecalculateRgbFromHsv();
+            if (Set(ref _s, value))
+            {
+                RecalculateRgbFromHsv();
+            }
         }
     }
 
@@ -115,9 +140,10 @@ public class ComplexColor : INotifyPropertyChanged
         get => _v;
         set
         {
-            _v = value;
-            OnPropertyChanged();
-            RecalculateRgbFromHsv();
+            if (Set(ref _v, value))
+            {
+                RecalculateRgbFromHsv();
+            }
         }
     }
 
@@ -141,11 +167,6 @@ public class ComplexColor : INotifyPropertyChanged
         OnPropertyChanged(nameof(Blue));
 
         OnPropertyChanged(nameof(Color));
-    }
-
-    private void OnPropertyChanged([CallerMemberName] string propertyName = null)
-    {
-        PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
     }
 
     private (double h, double s, double v) ConvertRgbToHsv(double r1, double g1, double b1)
@@ -243,5 +264,18 @@ public class ComplexColor : INotifyPropertyChanged
         }
 
         return (num, num2, num3);
+    }
+
+    private void OnPropertyChanged([CallerMemberName] string propertyName = null)
+    {
+        PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+    }
+
+    private bool Set<T>(ref T field, T value, [CallerMemberName] string propertyName = null)
+    {
+        if (EqualityComparer<T>.Default.Equals(field, value)) return false;
+        field = value;
+        OnPropertyChanged(propertyName);
+        return true;
     }
 }
