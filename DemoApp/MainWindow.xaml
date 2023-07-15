@@ -17,7 +17,7 @@
         <TabControl TabStripPlacement="Left">
             <TabItem Header="ColorPicker">
                 <Grid adp:GridProperties.ColumnDefinitionsEx="* 5*">
-                    <GroupBox Header="Properties" Visibility="Collapsed">
+                    <GroupBox Header="Properties">
                         <GroupBox.Resources>
                             <Style TargetType="{x:Type TextBlock}">
                                 <Setter Property="HorizontalAlignment" Value="Right" />
@@ -90,7 +90,7 @@
                             Grid.Column="0"
                             Padding="5"
                             Header="HsvColorPicker">
-                            <!--<parts:HsvColorPicker ComplexColor="{Binding Path=.}" />-->
+                            <parts:HsvColorPicker ComplexColor="{Binding Path=.}" />
                         </GroupBox>
 
                         <GroupBox
@@ -98,7 +98,7 @@
                             Grid.Column="1"
                             Padding="5"
                             Header="TextColorPicker">
-                            <!--<parts:TextColorPicker ComplexColor="{Binding Path=.}" />-->
+                            <parts:TextColorPicker ComplexColor="{Binding Path=.}" />
                         </GroupBox>
                         <GroupBox
                             Grid.Row="0"
