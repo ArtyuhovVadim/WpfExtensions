@@ -20,16 +20,29 @@ public class CanvasDragAndDropBehavior : Behavior<Canvas>
 
     #endregion
 
-    #region NormalizedPosition
+    #region NormalizedX
 
-    public Point NormalizedPosition
+    public double NormalizedX
     {
-        get => (Point)GetValue(NormalizedPositionProperty);
-        set => SetValue(NormalizedPositionProperty, value);
+        get => (double)GetValue(NormalizedXProperty);
+        set => SetValue(NormalizedXProperty, value);
     }
 
-    public static readonly DependencyProperty NormalizedPositionProperty =
-        DependencyProperty.Register(nameof(NormalizedPosition), typeof(Point), typeof(CanvasDragAndDropBehavior), new PropertyMetadata(default(Point), OnNormalizedPositionChanged));
+    public static readonly DependencyProperty NormalizedXProperty =
+        DependencyProperty.Register(nameof(NormalizedX), typeof(double), typeof(CanvasDragAndDropBehavior), new FrameworkPropertyMetadata(default(double), FrameworkPropertyMetadataOptions.BindsTwoWayByDefault, OnNormalizedPositionChanged));
+
+    #endregion
+
+    #region NormalizedY
+
+    public double NormalizedY
+    {
+        get => (double)GetValue(NormalizedYProperty);
+        set => SetValue(NormalizedYProperty, value);
+    }
+
+    public static readonly DependencyProperty NormalizedYProperty =
+        DependencyProperty.Register(nameof(NormalizedY), typeof(double), typeof(CanvasDragAndDropBehavior), new FrameworkPropertyMetadata(default(double), FrameworkPropertyMetadataOptions.BindsTwoWayByDefault, OnNormalizedPositionChanged));
 
     #endregion
 
@@ -57,8 +70,8 @@ public class CanvasDragAndDropBehavior : Behavior<Canvas>
 
         SetPosition(new Point
         {
-            X = NormalizedPosition.X * AssociatedObject.ActualWidth,
-            Y = NormalizedPosition.Y * AssociatedObject.ActualHeight
+            X = NormalizedX * AssociatedObject.ActualWidth,
+            Y = NormalizedY * AssociatedObject.ActualHeight
         }, true);
     }
 
@@ -102,11 +115,8 @@ public class CanvasDragAndDropBehavior : Behavior<Canvas>
 
         if (updateNormalizedPosition)
         {
-            NormalizedPosition = new Point
-            {
-                X = pos.X / AssociatedObject.ActualWidth,
-                Y = pos.Y / AssociatedObject.ActualHeight
-            };
+            NormalizedX = pos.X / AssociatedObject.ActualWidth;
+            NormalizedY = pos.Y / AssociatedObject.ActualHeight;
         }
 
         Canvas.SetLeft(ObjectToDrag, pos.X);
@@ -121,8 +131,8 @@ public class CanvasDragAndDropBehavior : Behavior<Canvas>
 
         behavior.SetPosition(new Point
         {
-            X = behavior.NormalizedPosition.X * behavior.AssociatedObject.ActualWidth,
-            Y = behavior.NormalizedPosition.Y * behavior.AssociatedObject.ActualHeight
+            X = behavior.NormalizedX * behavior.AssociatedObject.ActualWidth,
+            Y = behavior.NormalizedY * behavior.AssociatedObject.ActualHeight
         }, false);
     }
 }

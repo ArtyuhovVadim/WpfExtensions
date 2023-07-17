@@ -1,8 +1,6 @@
 ﻿<ResourceDictionary
-    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:adp="clr-namespace:WpfExtensions.AttachedDependencyProperties"
-    xmlns:controls="clr-namespace:WpfExtensions.Controls"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:adp="clr-namespace:WpfExtensions.AttachedDependencyProperties" xmlns:controls="clr-namespace:WpfExtensions.Controls"
     xmlns:parts="clr-namespace:WpfExtensions.Controls.ColorPicker.Parts">
     <Style TargetType="{x:Type controls:ColorPickerControl}">
         <Setter Property="FocusVisualStyle" Value="{x:Null}" />
@@ -26,15 +24,22 @@
                         TextBlock.Foreground="{TemplateBinding TextBlock.Foreground}"
                         UseLayoutRounding="{TemplateBinding UseLayoutRounding}">
                         <Grid adp:GridProperties.RowDefinitionsEx="* auto auto">
-                            <parts:HsvColorPicker Grid.Row="0" ComplexColor="{TemplateBinding ComplexColor}" />
+                            <parts:HsvColorPicker
+                                Grid.Row="0"
+                                IsTransparencySupported="{Binding RelativeSource={RelativeSource TemplatedParent},
+                                                                  Path=IsTransparencySupported}"
+                                Color="{Binding RelativeSource={RelativeSource TemplatedParent},
+                                                Path=Color}" />
                             <Separator
                                 Grid.Row="1"
                                 Margin="{TemplateBinding Padding}"
                                 Background="{TemplateBinding BorderBrush}" />
                             <parts:TextColorPicker
                                 Grid.Row="2"
-                                ComplexColor="{TemplateBinding ComplexColor}"
-                                IsTransparencySupported="{TemplateBinding IsTransparencySupported}" />
+                                IsTransparencySupported="{Binding RelativeSource={RelativeSource TemplatedParent},
+                                                                  Path=IsTransparencySupported}"
+                                Color="{Binding RelativeSource={RelativeSource TemplatedParent},
+                                                Path=Color}" />
                         </Grid>
                     </Border>
                 </ControlTemplate>

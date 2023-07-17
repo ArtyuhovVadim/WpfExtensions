@@ -1,6 +1,6 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
-using WpfExtensions.Controls.ColorPicker;
+using System.Windows.Media;
 
 namespace WpfExtensions.Controls;
 
@@ -11,16 +11,16 @@ public class ColorPickerControl : Control
         DefaultStyleKeyProperty.OverrideMetadata(typeof(ColorPickerControl), new FrameworkPropertyMetadata(typeof(ColorPickerControl)));
     }
 
-    #region ComplexColor
+    #region Color
 
-    public ComplexColor ComplexColor
+    public Color Color
     {
-        get => (ComplexColor)GetValue(ComplexColorProperty);
-        set => SetValue(ComplexColorProperty, value);
+        get => (Color)GetValue(ColorProperty);
+        set => SetValue(ColorProperty, value);
     }
 
-    public static readonly DependencyProperty ComplexColorProperty =
-        DependencyProperty.Register(nameof(ComplexColor), typeof(ComplexColor), typeof(ColorPickerControl), new PropertyMetadata(default(ComplexColor)));
+    public static readonly DependencyProperty ColorProperty =
+        DependencyProperty.Register(nameof(Color), typeof(Color), typeof(ColorPickerControl), new FrameworkPropertyMetadata(default(Color), FrameworkPropertyMetadataOptions.BindsTwoWayByDefault));
 
     #endregion
 

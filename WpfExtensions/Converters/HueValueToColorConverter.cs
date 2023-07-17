@@ -14,7 +14,7 @@ public class HueValueToColorConverter : BaseConverter
     {
         if (value is double d)
         {
-            return ColorUtils.FromHsv(d, 1, 1);
+            return ColorUtils.HsvToRgb(d, 1, 1);
         }
 
         return Binding.DoNothing;

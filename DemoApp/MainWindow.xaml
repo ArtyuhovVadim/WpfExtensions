@@ -1,22 +1,18 @@
 ﻿<Window
-    x:Class="DemoApp.MainWindow"
-    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:adp="clr-namespace:WpfExtensions.AttachedDependencyProperties;assembly=WpfExtensions"
-    xmlns:con="clr-namespace:WpfExtensions.Controls;assembly=WpfExtensions"
-    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:local="clr-namespace:DemoApp"
-    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:parts="clr-namespace:WpfExtensions.Controls.ColorPicker.Parts;assembly=WpfExtensions"
-    Title="DemoApp"
-    Width="1280"
-    Height="720"
-    mc:Ignorable="d">
-
+    x:Class="DemoApp.MainWindow" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:adp="clr-namespace:WpfExtensions.AttachedDependencyProperties;assembly=WpfExtensions"
+    xmlns:con="clr-namespace:WpfExtensions.Controls;assembly=WpfExtensions" xmlns:converters="clr-namespace:WpfExtensions.Converters;assembly=WpfExtensions"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:local="clr-namespace:DemoApp"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:parts="clr-namespace:WpfExtensions.Controls.ColorPicker.Parts;assembly=WpfExtensions"
+    Title="DemoApp" Width="1280"
+    Height="720" mc:Ignorable="d">
+    <Window.DataContext>
+        <local:MainWindowViewModel />
+    </Window.DataContext>
     <DockPanel>
         <TabControl TabStripPlacement="Left">
             <TabItem Header="ColorPicker">
-                <Grid adp:GridProperties.ColumnDefinitionsEx="* 5*">
+                <Grid adp:GridProperties.ColumnDefinitionsEx="* 4*">
                     <GroupBox Header="Properties">
                         <GroupBox.Resources>
                             <Style TargetType="{x:Type TextBlock}">
@@ -30,98 +26,101 @@
                             </Style>
                         </GroupBox.Resources>
                         <con:StackPanelEx>
-                            <GroupBox Grid.IsSharedSizeScope="True" Header="ComplexColor">
+                            <GroupBox Grid.IsSharedSizeScope="True" Header="HsvColorPickerProperties">
                                 <con:StackPanelEx Spacing="3">
                                     <Grid adp:GridProperties.ColumnDefinitionsEx="auto:PropertyGroup *">
-                                        <TextBlock Grid.Column="0" Text="Red" />
-                                        <TextBox Grid.Column="1" Text="{Binding Path=.Red, Mode=TwoWay}" />
-                                    </Grid>
-                                    <Grid adp:GridProperties.ColumnDefinitionsEx="auto:PropertyGroup *">
-                                        <TextBlock Grid.Column="0" Text="Green" />
-                                        <TextBox Grid.Column="1" Text="{Binding Path=.Green, Mode=TwoWay}" />
-                                    </Grid>
-                                    <Grid adp:GridProperties.ColumnDefinitionsEx="auto:PropertyGroup *">
-                                        <TextBlock Grid.Column="0" Text="Blue" />
-                                        <TextBox Grid.Column="1" Text="{Binding Path=.Blue, Mode=TwoWay}" />
-                                    </Grid>
-                                    <Grid adp:GridProperties.ColumnDefinitionsEx="auto:PropertyGroup *">
-                                        <TextBlock Grid.Column="0" Text="Alpha" />
-                                        <TextBox Grid.Column="1" Text="{Binding Path=.Alpha, Mode=TwoWay}" />
-                                    </Grid>
-                                    <Grid adp:GridProperties.ColumnDefinitionsEx="auto:PropertyGroup *">
                                         <TextBlock Grid.Column="0" Text="Hue" />
-                                        <TextBox Grid.Column="1" Text="{Binding Path=.Hue, StringFormat='0.000', Mode=TwoWay}" />
+                                        <TextBox Grid.Column="1" Text="{Binding ElementName=HsvColorPicker, Path=Hue}" />
                                     </Grid>
                                     <Grid adp:GridProperties.ColumnDefinitionsEx="auto:PropertyGroup *">
-                                        <TextBlock Grid.Column="0" Text="Saturation" />
-                                        <TextBox Grid.Column="1" Text="{Binding Path=.Saturation, StringFormat='0.000', Mode=TwoWay}" />
+                                        <TextBlock Grid.Column="0" Text="Satiration" />
+                                        <TextBox Grid.Column="1" Text="{Binding ElementName=HsvColorPicker, Path=Saturation}" />
                                     </Grid>
                                     <Grid adp:GridProperties.ColumnDefinitionsEx="auto:PropertyGroup *">
                                         <TextBlock Grid.Column="0" Text="Value" />
-                                        <TextBox Grid.Column="1" Text="{Binding Path=.Value, StringFormat='0.000', Mode=TwoWay}" />
+                                        <TextBox Grid.Column="1" Text="{Binding ElementName=HsvColorPicker, Path=Value}" />
                                     </Grid>
-                                    <Grid adp:GridProperties.ColumnDefinitionsEx="auto:PropertyGroup * auto">
+                                    <Grid adp:GridProperties.ColumnDefinitionsEx="auto:PropertyGroup *">
                                         <TextBlock Grid.Column="0" Text="Color" />
-                                        <TextBox Grid.Column="1" Text="{Binding Path=.Color, Mode=TwoWay}" />
-                                        <Border
-                                            Grid.Column="2"
-                                            Width="{Binding RelativeSource={RelativeSource Self},
-                                                            Path=ActualHeight}"
-                                            Margin="5,0,0,0"
-                                            BorderBrush="Black"
-                                            BorderThickness="1"
-                                            SnapsToDevicePixels="True"
-                                            UseLayoutRounding="True">
-                                            <Border.Background>
-                                                <SolidColorBrush Color="{Binding Path=.Color}" />
-                                            </Border.Background>
-                                        </Border>
+                                        <TextBox Grid.Column="1" Text="{Binding ElementName=HsvColorPicker, Path=Color}" />
+                                    </Grid>
+                                    <Grid adp:GridProperties.ColumnDefinitionsEx="auto:PropertyGroup *">
+                                        <TextBlock Grid.Column="0" Text="IsTransSupp" />
+                                        <CheckBox Grid.Column="1" IsChecked="{Binding ElementName=HsvColorPicker, Path=IsTransparencySupported}" />
                                     </Grid>
                                 </con:StackPanelEx>
                             </GroupBox>
+                            <GroupBox Grid.IsSharedSizeScope="True" Header="TextColorPickerProperties">
+                                <con:StackPanelEx Spacing="3">
+                                    <Grid adp:GridProperties.ColumnDefinitionsEx="auto:PropertyGroup *">
+                                        <TextBlock Grid.Column="0" Text="Red" />
+                                        <TextBox Grid.Column="1" Text="{Binding ElementName=TextColorPicker, Path=Red}" />
+                                    </Grid>
+                                    <Grid adp:GridProperties.ColumnDefinitionsEx="auto:PropertyGroup *">
+                                        <TextBlock Grid.Column="0" Text="Green" />
+                                        <TextBox Grid.Column="1" Text="{Binding ElementName=TextColorPicker, Path=Green}" />
+                                    </Grid>
+                                    <Grid adp:GridProperties.ColumnDefinitionsEx="auto:PropertyGroup *">
+                                        <TextBlock Grid.Column="0" Text="Blue" />
+                                        <TextBox Grid.Column="1" Text="{Binding ElementName=TextColorPicker, Path=Blue}" />
+                                    </Grid>
+                                    <Grid adp:GridProperties.ColumnDefinitionsEx="auto:PropertyGroup *">
+                                        <TextBlock Grid.Column="0" Text="Alpha" />
+                                        <TextBox Grid.Column="1" Text="{Binding ElementName=TextColorPicker, Path=Alpha}" />
+                                    </Grid>
+                                    <Grid adp:GridProperties.ColumnDefinitionsEx="auto:PropertyGroup *">
+                                        <TextBlock Grid.Column="0" Text="Color" />
+                                        <TextBox Grid.Column="1" Text="{Binding ElementName=TextColorPicker, Path=Color}" />
+                                    </Grid>
+                                    <Grid adp:GridProperties.ColumnDefinitionsEx="auto:PropertyGroup *">
+                                        <TextBlock Grid.Column="0" Text="IsTransSupp" />
+                                        <CheckBox Grid.Column="1" IsChecked="{Binding ElementName=TextColorPicker, Path=IsTransparencySupported}" />
+                                    </Grid>
+                                </con:StackPanelEx>
+                            </GroupBox>
+                            <!--<GroupBox Grid.IsSharedSizeScope="True" Header="ColorPickerControlProperties">
+                                <con:StackPanelEx Spacing="3">
+                                    <Grid adp:GridProperties.ColumnDefinitionsEx="auto:PropertyGroup *">
+                                        <TextBlock Grid.Column="0" Text="Color" />
+                                        <TextBox Grid.Column="1" Text="{Binding ElementName=ColorPickerControl, Path=Color}" />
+                                    </Grid>
+                                    <Grid adp:GridProperties.ColumnDefinitionsEx="auto:PropertyGroup *">
+                                        <TextBlock Grid.Column="0" Text="IsTransSupp" />
+                                        <CheckBox Grid.Column="1" IsChecked="{Binding ElementName=ColorPickerControl, Path=IsTransparencySupported}" />
+                                    </Grid>
+                                </con:StackPanelEx>
+                            </GroupBox>-->
+                            <Button x:Name="TestButton" Content="Test button" />
                         </con:StackPanelEx>
                     </GroupBox>
                     <Grid
-                        Grid.Column="1"
-                        adp:GridProperties.ColumnDefinitionsEx="* * *"
+                        Grid.Column="1" adp:GridProperties.ColumnDefinitionsEx="* * *"
                         adp:GridProperties.RowDefinitionsEx="* *">
                         <GroupBox
-                            Grid.Row="0"
-                            Grid.Column="0"
-                            Padding="5"
-                            Header="HsvColorPicker">
-                            <parts:HsvColorPicker ComplexColor="{Binding Path=.}" />
+                            Grid.Row="0" Grid.Column="0"
+                            Padding="5" Header="HsvColorPicker">
+                            <parts:HsvColorPicker x:Name="HsvColorPicker" Color="{Binding Path=Color}" />
                         </GroupBox>
 
                         <GroupBox
-                            Grid.Row="0"
-                            Grid.Column="1"
-                            Padding="5"
-                            Header="TextColorPicker">
-                            <parts:TextColorPicker ComplexColor="{Binding Path=.}" />
+                            Grid.Row="0" Grid.Column="1"
+                            Padding="5" Header="TextColorPicker">
+                            <parts:TextColorPicker x:Name="TextColorPicker" Color="{Binding Path=Color}" />
                         </GroupBox>
                         <GroupBox
-                            Grid.Row="0"
-                            Grid.Column="2"
-                            Padding="5"
-                            Header="ColorPalette" />
+                            Grid.Row="0" Grid.Column="2"
+                            Padding="5" Header="ColorPalette" />
                         <GroupBox
-                            Grid.Row="1"
-                            Grid.Column="0"
-                            Padding="5"
-                            Header="RecentColorPalette" />
+                            Grid.Row="1" Grid.Column="0"
+                            Padding="5" Header="RecentColorPalette" />
                         <GroupBox
-                            Grid.Row="1"
-                            Grid.Column="1"
-                            Padding="5"
-                            Header="ColorPicker">
-                            <con:ColorPickerControl ComplexColor="{Binding Path=.}" IsTransparencySupported="False" />
+                            Grid.Row="1" Grid.Column="1"
+                            Padding="5" Header="ColorPickerControl">
+                            <con:ColorPickerControl x:Name="ColorPickerControl" Color="{Binding Path=Color2}" />
                         </GroupBox>
                         <GroupBox
-                            Grid.Row="1"
-                            Grid.Column="2"
-                            Padding="5"
-                            Header="MinimizedColorPicker" />
+                            Grid.Row="1" Grid.Column="2"
+                            Padding="5" Header="MinimizedColorPicker" />
                     </Grid>
                 </Grid>
             </TabItem>

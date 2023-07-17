@@ -1,61 +1,86 @@
 ﻿<ResourceDictionary
-    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:adp="clr-namespace:WpfExtensions.AttachedDependencyProperties"
-    xmlns:converters="clr-namespace:WpfExtensions.Converters"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:adp="clr-namespace:WpfExtensions.AttachedDependencyProperties" xmlns:converters="clr-namespace:WpfExtensions.Converters"
     xmlns:parts="clr-namespace:WpfExtensions.Controls.ColorPicker.Parts">
     <Style TargetType="{x:Type parts:TextColorPicker}">
         <Style.Resources>
             <converters:ByteToStringConverter x:Key="ByteToStringConverter" />
-            <converters:ColorToStringConverter x:Key="ColorToStringConverterNoTransp"  />
+            <converters:ColorToStringConverter x:Key="ColorToStringConverterNoTransp" />
             <converters:ColorToStringConverter x:Key="ColorToStringConverter" IsTransparencySupported="True" />
         </Style.Resources>
         <Setter Property="VerticalAlignment" Value="Center" />
+        <Setter Property="UseLayoutRounding" Value="True" />
+        <Setter Property="SnapsToDevicePixels" Value="True" />
+        <Setter Property="BorderBrush" Value="#222222" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type parts:TextColorPicker}">
-                    <Grid adp:GridProperties.ColumnDefinitionsEx="2* * * * auto" adp:GridProperties.RowDefinitionsEx="* auto">
+                    <Grid adp:GridProperties.ColumnDefinitionsEx="* 2* auto" adp:GridProperties.RowDefinitionsEx="* auto">
                         <Grid.Resources>
                             <Style TargetType="{x:Type TextBlock}">
                                 <Setter Property="Grid.Row" Value="1" />
                                 <Setter Property="HorizontalAlignment" Value="Center" />
+                                <Setter Property="VerticalAlignment" Value="Center" />
                             </Style>
                             <Style TargetType="{x:Type TextBox}">
                                 <Setter Property="Grid.Row" Value="0" />
-                                <Setter Property="Margin" Value="0,0,5,0" />
+                                <Setter Property="Margin" Value="2,0,2,0" />
+                                <Setter Property="VerticalAlignment" Value="Center" />
                             </Style>
                         </Grid.Resources>
                         <TextBox
-                            x:Name="HexTextBox"
-                            Grid.Column="0"
-                            Text="{Binding Path=ComplexColor.Color,
+                            x:Name="HexTextBox" Grid.Column="0"
+                            Margin="0,0,2,0"
+                            Text="{Binding Path=Color,
                                            Converter={StaticResource ColorToStringConverterNoTransp},
                                            RelativeSource={RelativeSource TemplatedParent}}" />
-
                         <TextBlock Grid.Column="0" Text="Hex" />
-                        <TextBox Grid.Column="1" Text="{Binding Path=ComplexColor.Red, Converter={StaticResource ByteToStringConverter}, RelativeSource={RelativeSource TemplatedParent}}" />
-                        <TextBlock Grid.Column="1" Text="R" />
-                        <TextBox Grid.Column="2" Text="{Binding Path=ComplexColor.Green, Converter={StaticResource ByteToStringConverter}, RelativeSource={RelativeSource TemplatedParent}}" />
-                        <TextBlock Grid.Column="2" Text="G" />
-                        <TextBox Grid.Column="3" Text="{Binding Path=ComplexColor.Blue, Converter={StaticResource ByteToStringConverter}, RelativeSource={RelativeSource TemplatedParent}}" />
-                        <TextBlock Grid.Column="3" Text="B" />
+
+                        <UniformGrid
+                            x:Name="UniformGrid1" Grid.Row="0"
+                            Grid.Column="1" Columns="3">
+                            <TextBox Text="{Binding Path=Red, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource ByteToStringConverter}, RelativeSource={RelativeSource TemplatedParent}}" />
+                            <TextBox Text="{Binding Path=Green, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource ByteToStringConverter}, RelativeSource={RelativeSource TemplatedParent}}" />
+                            <TextBox Text="{Binding Path=Blue, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource ByteToStringConverter}, RelativeSource={RelativeSource TemplatedParent}}" />
+                            <TextBox
+                                x:Name="AlphaTextBox"
+                                Text="{Binding Path=Alpha,
+                                               UpdateSourceTrigger=PropertyChanged,
+                                               Converter={StaticResource ByteToStringConverter},
+                                               RelativeSource={RelativeSource TemplatedParent}}"
+                                Visibility="Collapsed" />
+                        </UniformGrid>
+
+                        <UniformGrid
+                            x:Name="UniformGrid2" Grid.Row="1"
+                            Grid.Column="1" Columns="3">
+                            <TextBlock Text="R" />
+                            <TextBlock Text="G" />
+                            <TextBlock Text="B" />
+                            <TextBlock
+                                x:Name="AlphaTextBlock" Text="A"
+                                Visibility="Collapsed" />
+                        </UniformGrid>
 
                         <Border
-                            Grid.Row="0"
-                            Grid.Column="4"
+                            Grid.Row="0" Grid.Column="5"
                             Width="{Binding Path=ActualHeight,
                                             RelativeSource={RelativeSource Self}}"
+                            Margin="2,0,0,0"
                             BorderBrush="{TemplateBinding BorderBrush}"
-                            BorderThickness="1"
-                            CornerRadius="3">
+                            BorderThickness="1" CornerRadius="3">
                             <Border.Background>
-                                <SolidColorBrush Color="{Binding Path=ComplexColor.Color, RelativeSource={RelativeSource AncestorType=parts:TextColorPicker}}" />
+                                <SolidColorBrush Color="{Binding Path=Color, RelativeSource={RelativeSource TemplatedParent}}" />
                             </Border.Background>
                         </Border>
                     </Grid>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsTransparencySupported" Value="True">
-                            <Setter TargetName="HexTextBox" Property="Text" Value="{Binding Path=ComplexColor.Color, Converter={StaticResource ColorToStringConverter}, RelativeSource={RelativeSource TemplatedParent}}" />
+                            <Setter TargetName="AlphaTextBox" Property="Visibility" Value="Visible" />
+                            <Setter TargetName="AlphaTextBlock" Property="Visibility" Value="Visible" />
+                            <Setter TargetName="UniformGrid1" Property="Columns" Value="4" />
+                            <Setter TargetName="UniformGrid2" Property="Columns" Value="4" />
+                            <Setter TargetName="HexTextBox" Property="Text" Value="{Binding Path=Color, Converter={StaticResource ColorToStringConverter}, RelativeSource={RelativeSource TemplatedParent}}" />
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
