@@ -78,7 +78,7 @@
                                     </Grid>
                                 </con:StackPanelEx>
                             </GroupBox>
-                            <!--<GroupBox Grid.IsSharedSizeScope="True" Header="ColorPickerControlProperties">
+                            <GroupBox Grid.IsSharedSizeScope="True" Header="ColorPickerControlProperties">
                                 <con:StackPanelEx Spacing="3">
                                     <Grid adp:GridProperties.ColumnDefinitionsEx="auto:PropertyGroup *">
                                         <TextBlock Grid.Column="0" Text="Color" />
@@ -89,7 +89,7 @@
                                         <CheckBox Grid.Column="1" IsChecked="{Binding ElementName=ColorPickerControl, Path=IsTransparencySupported}" />
                                     </Grid>
                                 </con:StackPanelEx>
-                            </GroupBox>-->
+                            </GroupBox>
                             <Button x:Name="TestButton" Content="Test button" />
                         </con:StackPanelEx>
                     </GroupBox>
@@ -116,7 +116,7 @@
                         <GroupBox
                             Grid.Row="1" Grid.Column="1"
                             Padding="5" Header="ColorPickerControl">
-                            <con:ColorPickerControl x:Name="ColorPickerControl" Color="{Binding Path=Color2}" />
+                            <con:ColorPickerControl x:Name="ColorPickerControl" Color="{Binding Path=Color}" />
                         </GroupBox>
                         <GroupBox
                             Grid.Row="1" Grid.Column="2"
