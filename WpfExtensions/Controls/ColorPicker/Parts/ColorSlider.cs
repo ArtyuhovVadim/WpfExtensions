@@ -2,6 +2,7 @@
 using System.Windows;
 using System.Windows.Automation;
 using System.Windows.Controls;
+using System.Windows.Data;
 using System.Windows.Input;
 using System.Windows.Media;
 
@@ -128,13 +129,9 @@ public class ColorSlider : Control
 
     private void OnLoaded(object sender, RoutedEventArgs e)
     {
-        Loaded -= OnLoaded;
-
         var v = Map(Value, Minimum, Maximum, 0, _thumbCanvas.ActualWidth);
 
         UpdateThumbPosition(v);
-
-        Canvas.SetTop(_thumb, -(_thumb.RenderSize.Height + 2) / 4);
     }
 
     protected override void OnMouseLeftButtonDown(MouseButtonEventArgs e)
