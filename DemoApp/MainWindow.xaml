@@ -1,11 +1,18 @@
 ﻿<Window
-    x:Class="DemoApp.MainWindow" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:adp="clr-namespace:WpfExtensions.AttachedDependencyProperties;assembly=WpfExtensions"
-    xmlns:con="clr-namespace:WpfExtensions.Controls;assembly=WpfExtensions" xmlns:converters="clr-namespace:WpfExtensions.Converters;assembly=WpfExtensions"
-    xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:local="clr-namespace:DemoApp"
-    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:parts="clr-namespace:WpfExtensions.Controls.ColorPicker.Parts;assembly=WpfExtensions"
-    Title="DemoApp" Width="1280"
-    Height="720" mc:Ignorable="d">
+    x:Class="DemoApp.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:adp="clr-namespace:WpfExtensions.AttachedDependencyProperties;assembly=WpfExtensions"
+    xmlns:con="clr-namespace:WpfExtensions.Controls;assembly=WpfExtensions"
+    xmlns:converters="clr-namespace:WpfExtensions.Converters;assembly=WpfExtensions"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:DemoApp"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:parts="clr-namespace:WpfExtensions.Controls.ColorPicker.Parts;assembly=WpfExtensions"
+    Title="DemoApp"
+    Width="1280"
+    Height="720"
+    mc:Ignorable="d">
     <Window.DataContext>
         <local:MainWindowViewModel />
     </Window.DataContext>
@@ -94,33 +101,74 @@
                         </con:StackPanelEx>
                     </GroupBox>
                     <Grid
-                        Grid.Column="1" adp:GridProperties.ColumnDefinitionsEx="* * *"
+                        Grid.Column="1"
+                        adp:GridProperties.ColumnDefinitionsEx="* * *"
                         adp:GridProperties.RowDefinitionsEx="* *">
                         <GroupBox
-                            Grid.Row="0" Grid.Column="0"
-                            Padding="5" Header="HsvColorPicker">
+                            Grid.Row="0"
+                            Grid.Column="0"
+                            Padding="5"
+                            Header="HsvColorPicker">
                             <parts:HsvColorPicker x:Name="HsvColorPicker" Color="{Binding Path=Color}" />
                         </GroupBox>
 
                         <GroupBox
-                            Grid.Row="0" Grid.Column="1"
-                            Padding="5" Header="TextColorPicker">
+                            Grid.Row="0"
+                            Grid.Column="1"
+                            Padding="5"
+                            Header="TextColorPicker">
                             <parts:TextColorPicker x:Name="TextColorPicker" Color="{Binding Path=Color}" />
                         </GroupBox>
                         <GroupBox
-                            Grid.Row="0" Grid.Column="2"
-                            Padding="5" Header="ColorPalette" />
+                            Grid.Row="0"
+                            Grid.Column="2"
+                            Padding="5"
+                            Header="ColorPalette">
+
+
+                            <con:StackPanelEx>
+                                <parts:ColorSlider
+                                    x:Name="ColorSlider"
+                                    Margin="5"
+                                    Maximum="360"
+                                    Minimum="0"
+                                    Value="50">
+                                    <parts:ColorSlider.Background>
+                                        <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
+                                            <LinearGradientBrush.RelativeTransform>
+                                                <RotateTransform Angle="90" CenterX="0.5" CenterY="0.5" />
+                                            </LinearGradientBrush.RelativeTransform>
+                                            <GradientStop Offset="0" Color="Red" />
+                                            <GradientStop Offset="0.1666" Color="Fuchsia" />
+                                            <GradientStop Offset="0.3333" Color="Blue" />
+                                            <GradientStop Offset="0.5" Color="Aqua" />
+                                            <GradientStop Offset="0.6666" Color="Lime" />
+                                            <GradientStop Offset="0.8333" Color="Yellow" />
+                                            <GradientStop Offset="1" Color="Red" />
+                                        </LinearGradientBrush>
+                                    </parts:ColorSlider.Background>
+                                </parts:ColorSlider>
+                                <TextBox Text="{Binding Path=Value, ElementName=ColorSlider}" />
+                            </con:StackPanelEx>
+
+                        </GroupBox>
                         <GroupBox
-                            Grid.Row="1" Grid.Column="0"
-                            Padding="5" Header="RecentColorPalette" />
+                            Grid.Row="1"
+                            Grid.Column="0"
+                            Padding="5"
+                            Header="RecentColorPalette" />
                         <GroupBox
-                            Grid.Row="1" Grid.Column="1"
-                            Padding="5" Header="ColorPickerControl">
+                            Grid.Row="1"
+                            Grid.Column="1"
+                            Padding="5"
+                            Header="ColorPickerControl">
                             <con:ColorPickerControl x:Name="ColorPickerControl" Color="{Binding Path=Color}" />
                         </GroupBox>
                         <GroupBox
-                            Grid.Row="1" Grid.Column="2"
-                            Padding="5" Header="MinimizedColorPicker" />
+                            Grid.Row="1"
+                            Grid.Column="2"
+                            Padding="5"
+                            Header="MinimizedColorPicker" />
                     </Grid>
                 </Grid>
             </TabItem>
