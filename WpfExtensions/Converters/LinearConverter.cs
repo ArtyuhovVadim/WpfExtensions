@@ -6,19 +6,19 @@ using System;
 namespace WpfExtensions.Converters;
 
 [ValueConversion(typeof(double), typeof(double))]
-[MarkupExtensionReturnType(typeof(Linear))]
-public class Linear : BaseConverter
+[MarkupExtensionReturnType(typeof(LinearConverter))]
+public class LinearConverter : BaseConverter
 {
-    public Linear()
+    public LinearConverter()
     {
     }
 
-    public Linear(double k)
+    public LinearConverter(double k)
     {
         K = k;
     }
 
-    public Linear(double k, double b) : this(k)
+    public LinearConverter(double k, double b) : this(k)
     {
         B = b;
     }
