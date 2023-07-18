@@ -123,35 +123,7 @@
                             Grid.Row="0"
                             Grid.Column="2"
                             Padding="5"
-                            Header="ColorPalette">
-
-
-                            <con:StackPanelEx>
-                                <parts:ColorSlider
-                                    x:Name="ColorSlider"
-                                    Margin="5"
-                                    Maximum="360"
-                                    Minimum="0"
-                                    Value="50">
-                                    <parts:ColorSlider.Background>
-                                        <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
-                                            <LinearGradientBrush.RelativeTransform>
-                                                <RotateTransform Angle="90" CenterX="0.5" CenterY="0.5" />
-                                            </LinearGradientBrush.RelativeTransform>
-                                            <GradientStop Offset="0" Color="Red" />
-                                            <GradientStop Offset="0.1666" Color="Fuchsia" />
-                                            <GradientStop Offset="0.3333" Color="Blue" />
-                                            <GradientStop Offset="0.5" Color="Aqua" />
-                                            <GradientStop Offset="0.6666" Color="Lime" />
-                                            <GradientStop Offset="0.8333" Color="Yellow" />
-                                            <GradientStop Offset="1" Color="Red" />
-                                        </LinearGradientBrush>
-                                    </parts:ColorSlider.Background>
-                                </parts:ColorSlider>
-                                <TextBox Text="{Binding Path=Value, ElementName=ColorSlider}" />
-                            </con:StackPanelEx>
-
-                        </GroupBox>
+                            Header="ColorPalette" />
                         <GroupBox
                             Grid.Row="1"
                             Grid.Column="0"
@@ -162,7 +134,7 @@
                             Grid.Column="1"
                             Padding="5"
                             Header="ColorPickerControl">
-                            <con:ColorPickerControl x:Name="ColorPickerControl" Color="{Binding Path=Color}" />
+                            <con:ColorPickerControl IsTransparencySupported="True" x:Name="ColorPickerControl" Color="{Binding Path=Color}" />
                         </GroupBox>
                         <GroupBox
                             Grid.Row="1"
