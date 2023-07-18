@@ -161,13 +161,22 @@ public class ColorSlider : Control
         base.OnMouseLeftButtonUp(e);
     }
 
-    private void UpdateThumbPosition(double pos)
+    protected override void OnRenderSizeChanged(SizeChangedInfo sizeInfo)
+    {
+        base.OnRenderSizeChanged(sizeInfo);
+
+        var v = Map(Value, Minimum, Maximum, 0, _thumbCanvas.ActualWidth);
+        UpdateThumbPosition(v, false);
+    }
+
+    private void UpdateThumbPosition(double pos, bool affectValue = true)
     {
         pos = Math.Clamp(pos, 0, _thumbCanvas.ActualWidth) - _thumb.RenderSize.Width / 2;
 
         Canvas.SetLeft(_thumb, pos);
 
-        Value = Map(pos, -_thumb.RenderSize.Width / 2, _thumbCanvas.ActualWidth - _thumb.RenderSize.Width / 2, Minimum, Maximum);
+        if (affectValue)
+            Value = Map(pos, -_thumb.RenderSize.Width / 2, _thumbCanvas.ActualWidth - _thumb.RenderSize.Width / 2, Minimum, Maximum);
     }
 
     private static double Map(double x, double inMin, double inMax, double outMin, double outMax) =>
