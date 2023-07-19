@@ -1,5 +1,6 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Input;
 using System.Windows.Media;
 
 namespace WpfExtensions.Controls;
@@ -10,6 +11,24 @@ public class ColorPickerControl : Control
     {
         DefaultStyleKeyProperty.OverrideMetadata(typeof(ColorPickerControl), new FrameworkPropertyMetadata(typeof(ColorPickerControl)));
     }
+
+    public ColorPickerControl()
+    {
+        ColorSelectedCommand = new LambdaCommand(OnColorSelected);
+    }
+
+    #region ColorSelectedCommand
+
+    public ICommand ColorSelectedCommand
+    {
+        get => (ICommand)GetValue(ColorSelectedCommandProperty);
+        set => SetValue(ColorSelectedCommandProperty, value);
+    }
+
+    public static readonly DependencyProperty ColorSelectedCommandProperty =
+        DependencyProperty.Register(nameof(ColorSelectedCommand), typeof(ICommand), typeof(ColorPickerControl), new PropertyMetadata(default(ICommand)));
+
+    #endregion
 
     #region Color
 
@@ -36,4 +55,24 @@ public class ColorPickerControl : Control
         DependencyProperty.Register(nameof(IsTransparencySupported), typeof(bool), typeof(ColorPickerControl), new PropertyMetadata(false));
 
     #endregion
+
+    #region IsColorPaletteVisible
+
+    public bool IsColorPaletteVisible
+    {
+        get => (bool)GetValue(IsColorPaletteVisibleProperty);
+        set => SetValue(IsColorPaletteVisibleProperty, value);
+    }
+
+    public static readonly DependencyProperty IsColorPaletteVisibleProperty =
+        DependencyProperty.Register(nameof(IsColorPaletteVisible), typeof(bool), typeof(ColorPickerControl), new PropertyMetadata(true));
+
+    #endregion
+
+    private void OnColorSelected(object o)
+    {
+        if (o is not Color color) return;
+
+        Color = color;
+    }
 }

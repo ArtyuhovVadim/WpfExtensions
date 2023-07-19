@@ -4,6 +4,11 @@
     xmlns:adp="clr-namespace:WpfExtensions.AttachedDependencyProperties"
     xmlns:controls="clr-namespace:WpfExtensions.Controls"
     xmlns:parts="clr-namespace:WpfExtensions.Controls.ColorPicker.Parts">
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary>
+            <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
+        </ResourceDictionary>
+    </ResourceDictionary.MergedDictionaries>
     <Style TargetType="{x:Type controls:ColorPickerControl}">
         <Setter Property="FocusVisualStyle" Value="{x:Null}" />
         <Setter Property="UseLayoutRounding" Value="True" />
@@ -12,7 +17,7 @@
         <Setter Property="BorderThickness" Value="1" />
         <Setter Property="BorderBrush" Value="#222222" />
         <Setter Property="Padding" Value="6" />
-        <Setter Property="Background" Value="#5C5C5C" />
+        <Setter Property="Background" Value="#484848" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type controls:ColorPickerControl}">
@@ -37,16 +42,21 @@
                                 Margin="-6,6"
                                 Background="{TemplateBinding BorderBrush}" />
 
-                            <TextBlock
+                            <parts:ColorPalette
                                 Grid.Row="2"
-                                HorizontalAlignment="Center"
-                                FontSize="24"
-                                Text="Palette" />
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                Brushes="{x:Static parts:ColorPalette.DefaultBrushes}"
+                                ColorSelectedCommand="{TemplateBinding ColorSelectedCommand}"
+                                Visibility="{TemplateBinding IsColorPaletteVisible,
+                                                             Converter={StaticResource BooleanToVisibilityConverter}}" />
 
                             <Separator
                                 Grid.Row="3"
                                 Margin="-6,6"
-                                Background="{TemplateBinding BorderBrush}" />
+                                Background="{TemplateBinding BorderBrush}"
+                                Visibility="{TemplateBinding IsColorPaletteVisible,
+                                                             Converter={StaticResource BooleanToVisibilityConverter}}" />
 
                             <parts:HsvColorPicker
                                 Grid.Row="4"
@@ -57,6 +67,7 @@
                                 TextBlock.Foreground="{TemplateBinding TextBlock.Foreground}"
                                 Color="{Binding RelativeSource={RelativeSource TemplatedParent},
                                                 Path=Color}" />
+
                             <Separator
                                 Grid.Row="5"
                                 Margin="-6,6"
