@@ -3,6 +3,7 @@
         <ResourceDictionary Source="../Styles/ColorPicker/Parts/HsvColorPickerStyle.xaml" />
         <ResourceDictionary Source="../Styles/ColorPicker/Parts/TextColorPickerStyle.xaml" />
         <ResourceDictionary Source="../Styles/ColorPicker/Parts/ColorSliderStyle.xaml" />
+        <ResourceDictionary Source="../Styles/ColorPicker/Parts/ColorPalette.xaml" />
         <ResourceDictionary Source="../Styles/ColorPickerControlStyle.xaml" />
     </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>
