@@ -9,7 +9,7 @@
         <Setter Property="TextBlock.Foreground" Value="#E5E5E5" />
         <Setter Property="BorderThickness" Value="1" />
         <Setter Property="BorderBrush" Value="#222222" />
-        <Setter Property="Padding" Value="5" />
+        <Setter Property="Padding" Value="6" />
         <Setter Property="Background" Value="#5C5C5C" />
         <Setter Property="Template">
             <Setter.Value>
@@ -32,7 +32,7 @@
                                                 Path=Color}" />
                             <Separator
                                 Grid.Row="1"
-                                Margin="{TemplateBinding Padding}"
+                                Margin="-6 6"
                                 Background="{TemplateBinding BorderBrush}" />
                             <parts:TextColorPicker
                                 Grid.Row="2"
