@@ -69,6 +69,19 @@ public class ColorPickerControl : Control
 
     #endregion
 
+    #region IsRecentColorsVisible
+
+    public bool IsRecentColorsVisible
+    {
+        get => (bool)GetValue(IsRecentColorsVisibleProperty);
+        set => SetValue(IsRecentColorsVisibleProperty, value);
+    }
+
+    public static readonly DependencyProperty IsRecentColorsVisibleProperty =
+        DependencyProperty.Register(nameof(IsRecentColorsVisible), typeof(bool), typeof(ColorPickerControl), new PropertyMetadata(false));
+
+    #endregion
+
     private void OnColorSelected(object o)
     {
         if (o is not Color color) return;

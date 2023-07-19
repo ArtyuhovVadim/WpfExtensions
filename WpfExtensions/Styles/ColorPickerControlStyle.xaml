@@ -35,12 +35,16 @@
                                 Grid.Row="0"
                                 HorizontalAlignment="Center"
                                 FontSize="24"
-                                Text="Recent palette" />
+                                Text="Recent palette"
+                                Visibility="{TemplateBinding IsRecentColorsVisible,
+                                                             Converter={StaticResource BooleanToVisibilityConverter}}" />
 
                             <Separator
                                 Grid.Row="1"
                                 Margin="-6,6"
-                                Background="{TemplateBinding BorderBrush}" />
+                                Background="{TemplateBinding BorderBrush}"
+                                Visibility="{TemplateBinding IsRecentColorsVisible,
+                                                             Converter={StaticResource BooleanToVisibilityConverter}}" />
 
                             <parts:ColorPalette
                                 Grid.Row="2"

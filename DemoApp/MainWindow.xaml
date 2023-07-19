@@ -47,6 +47,10 @@
                                         <TextBlock Grid.Column="0" Text="IsColorPaletteVisible" />
                                         <CheckBox Grid.Column="1" IsChecked="{Binding ElementName=ColorPickerControl, Path=IsColorPaletteVisible}" />
                                     </Grid>
+                                    <Grid adp:GridProperties.ColumnDefinitionsEx="auto:PropertyGroup *">
+                                        <TextBlock Grid.Column="0" Text="IsRecentColorsVisible" />
+                                        <CheckBox Grid.Column="1" IsChecked="{Binding ElementName=ColorPickerControl, Path=IsRecentColorsVisible}" />
+                                    </Grid>
                                 </con:StackPanelEx>
                             </GroupBox>
                         </con:StackPanelEx>
@@ -55,6 +59,7 @@
                         <con:ColorPickerControl
                             x:Name="ColorPickerControl"
                             Margin="350,130"
+                            IsRecentColorsVisible="True"
                             IsTransparencySupported="True"
                             Color="{Binding Path=Color}" />
                     </Grid>
