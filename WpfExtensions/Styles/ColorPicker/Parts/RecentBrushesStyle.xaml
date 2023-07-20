@@ -29,6 +29,9 @@
     <Style TargetType="{x:Type parts:RecentBrushes}">
         <Setter Property="BorderBrush" Value="#222222" />
         <Setter Property="Focusable" Value="False" />
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="UseLayoutRounding" Value="True" />
+        <Setter Property="SnapsToDevicePixels" Value="True" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type parts:RecentBrushes}">

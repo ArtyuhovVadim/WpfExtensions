@@ -40,7 +40,8 @@
                                 Brushes="{Binding RelativeSource={RelativeSource TemplatedParent},
                                                   Path=RecentBrushes,
                                                   Mode=OneWay}"
-                                ColorSelectedCommand="{TemplateBinding ColorSelectedCommand}"
+                                ColorSelectedCommand="{Binding RelativeSource={RelativeSource TemplatedParent},
+                                                               Path=ColorSelectedCommand}"
                                 RecentBrushesMaxCount="{Binding RelativeSource={RelativeSource TemplatedParent},
                                                                 Path=RecentBrushesMaxCount,
                                                                 Mode=OneWay}"
@@ -60,7 +61,8 @@
                                 BorderBrush="{TemplateBinding BorderBrush}"
                                 BorderThickness="{TemplateBinding BorderThickness}"
                                 Brushes="{x:Static parts:ColorPalette.DefaultBrushes}"
-                                ColorSelectedCommand="{TemplateBinding ColorSelectedCommand}"
+                                ColorSelectedCommand="{Binding RelativeSource={RelativeSource TemplatedParent},
+                                                               Path=ColorSelectedCommand}"
                                 Visibility="{TemplateBinding IsColorPaletteVisible,
                                                              Converter={StaticResource BooleanToVisibilityConverter}}" />
 
