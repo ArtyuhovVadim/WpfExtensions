@@ -1,0 +1,63 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:b="http://schemas.microsoft.com/xaml/behaviors"
+    xmlns:converters="clr-namespace:WpfExtensions.Converters"
+    xmlns:parts="clr-namespace:WpfExtensions.Controls.ColorPicker.Parts"
+    xmlns:wpfExtensions="clr-namespace:WpfExtensions">
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary>
+            <DropShadowEffect
+                x:Key="DropShadowEffect"
+                BlurRadius="8"
+                RenderingBias="Quality"
+                ShadowDepth="0"
+                Color="#A2D2FD" />
+            <Style x:Key="ColorBorderStyle" TargetType="{x:Type Border}">
+                <Setter Property="BorderThickness" Value="1" />
+                <Setter Property="BorderBrush" Value="{Binding RelativeSource={RelativeSource AncestorType={x:Type parts:RecentBrushes}}, Path=BorderBrush}" />
+                <Setter Property="Width" Value="16" />
+                <Setter Property="Height" Value="16" />
+                <Style.Triggers>
+                    <Trigger Property="IsMouseOver" Value="True">
+                        <Setter Property="Effect" Value="{StaticResource DropShadowEffect}" />
+                    </Trigger>
+                </Style.Triggers>
+            </Style>
+        </ResourceDictionary>
+    </ResourceDictionary.MergedDictionaries>
+    <Style TargetType="{x:Type parts:RecentBrushes}">
+        <Setter Property="BorderBrush" Value="#222222" />
+        <Setter Property="Focusable" Value="False" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type parts:RecentBrushes}">
+                    <ItemsControl Focusable="False" ItemsSource="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Brushes, Mode=OneWay}">
+                        <ItemsControl.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <UniformGrid Columns="{Binding RelativeSource={RelativeSource AncestorType={x:Type parts:RecentBrushes}}, Path=RecentBrushesMaxCount, Mode=OneWay}">
+                                    <b:Interaction.Behaviors>
+                                        <wpfExtensions:ColorPaletteBehaviour BarWidth="16" />
+                                    </b:Interaction.Behaviors>
+                                </UniformGrid>
+                            </ItemsPanelTemplate>
+                        </ItemsControl.ItemsPanel>
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate DataType="{x:Type Brush}">
+                                <Border Background="{Binding}" Style="{StaticResource ColorBorderStyle}">
+                                    <Border.InputBindings>
+                                        <MouseBinding
+                                            Command="{Binding RelativeSource={RelativeSource AncestorType={x:Type parts:RecentBrushes}},
+                                                              Path=ColorSelectedCommand}"
+                                            CommandParameter="{Binding Path=.Color}"
+                                            MouseAction="LeftClick" />
+                                    </Border.InputBindings>
+                                </Border>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+</ResourceDictionary>
