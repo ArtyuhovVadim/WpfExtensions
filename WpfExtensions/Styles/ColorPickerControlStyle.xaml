@@ -27,6 +27,7 @@
                         BorderBrush="{TemplateBinding BorderBrush}"
                         BorderThickness="{TemplateBinding BorderThickness}"
                         CornerRadius="3"
+                        FocusManager.IsFocusScope="True"
                         SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
                         TextBlock.Foreground="{TemplateBinding TextBlock.Foreground}"
                         UseLayoutRounding="{TemplateBinding UseLayoutRounding}">

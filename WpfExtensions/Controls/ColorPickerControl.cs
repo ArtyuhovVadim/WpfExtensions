@@ -82,6 +82,18 @@ public class ColorPickerControl : Control
 
     #endregion
 
+    protected override void OnGotFocus(RoutedEventArgs e)
+    {
+        base.OnGotFocus(e);
+    }
+
+    protected override void OnLostFocus(RoutedEventArgs e)
+    {
+        base.OnLostFocus(e);
+    }
+
+    protected override void OnPreviewMouseDown(MouseButtonEventArgs e) => Focus();
+
     private void OnColorSelected(object o)
     {
         if (o is not Color color) return;

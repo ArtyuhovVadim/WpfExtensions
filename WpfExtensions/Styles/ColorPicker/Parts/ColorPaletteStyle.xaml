@@ -33,10 +33,11 @@
         <Setter Property="VerticalAlignment" Value="Center" />
         <Setter Property="HorizontalAlignment" Value="Stretch" />
         <Setter Property="BorderBrush" Value="#222222" />
+        <Setter Property="Focusable" Value="False" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type parts:ColorPalette}">
-                    <ItemsControl ItemsSource="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Brushes, Mode=OneWay}">
+                    <ItemsControl Focusable="False" ItemsSource="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Brushes, Mode=OneWay}">
                         <ItemsControl.ItemsPanel>
                             <ItemsPanelTemplate>
                                 <UniformGrid Columns="{Binding RelativeSource={RelativeSource AncestorType={x:Type parts:ColorPalette}}, Path=Brushes.Count, Mode=OneWay}">
@@ -48,7 +49,7 @@
                         </ItemsControl.ItemsPanel>
                         <ItemsControl.ItemTemplate>
                             <DataTemplate DataType="{x:Type parts:BrushesBar}">
-                                <StackPanel Margin="0,-3,0,1" Orientation="Vertical">
+                                <StackPanel  Margin="0,-3,0,1" Orientation="Vertical">
                                     <Border
                                         Margin="0,3,0,0"
                                         Background="{Binding Path=GrayscaleBrush}"
@@ -74,7 +75,7 @@
                                         </Border.InputBindings>
                                     </Border>
                                     <Border BorderBrush="{Binding RelativeSource={RelativeSource AncestorType={x:Type parts:ColorPalette}}, Path=BorderBrush}">
-                                        <ItemsControl ItemsSource="{Binding Path=Brushes}">
+                                        <ItemsControl Focusable="False" ItemsSource="{Binding Path=Brushes}">
                                             <ItemsControl.ItemTemplate>
                                                 <DataTemplate DataType="{x:Type SolidColorBrush}">
                                                     <Border

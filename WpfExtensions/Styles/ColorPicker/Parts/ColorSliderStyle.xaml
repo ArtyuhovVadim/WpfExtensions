@@ -14,6 +14,7 @@
         <Setter Property="BorderThickness" Value="1" />
         <Setter Property="Background" Value="White" />
         <Setter Property="MinHeight" Value="8" />
+        <Setter Property="Focusable" Value="False" />
         <Setter Property="ThumbWidth" Value="6" />
         <Setter Property="ThumbHeight" Value="14" />
         <Setter Property="ThumbBrush" Value="#222222" />

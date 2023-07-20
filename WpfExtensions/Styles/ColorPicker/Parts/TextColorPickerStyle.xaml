@@ -13,6 +13,7 @@
         <Setter Property="VerticalAlignment" Value="Center" />
         <Setter Property="UseLayoutRounding" Value="True" />
         <Setter Property="SnapsToDevicePixels" Value="True" />
+        <Setter Property="Focusable" Value="False" />
         <Setter Property="BorderBrush" Value="#222222" />
         <Setter Property="Template">
             <Setter.Value>
