@@ -55,13 +55,22 @@
                             </GroupBox>
                         </con:StackPanelEx>
                     </GroupBox>
-                    <Grid Grid.Column="1">
+                    <Grid
+                        Grid.Column="1"
+                        adp:GridProperties.ColumnDefinitionsEx="* *"
+                        Background="#404040">
                         <con:ColorPickerControl
                             x:Name="ColorPickerControl"
-                            Margin="350,130"
+                            Grid.Column="0"
+                            Margin="120,150"
                             IsRecentColorsVisible="True"
                             IsTransparencySupported="True"
                             Color="{Binding Path=Color}" />
+                        <con:MinimizedColorPickerControl
+                            Grid.Column="1"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            SelectedColor="Red" />
                     </Grid>
                 </Grid>
             </TabItem>
