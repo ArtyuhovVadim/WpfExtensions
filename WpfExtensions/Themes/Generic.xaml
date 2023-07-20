@@ -4,6 +4,7 @@
         <ResourceDictionary Source="../Styles/ColorPicker/Parts/TextColorPickerStyle.xaml" />
         <ResourceDictionary Source="../Styles/ColorPicker/Parts/ColorSliderStyle.xaml" />
         <ResourceDictionary Source="../Styles/ColorPicker/Parts/ColorPaletteStyle.xaml" />
+        <ResourceDictionary Source="../Styles/ColorPicker/Parts/RecentBrushesStyle.xaml" />
         <ResourceDictionary Source="../Styles/ColorPickerControlStyle.xaml" />
     </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>

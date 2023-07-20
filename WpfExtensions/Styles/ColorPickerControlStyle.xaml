@@ -3,10 +3,12 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:adp="clr-namespace:WpfExtensions.AttachedDependencyProperties"
     xmlns:controls="clr-namespace:WpfExtensions.Controls"
+    xmlns:converters="clr-namespace:WpfExtensions.Converters"
     xmlns:parts="clr-namespace:WpfExtensions.Controls.ColorPicker.Parts">
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary>
             <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
+            <converters:EnumerableToCountConverter x:Key="EnumerableToCountConverter" />
         </ResourceDictionary>
     </ResourceDictionary.MergedDictionaries>
     <Style TargetType="{x:Type controls:ColorPickerControl}">
@@ -32,15 +34,21 @@
                         TextBlock.Foreground="{TemplateBinding TextBlock.Foreground}"
                         UseLayoutRounding="{TemplateBinding UseLayoutRounding}">
                         <Grid adp:GridProperties.RowDefinitionsEx="auto auto auto auto * auto auto">
-                            <TextBlock
+                            <parts:RecentBrushes
+                                x:Name="RecentBrushes"
                                 Grid.Row="0"
-                                HorizontalAlignment="Center"
-                                FontSize="24"
-                                Text="Recent palette"
+                                Brushes="{Binding RelativeSource={RelativeSource TemplatedParent},
+                                                  Path=RecentBrushes,
+                                                  Mode=OneWay}"
+                                ColorSelectedCommand="{TemplateBinding ColorSelectedCommand}"
+                                RecentBrushesMaxCount="{Binding RelativeSource={RelativeSource TemplatedParent},
+                                                                Path=RecentBrushesMaxCount,
+                                                                Mode=OneWay}"
                                 Visibility="{TemplateBinding IsRecentColorsVisible,
                                                              Converter={StaticResource BooleanToVisibilityConverter}}" />
 
                             <Separator
+                                x:Name="RecentBrushesSeparator"
                                 Grid.Row="1"
                                 Margin="-6,6"
                                 Background="{TemplateBinding BorderBrush}"
@@ -89,6 +97,12 @@
                                                 Path=Color}" />
                         </Grid>
                     </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsRecentColorsEmpty" Value="True">
+                            <Setter TargetName="RecentBrushes" Property="Visibility" Value="Collapsed" />
+                            <Setter TargetName="RecentBrushesSeparator" Property="Visibility" Value="Collapsed" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>

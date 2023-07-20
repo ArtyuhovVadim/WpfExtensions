@@ -1,4 +1,7 @@
-﻿using System.Windows;
+﻿using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
+using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
@@ -7,6 +10,8 @@ namespace WpfExtensions.Controls;
 
 public class ColorPickerControl : Control
 {
+    private readonly ObservableCollection<SolidColorBrush> _recentBrushes = new();
+
     static ColorPickerControl()
     {
         DefaultStyleKeyProperty.OverrideMetadata(typeof(ColorPickerControl), new FrameworkPropertyMetadata(typeof(ColorPickerControl)));
@@ -16,19 +21,6 @@ public class ColorPickerControl : Control
     {
         ColorSelectedCommand = new LambdaCommand(OnColorSelected);
     }
-
-    #region ColorSelectedCommand
-
-    public ICommand ColorSelectedCommand
-    {
-        get => (ICommand)GetValue(ColorSelectedCommandProperty);
-        set => SetValue(ColorSelectedCommandProperty, value);
-    }
-
-    public static readonly DependencyProperty ColorSelectedCommandProperty =
-        DependencyProperty.Register(nameof(ColorSelectedCommand), typeof(ICommand), typeof(ColorPickerControl), new PropertyMetadata(default(ICommand)));
-
-    #endregion
 
     #region Color
 
@@ -82,14 +74,32 @@ public class ColorPickerControl : Control
 
     #endregion
 
-    protected override void OnGotFocus(RoutedEventArgs e)
+    #region IsRecentColorsEmpty
+
+    private static readonly DependencyPropertyKey IsRecentColorsEmptyPropertyKey
+        = DependencyProperty.RegisterReadOnly(nameof(IsRecentColorsEmpty), typeof(bool), typeof(ColorPickerControl), new PropertyMetadata(true));
+
+    public static readonly DependencyProperty IsRecentColorsEmptyProperty = IsRecentColorsEmptyPropertyKey.DependencyProperty;
+
+    public bool IsRecentColorsEmpty
     {
-        base.OnGotFocus(e);
+        get => (bool)GetValue(IsRecentColorsEmptyProperty);
+        private set => SetValue(IsRecentColorsEmptyPropertyKey, value);
     }
+
+    #endregion
+
+    public ICommand ColorSelectedCommand { get; }
+
+    public int RecentBrushesMaxCount { get; set; } = 10;
+
+    public IEnumerable<SolidColorBrush> RecentBrushes => _recentBrushes;
 
     protected override void OnLostFocus(RoutedEventArgs e)
     {
         base.OnLostFocus(e);
+
+        UpdateRecentColors(Color);
     }
 
     protected override void OnPreviewMouseDown(MouseButtonEventArgs e) => Focus();
@@ -99,5 +109,22 @@ public class ColorPickerControl : Control
         if (o is not Color color) return;
 
         Color = color;
+
+        UpdateRecentColors(color);
+    }
+
+    private void UpdateRecentColors(Color color)
+    {
+        if (_recentBrushes.Any(x => x.Color == color))
+            return;
+
+        if (_recentBrushes.Count >= RecentBrushesMaxCount)
+            _recentBrushes.RemoveAt(RecentBrushesMaxCount - 1);
+
+        var brush = new SolidColorBrush(color);
+
+        _recentBrushes.Insert(0, brush);
+
+        IsRecentColorsEmpty = false;
     }
 }

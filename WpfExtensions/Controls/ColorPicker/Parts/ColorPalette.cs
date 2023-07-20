@@ -176,6 +176,10 @@ public class ColorPalette : Control
         }
     };
 
-    private static Brush CreateBrush(string brush) =>
-        (Brush)BrushConverter.ConvertFrom(brush);
+    private static Brush CreateBrush(string brushHex)
+    {
+        var brush = (Brush)BrushConverter.ConvertFrom(brushHex);
+        brush!.Freeze();
+        return brush;
+    }
 }
