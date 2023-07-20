@@ -32,7 +32,7 @@ public class ColorPaletteBehaviour : Behavior<UniformGrid>
 
     private void OnSizeChanged(object sender, SizeChangedEventArgs e)
     {
-        if(!AssociatedObject.IsLoaded)
+        if (!AssociatedObject.IsLoaded)
             return;
 
         CalculateMargin();
@@ -48,6 +48,9 @@ public class ColorPaletteBehaviour : Behavior<UniformGrid>
     private void CalculateMargin()
     {
         var margin = (AssociatedObject.ActualWidth / AssociatedObject.Columns - BarWidth) / 2;
+
+        if (!double.IsNormal(margin))
+            return;
 
         AssociatedObject.Margin = new Thickness(-margin, 0, -margin, 0);
     }
