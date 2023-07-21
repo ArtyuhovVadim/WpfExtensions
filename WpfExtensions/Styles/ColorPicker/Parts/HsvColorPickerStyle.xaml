@@ -69,8 +69,8 @@
                         </Border>
                         <parts:ColorSlider
                             Grid.Row="1"
-                            Maximum="360"
                             BorderBrush="{TemplateBinding BorderBrush}"
+                            Maximum="360"
                             Minimum="0"
                             Value="{Binding Path=Hue,
                                             RelativeSource={RelativeSource TemplatedParent}}">
@@ -92,14 +92,16 @@
                                 </LinearGradientBrush>
                             </parts:ColorSlider.Background>
                         </parts:ColorSlider>
-                        <Grid Grid.Row="2" Margin="0,6,0,0">
+                        <Grid
+                            x:Name="AlphaGrid"
+                            Grid.Row="2"
+                            Margin="0,6,0,0"
+                            Visibility="Collapsed">
                             <parts:ColorSlider
-                                x:Name="AlphaSlider"
+                                BorderBrush="{TemplateBinding BorderBrush}"
                                 Maximum="255"
                                 Minimum="0"
-                                BorderBrush="{TemplateBinding BorderBrush}"
                                 ThumbBrush="White"
-                                Visibility="Collapsed"
                                 Value="{Binding RelativeSource={RelativeSource TemplatedParent},
                                                 Path=Alpha}">
                                 <parts:ColorSlider.Background>
@@ -130,7 +132,7 @@
                     </Grid>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsTransparencySupported" Value="True">
-                            <Setter TargetName="AlphaSlider" Property="Visibility" Value="Visible" />
+                            <Setter TargetName="AlphaGrid" Property="Visibility" Value="Visible" />
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
