@@ -60,14 +60,28 @@
                             BorderBrush="#222222"
                             BorderThickness="1"
                             Style="{StaticResource ToggleButtonStyle}">
-                            <Border
-                                Margin="2"
-                                BorderBrush="#222222"
-                                BorderThickness="1">
-                                <Border.Background>
-                                    <SolidColorBrush Color="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=SelectedColor}" />
-                                </Border.Background>
-                            </Border>
+                            <Grid>
+                                <Border
+                                    Margin="2"
+                                    BorderBrush="#222222"
+                                    BorderThickness="1">
+                                    <Border.Background>
+                                        <SolidColorBrush Color="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=SelectedColor}" />
+                                    </Border.Background>
+                                </Border>
+                                <Border
+                                    Margin="2"
+                                    Panel.ZIndex="-10"
+                                    RenderOptions.BitmapScalingMode="NearestNeighbor">
+                                    <Border.Background>
+                                        <ImageBrush
+                                            ImageSource="../Resources/Images/TransparentBackground.png"
+                                            TileMode="Tile"
+                                            Viewport="1,1,6,6"
+                                            ViewportUnits="Absolute" />
+                                    </Border.Background>
+                                </Border>
+                            </Grid>
                         </ToggleButton>
                         <Popup
                             x:Name="PART_RootPopup"

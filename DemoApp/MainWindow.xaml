@@ -70,6 +70,7 @@
                             Grid.Column="1"
                             HorizontalAlignment="Center"
                             VerticalAlignment="Center"
+                            IsTransparencySupported="True"
                             SelectedColor="Red" />
                     </Grid>
                 </Grid>

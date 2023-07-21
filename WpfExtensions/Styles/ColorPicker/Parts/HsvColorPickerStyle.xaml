@@ -70,6 +70,7 @@
                         <parts:ColorSlider
                             Grid.Row="1"
                             Maximum="360"
+                            BorderBrush="{TemplateBinding BorderBrush}"
                             Minimum="0"
                             Value="{Binding Path=Hue,
                                             RelativeSource={RelativeSource TemplatedParent}}">
@@ -91,26 +92,41 @@
                                 </LinearGradientBrush>
                             </parts:ColorSlider.Background>
                         </parts:ColorSlider>
-                        <parts:ColorSlider
-                            x:Name="AlphaSlider"
-                            Grid.Row="2"
-                            Margin="0,6,0,0"
-                            Maximum="255"
-                            Minimum="0"
-                            ThumbBrush="White"
-                            Visibility="Collapsed"
-                            Value="{Binding RelativeSource={RelativeSource TemplatedParent},
-                                            Path=Alpha}">
-                            <parts:ColorSlider.Background>
-                                <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
-                                    <LinearGradientBrush.RelativeTransform>
-                                        <RotateTransform Angle="90" CenterX="0.5" CenterY="0.5" />
-                                    </LinearGradientBrush.RelativeTransform>
-                                    <GradientStop Offset="1" Color="Black" />
-                                    <GradientStop Offset="0" Color="White" />
-                                </LinearGradientBrush>
-                            </parts:ColorSlider.Background>
-                        </parts:ColorSlider>
+                        <Grid Grid.Row="2" Margin="0,6,0,0">
+                            <parts:ColorSlider
+                                x:Name="AlphaSlider"
+                                Maximum="255"
+                                Minimum="0"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                ThumbBrush="White"
+                                Visibility="Collapsed"
+                                Value="{Binding RelativeSource={RelativeSource TemplatedParent},
+                                                Path=Alpha}">
+                                <parts:ColorSlider.Background>
+                                    <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
+                                        <LinearGradientBrush.RelativeTransform>
+                                            <RotateTransform Angle="90" CenterX="0.5" CenterY="0.5" />
+                                        </LinearGradientBrush.RelativeTransform>
+                                        <GradientStop Offset="1" Color="Transparent" />
+                                        <GradientStop Offset="0" Color="Black" />
+                                    </LinearGradientBrush>
+                                </parts:ColorSlider.Background>
+                            </parts:ColorSlider>
+                            <Border
+                                Panel.ZIndex="-10"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="1"
+                                CornerRadius="3 5 5 3"
+                                RenderOptions.BitmapScalingMode="NearestNeighbor">
+                                <Border.Background>
+                                    <ImageBrush
+                                        ImageSource="../../../Resources/Images/TransparentBackground.png"
+                                        TileMode="Tile"
+                                        Viewport="1,1,6,6"
+                                        ViewportUnits="Absolute" />
+                                </Border.Background>
+                            </Border>
+                        </Grid>
                     </Grid>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsTransparencySupported" Value="True">

@@ -8,11 +8,19 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Resources\Images\TransparentBackground.png" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Folder Include="Themes\" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.Xaml.Behaviors.Wpf" Version="1.1.39" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Resources\Images\TransparentBackground.png" />
   </ItemGroup>
 
 </Project>

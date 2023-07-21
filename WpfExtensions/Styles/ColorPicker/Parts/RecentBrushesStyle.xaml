@@ -47,15 +47,29 @@
                         </ItemsControl.ItemsPanel>
                         <ItemsControl.ItemTemplate>
                             <DataTemplate DataType="{x:Type Brush}">
-                                <Border Background="{Binding}" Style="{StaticResource ColorBorderStyle}">
-                                    <Border.InputBindings>
-                                        <MouseBinding
-                                            Command="{Binding RelativeSource={RelativeSource AncestorType={x:Type parts:RecentBrushes}},
-                                                              Path=ColorSelectedCommand}"
-                                            CommandParameter="{Binding Path=.Color}"
-                                            MouseAction="LeftClick" />
-                                    </Border.InputBindings>
-                                </Border>
+                                <Grid>
+                                    <Border Background="{Binding}" Style="{StaticResource ColorBorderStyle}">
+                                        <Border.InputBindings>
+                                            <MouseBinding
+                                                Command="{Binding RelativeSource={RelativeSource AncestorType={x:Type parts:RecentBrushes}},
+                                                                  Path=ColorSelectedCommand}"
+                                                CommandParameter="{Binding Path=.Color}"
+                                                MouseAction="LeftClick" />
+                                        </Border.InputBindings>
+                                    </Border>
+                                    <Border
+                                        Panel.ZIndex="-10"
+                                        RenderOptions.BitmapScalingMode="NearestNeighbor"
+                                        Style="{StaticResource ColorBorderStyle}">
+                                        <Border.Background>
+                                            <ImageBrush
+                                                ImageSource="../../../Resources/Images/TransparentBackground.png"
+                                                TileMode="Tile"
+                                                Viewport="0,0,8,8"
+                                                ViewportUnits="Absolute" />
+                                        </Border.Background>
+                                    </Border>
+                                </Grid>
                             </DataTemplate>
                         </ItemsControl.ItemTemplate>
                     </ItemsControl>
