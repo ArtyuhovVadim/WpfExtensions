@@ -3,7 +3,7 @@ using System.Runtime.CompilerServices;
 
 namespace WpfExtensions.Mvvm;
 
-public class BindableBase : INotifyPropertyChanged
+public abstract class BindableBase : INotifyPropertyChanged
 {
     public event PropertyChangedEventHandler? PropertyChanged;
 
@@ -15,6 +15,14 @@ public class BindableBase : INotifyPropertyChanged
     protected bool Set<T>(ref T field, T value, [CallerMemberName] string? propertyName = null)
     {
         if (EqualityComparer<T>.Default.Equals(field, value)) return false;
+        field = value;
+        OnPropertyChanged(propertyName);
+        return true;
+    }
+
+    protected bool Set<T>(ref T field, T value, IEqualityComparer<T> comparer, [CallerMemberName] string? propertyName = null)
+    {
+        if (comparer.Equals(field, value)) return false;
         field = value;
         OnPropertyChanged(propertyName);
         return true;
