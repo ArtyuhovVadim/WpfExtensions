@@ -3,6 +3,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
+using WpfExtensions.Mvvm.Commands;
 
 namespace WpfExtensions.Controls.ColorPicker;
 
@@ -10,7 +11,7 @@ public abstract class BaseColorPickerControl : Control
 {
     protected BaseColorPickerControl()
     {
-        ColorSelectedCommand = new LambdaCommand(OnColorSelectedCommandExecute);
+        ColorSelectedCommand = new LambdaCommand<Color>(OnColorSelected);
     }
 
     #region Color
@@ -85,13 +86,6 @@ public abstract class BaseColorPickerControl : Control
     public abstract IEnumerable<SolidColorBrush> RecentBrushes { get; }
 
     public ICommand ColorSelectedCommand { get; protected set; }
-
-    private void OnColorSelectedCommandExecute(object obj)
-    {
-        if (obj is not Color color) return;
-
-        OnColorSelected(color);
-    }
 
     protected abstract void OnColorSelected(Color color);
 }

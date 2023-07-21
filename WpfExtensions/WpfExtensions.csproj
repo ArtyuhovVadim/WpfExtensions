@@ -20,6 +20,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\WpfExtensions.Mvvm\WpfExtensions.Mvvm.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Resource Include="Resources\Images\TransparentBackground.png" />
   </ItemGroup>
 
