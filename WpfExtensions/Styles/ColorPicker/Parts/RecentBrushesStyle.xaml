@@ -65,7 +65,7 @@
                                             <ImageBrush
                                                 ImageSource="../../../Resources/Images/TransparentBackground.png"
                                                 TileMode="Tile"
-                                                Viewport="0,0,8,8"
+                                                Viewport="2,2,6,6"
                                                 ViewportUnits="Absolute" />
                                         </Border.Background>
                                     </Border>

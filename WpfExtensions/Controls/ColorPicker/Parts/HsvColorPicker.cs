@@ -46,7 +46,7 @@ public class HsvColorPicker : Control
 
         var hue = (double)e.NewValue;
 
-        var newColor = ColorUtils.HsvToRgb(hue, picker.Saturation, picker.Value);
+        var newColor = ColorUtils.HsvToRgb(hue, picker.Saturation, picker.Value) with { A = picker.Alpha };
 
         if (picker.Color == newColor)
             return;
@@ -76,7 +76,7 @@ public class HsvColorPicker : Control
 
         var saturation = (double)e.NewValue;
 
-        var newColor = ColorUtils.HsvToRgb(picker.Hue, saturation, picker.Value);
+        var newColor = ColorUtils.HsvToRgb(picker.Hue, saturation, picker.Value) with { A = picker.Alpha };
 
         if (picker.Color == newColor)
             return;
@@ -106,7 +106,7 @@ public class HsvColorPicker : Control
 
         var value = (double)e.NewValue;
 
-        var newColor = ColorUtils.HsvToRgb(picker.Hue, picker.Saturation, value);
+        var newColor = ColorUtils.HsvToRgb(picker.Hue, picker.Saturation, value) with { A = picker.Alpha };
 
         if (picker.Color == newColor)
             return;
@@ -137,6 +137,9 @@ public class HsvColorPicker : Control
         var alpha = (byte)e.NewValue;
         var newColor = picker.Color with { A = alpha };
 
+        if (picker.Color == newColor)
+            return;
+
         if (picker._canRaisingEvents)
             picker.RaiseEvent(new ColorChangedEventArgs(ColorChangedEvent, picker, newColor, picker.Color));
 
@@ -166,7 +169,7 @@ public class HsvColorPicker : Control
         var newColor = (Color)e.NewValue;
         var oldColor = (Color)e.OldValue;
 
-        if (newColor != ColorUtils.HsvToRgb(picker.Hue, picker.Saturation, picker.Value))
+        if (newColor != ColorUtils.HsvToRgb(picker.Hue, picker.Saturation, picker.Value) with { A = picker.Alpha })
         {
             var newHsv = ColorUtils.RgbToHsv(newColor, picker.Hue);
 
