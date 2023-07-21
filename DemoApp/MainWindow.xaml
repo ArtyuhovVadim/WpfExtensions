@@ -4,11 +4,9 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:adp="clr-namespace:WpfExtensions.AttachedDependencyProperties;assembly=WpfExtensions"
     xmlns:con="clr-namespace:WpfExtensions.Controls;assembly=WpfExtensions"
-    xmlns:converters="clr-namespace:WpfExtensions.Converters;assembly=WpfExtensions"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="clr-namespace:DemoApp"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:parts="clr-namespace:WpfExtensions.Controls.ColorPicker.Parts;assembly=WpfExtensions"
     Title="DemoApp"
     Width="1280"
     Height="720"
@@ -37,19 +35,28 @@
                                 <con:StackPanelEx Spacing="3">
                                     <Grid adp:GridProperties.ColumnDefinitionsEx="auto:PropertyGroup *">
                                         <TextBlock Grid.Column="0" Text="Color" />
-                                        <TextBox Grid.Column="1" Text="{Binding ElementName=ColorPickerControl, Path=Color}" />
+                                        <TextBox Grid.Column="1" Text="{Binding Path=Color}" />
                                     </Grid>
                                     <Grid adp:GridProperties.ColumnDefinitionsEx="auto:PropertyGroup *">
                                         <TextBlock Grid.Column="0" Text="IsTransparencySupported" />
-                                        <CheckBox Grid.Column="1" IsChecked="{Binding ElementName=ColorPickerControl, Path=IsTransparencySupported}" />
+                                        <CheckBox
+                                            x:Name="IsTransparencySupportedCheckBox"
+                                            Grid.Column="1"
+                                            IsChecked="True" />
                                     </Grid>
                                     <Grid adp:GridProperties.ColumnDefinitionsEx="auto:PropertyGroup *">
                                         <TextBlock Grid.Column="0" Text="IsColorPaletteVisible" />
-                                        <CheckBox Grid.Column="1" IsChecked="{Binding ElementName=ColorPickerControl, Path=IsColorPaletteVisible}" />
+                                        <CheckBox
+                                            x:Name="IsColorPaletteVisibleCheckBox"
+                                            Grid.Column="1"
+                                            IsChecked="True" />
                                     </Grid>
                                     <Grid adp:GridProperties.ColumnDefinitionsEx="auto:PropertyGroup *">
                                         <TextBlock Grid.Column="0" Text="IsRecentColorsVisible" />
-                                        <CheckBox Grid.Column="1" IsChecked="{Binding ElementName=ColorPickerControl, Path=IsRecentColorsVisible}" />
+                                        <CheckBox
+                                            x:Name="IsRecentColorsVisibleCheckBox"
+                                            Grid.Column="1"
+                                            IsChecked="True" />
                                     </Grid>
                                 </con:StackPanelEx>
                             </GroupBox>
@@ -60,18 +67,26 @@
                         adp:GridProperties.ColumnDefinitionsEx="* *"
                         Background="#404040">
                         <con:ColorPickerControl
-                            x:Name="ColorPickerControl"
                             Grid.Column="0"
                             Margin="120,150"
-                            IsRecentColorsVisible="True"
-                            IsTransparencySupported="True"
+                            IsColorPaletteVisible="{Binding ElementName=IsColorPaletteVisibleCheckBox,
+                                                            Path=IsChecked}"
+                            IsRecentColorsVisible="{Binding ElementName=IsRecentColorsVisibleCheckBox,
+                                                            Path=IsChecked}"
+                            IsTransparencySupported="{Binding ElementName=IsTransparencySupportedCheckBox,
+                                                              Path=IsChecked}"
                             Color="{Binding Path=Color}" />
                         <con:MinimizedColorPickerControl
                             Grid.Column="1"
                             HorizontalAlignment="Center"
                             VerticalAlignment="Center"
-                            IsTransparencySupported="True"
-                            SelectedColor="Red" />
+                            IsColorPaletteVisible="{Binding ElementName=IsColorPaletteVisibleCheckBox,
+                                                            Path=IsChecked}"
+                            IsRecentColorsVisible="{Binding ElementName=IsRecentColorsVisibleCheckBox,
+                                                            Path=IsChecked}"
+                            IsTransparencySupported="{Binding ElementName=IsTransparencySupportedCheckBox,
+                                                              Path=IsChecked}"
+                            SelectedColor="{Binding Path=Color}" />
                     </Grid>
                 </Grid>
             </TabItem>
