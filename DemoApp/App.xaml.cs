@@ -1,5 +1,3 @@
-﻿using System.Windows;
+﻿namespace DemoApp;
 
-namespace DemoApp;
-
-public partial class App : Application { }
+public partial class App { }

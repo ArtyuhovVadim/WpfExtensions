@@ -12,7 +12,7 @@ namespace WpfExtensions.Converters;
 [MarkupExtensionReturnType(typeof(EnumerableToCountConverter))]
 public class EnumerableToCountConverter : BaseConverter
 {
-    public override object Convert(object value, Type targetType, object parameter, CultureInfo culture)
+    public override object Convert(object? value, Type targetType, object? parameter, CultureInfo culture)
     {
         if (value is not IEnumerable<object> enumerable)
             return Binding.DoNothing;

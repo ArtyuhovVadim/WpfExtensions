@@ -28,7 +28,7 @@ public class LinearConverter : BaseConverter
 
     [ConstructorArgument("B")] public double B { get; set; }
 
-    public override object Convert(object v, Type t, object p, CultureInfo c)
+    public override object? Convert(object? v, Type t, object? p, CultureInfo c)
     {
         if (v is null) return null;
 
@@ -36,7 +36,7 @@ public class LinearConverter : BaseConverter
         return K * x + B;
     }
 
-    public override object ConvertBack(object v, Type t, object p, CultureInfo c)
+    public override object? ConvertBack(object? v, Type t, object? p, CultureInfo c)
     {
         if (v is null) return null;
 

@@ -178,8 +178,8 @@ public class ColorPalette : Control
 
     private static Brush CreateBrush(string brushHex)
     {
-        var brush = (Brush)BrushConverter.ConvertFrom(brushHex);
-        brush!.Freeze();
+        var brush = (Brush)BrushConverter.ConvertFrom(brushHex)!;
+        brush.Freeze();
         return brush;
     }
 }

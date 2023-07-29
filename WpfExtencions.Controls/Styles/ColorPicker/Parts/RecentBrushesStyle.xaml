@@ -3,7 +3,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:b="http://schemas.microsoft.com/xaml/behaviors"
     xmlns:parts="clr-namespace:WpfExtensions.Controls.ColorPicker.Parts"
-    xmlns:wpfExtensions="clr-namespace:WpfExtensions">
+    xmlns:colorPicker="clr-namespace:WpfExtensions.Controls.ColorPicker">
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary>
             <DropShadowEffect
@@ -39,7 +39,7 @@
                             <ItemsPanelTemplate>
                                 <UniformGrid Columns="{Binding RelativeSource={RelativeSource AncestorType={x:Type parts:RecentBrushes}}, Path=RecentBrushesMaxCount, Mode=OneWay}">
                                     <b:Interaction.Behaviors>
-                                        <wpfExtensions:ColorPaletteBehaviour BarWidth="16" />
+                                        <colorPicker:ColorPaletteBehaviour BarWidth="16" />
                                     </b:Interaction.Behaviors>
                                 </UniformGrid>
                             </ItemsPanelTemplate>

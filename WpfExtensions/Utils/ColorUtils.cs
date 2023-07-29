@@ -7,9 +7,9 @@ public static class ColorUtils
 {
     public static Color HsvToRgb(double hue, double saturation, double value)
     {
-        double num = 0.0;
-        double num2 = 0.0;
-        double num3 = 0.0;
+        double num;
+        double num2;
+        double num3;
         if (saturation == 0.0)
         {
             num = value;
@@ -19,11 +19,11 @@ public static class ColorUtils
         else
         {
             hue = hue != 360.0 ? hue / 60.0 : 0.0;
-            int num4 = (int)Math.Truncate(hue);
-            double num5 = hue - num4;
-            double num6 = value * (1.0 - saturation);
-            double num7 = value * (1.0 - saturation * num5);
-            double num8 = value * (1.0 - saturation * (1.0 - num5));
+            var num4 = (int)Math.Truncate(hue);
+            var num5 = hue - num4;
+            var num6 = value * (1.0 - saturation);
+            var num7 = value * (1.0 - saturation * num5);
+            var num8 = value * (1.0 - saturation * (1.0 - num5));
             switch (num4)
             {
                 case 0:
@@ -64,11 +64,11 @@ public static class ColorUtils
 
     public static HsvColor RgbToHsv(Color color, double hue = 0)
     {
-        double num = 0.0;
+        var num = 0.0;
         double num2 = Math.Min(Math.Min(color.R, color.G), color.B);
         double num3 = Math.Max(Math.Max(color.R, color.G), color.B);
-        double num4 = num3 - num2;
-        double num5 = num3 != 0.0 ? num4 / num3 : 0.0;
+        var num4 = num3 - num2;
+        var num5 = num3 != 0.0 ? num4 / num3 : 0.0;
 
         if (num5 == 0.0)
         {

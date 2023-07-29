@@ -8,7 +8,7 @@ public class Crosshair : FrameworkElement
     private readonly Pen _blackPen = new(Brushes.Black, 2);
     private readonly Pen _whitePen = new(Brushes.White, 2);
     private double _dpiFactor;
-    private ScaleTransform _scaleTransform;
+    private ScaleTransform? _scaleTransform;
 
     public Crosshair()
     {

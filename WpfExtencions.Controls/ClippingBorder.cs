@@ -8,9 +8,9 @@ namespace WpfExtensions.Controls;
 public class ClippingBorder : Border
 {
     private readonly RectangleGeometry _clipRect = new();
-    private object _oldClip;
+    private object? _oldClip;
 
-    public override UIElement Child
+    public override UIElement? Child
     {
         get => base.Child;
         set
@@ -31,10 +31,10 @@ public class ClippingBorder : Border
     private void ApplyChildClip()
     {
         var child = Child;
-        if (child is null) 
+        if (child is null)
             return;
         _clipRect.RadiusX = _clipRect.RadiusY = Math.Max(0.0, CornerRadius.TopLeft - BorderThickness.Left * 0.5);
-        _clipRect.Rect = new Rect(Child.RenderSize);
+        _clipRect.Rect = new Rect(Child!.RenderSize);
         child.Clip = _clipRect;
     }
 }

@@ -17,7 +17,7 @@ public class ColorToStringConverter : BaseConverter
 
     public bool IsTransparencySupported { get; set; }
 
-    public override object Convert(object value, Type targetType, object parameter, CultureInfo culture)
+    public override object Convert(object? value, Type targetType, object? parameter, CultureInfo culture)
     {
         if (value is not Color color)
             return Binding.DoNothing;
@@ -30,7 +30,7 @@ public class ColorToStringConverter : BaseConverter
         return colorStr;
     }
 
-    public override object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
+    public override object ConvertBack(object? value, Type targetType, object? parameter, CultureInfo culture)
     {
         if (value is not string str)
             return Binding.DoNothing;

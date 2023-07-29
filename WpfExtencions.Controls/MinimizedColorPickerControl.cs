@@ -16,9 +16,9 @@ public class MinimizedColorPickerControl : BaseColorPickerControl
     private const string CancelButtonName = "PART_CancelButton";
     private const string RootPopupName = "PART_RootPopup";
 
-    private Button _applyButton;
-    private Button _cancelButton;
-    private Popup _rootPopup;
+    private Button? _applyButton;
+    private Button? _cancelButton;
+    private Popup? _rootPopup;
 
     private readonly ObservableCollection<SolidColorBrush> _recentBrushes = new();
 
@@ -91,20 +91,20 @@ public class MinimizedColorPickerControl : BaseColorPickerControl
     {
         SelectedColor = Color;
         UpdateRecentColors(SelectedColor);
-        _rootPopup.IsOpen = false;
+        _rootPopup!.IsOpen = false;
     }
 
     private void OnCancelButtonClick(object sender, RoutedEventArgs e)
     {
         Color = SelectedColor;
-        _rootPopup.IsOpen = false;
+        _rootPopup!.IsOpen = false;
     }
 
     protected override void OnColorSelected(Color color)
     {
         SelectedColor = Color = color;
         UpdateRecentColors(color);
-        _rootPopup.IsOpen = false;
+        _rootPopup!.IsOpen = false;
     }
 
     private void UpdateRecentColors(Color color)

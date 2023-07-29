@@ -19,7 +19,7 @@ public struct HsvColor
 
     public bool Equals(HsvColor other) => Hue.Equals(other.Hue) && Saturation.Equals(other.Saturation) && Value.Equals(other.Value);
 
-    public override bool Equals(object obj) => obj is HsvColor other && Equals(other);
+    public override bool Equals(object? obj) => obj is HsvColor other && Equals(other);
 
     public override int GetHashCode() => HashCode.Combine(Hue, Saturation, Value);
 

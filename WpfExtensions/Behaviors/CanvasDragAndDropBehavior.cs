@@ -9,7 +9,7 @@ public class CanvasDragAndDropBehavior : Behavior<Canvas>
 {
     #region ObjectToDrag
 
-    public UIElement ObjectToDrag
+    public UIElement? ObjectToDrag
     {
         get => (UIElement)GetValue(ObjectToDragProperty);
         set => SetValue(ObjectToDragProperty, value);

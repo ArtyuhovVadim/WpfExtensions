@@ -2,7 +2,7 @@
 using System.Windows.Controls.Primitives;
 using Microsoft.Xaml.Behaviors;
 
-namespace WpfExtensions;
+namespace WpfExtensions.Controls.ColorPicker;
 
 public class ColorPaletteBehaviour : Behavior<UniformGrid>
 {

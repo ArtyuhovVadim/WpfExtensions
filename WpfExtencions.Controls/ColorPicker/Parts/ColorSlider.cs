@@ -14,8 +14,8 @@ public class ColorSlider : Control
     private const string ThumbCanvasName = "PART_ThumbCanvasHolder";
     private const string ThumbName = "PART_Thumb";
 
-    private Canvas _thumbCanvas;
-    private UIElement _thumb;
+    private Canvas? _thumbCanvas;
+    private UIElement? _thumb;
 
     static ColorSlider()
     {
@@ -128,7 +128,7 @@ public class ColorSlider : Control
 
     private void OnLoaded(object sender, RoutedEventArgs e)
     {
-        var v = Map(Value, Minimum, Maximum, 0, _thumbCanvas.ActualWidth);
+        var v = Map(Value, Minimum, Maximum, 0, _thumbCanvas!.ActualWidth);
 
         UpdateThumbPosition(v);
     }
@@ -165,13 +165,13 @@ public class ColorSlider : Control
     {
         base.OnRenderSizeChanged(sizeInfo);
 
-        var v = Map(Value, Minimum, Maximum, 0, _thumbCanvas.ActualWidth);
+        var v = Map(Value, Minimum, Maximum, 0, _thumbCanvas!.ActualWidth);
         UpdateThumbPosition(v, false);
     }
 
     private void UpdateThumbPosition(double pos, bool affectValue = true)
     {
-        pos = Math.Clamp(pos, 0, _thumbCanvas.ActualWidth) - _thumb.RenderSize.Width / 2;
+        pos = Math.Clamp(pos, 0, _thumbCanvas!.ActualWidth) - _thumb!.RenderSize.Width / 2;
 
         Canvas.SetLeft(_thumb, pos);
 

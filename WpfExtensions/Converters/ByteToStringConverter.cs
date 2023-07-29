@@ -14,12 +14,12 @@ public partial class ByteToStringConverter : BaseConverter
     [GeneratedRegex("[^.0-9]")]
     private static partial Regex IsDigitRegex();
 
-    public override object Convert(object value, Type targetType, object parameter, CultureInfo culture)
+    public override object Convert(object? value, Type targetType, object? parameter, CultureInfo culture)
     {
         return value?.ToString() ?? string.Empty;
     }
 
-    public override object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
+    public override object? ConvertBack(object? value, Type targetType, object? parameter, CultureInfo culture)
     {
         if (value is not string str) return value;
 
