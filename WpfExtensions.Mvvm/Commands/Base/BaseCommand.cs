@@ -13,7 +13,7 @@ public abstract class BaseCommand<T> : BaseCommand, IRelayCommand<T>
         if (parameter is not T t)
             throw new ArgumentException($"Parameter must be {typeof(T)} type.");
 
-        Execute(t);
+        OnExecute(t);
     }
 
     protected override bool OnCanExecute(object? parameter)
@@ -21,7 +21,7 @@ public abstract class BaseCommand<T> : BaseCommand, IRelayCommand<T>
         if (parameter is not T t)
             throw new ArgumentException($"Parameter must be {typeof(T)} type.");
 
-        return CanExecute(t);
+        return OnCanExecute(t);
     }
 
     protected abstract void OnExecute(T? parameter);
