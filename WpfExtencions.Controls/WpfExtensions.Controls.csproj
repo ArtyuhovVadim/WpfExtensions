@@ -1,16 +1,22 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <OutputType>WinExe</OutputType>
     <TargetFramework>net7.0-windows</TargetFramework>
     <Nullable>enable</Nullable>
     <UseWPF>true</UseWPF>
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\WpfExtencions.Controls\WpfExtensions.Controls.csproj" />
+    <None Remove="Resources\Images\TransparentBackground.png" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\WpfExtensions.Mvvm\WpfExtensions.Mvvm.csproj" />
     <ProjectReference Include="..\WpfExtensions\WpfExtensions.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Resources\Images\TransparentBackground.png" />
   </ItemGroup>
 
 </Project>

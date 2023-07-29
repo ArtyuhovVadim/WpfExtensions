@@ -4,6 +4,7 @@ using System.Text.RegularExpressions;
 using System.Windows.Data;
 using System.Windows.Markup;
 using System.Windows.Media;
+using WpfExtensions.Converters.Base;
 
 namespace WpfExtensions.Converters;
 

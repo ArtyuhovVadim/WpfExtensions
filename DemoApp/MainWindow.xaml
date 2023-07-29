@@ -3,10 +3,10 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:adp="clr-namespace:WpfExtensions.AttachedDependencyProperties;assembly=WpfExtensions"
-    xmlns:con="clr-namespace:WpfExtensions.Controls;assembly=WpfExtensions"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="clr-namespace:DemoApp"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:controls="clr-namespace:WpfExtensions.Controls;assembly=WpfExtensions.Controls"
     Title="DemoApp"
     Width="1280"
     Height="720"
@@ -38,9 +38,9 @@
                                 <Setter Property="Margin" Value="0,0,0,0" />
                             </Style>
                         </GroupBox.Resources>
-                        <con:StackPanelEx>
+                        <controls:StackPanelEx>
                             <GroupBox Grid.IsSharedSizeScope="True" Header="ColorPickerControlProperties">
-                                <con:StackPanelEx Spacing="3">
+                                <controls:StackPanelEx Spacing="3">
                                     <Grid adp:GridProperties.ColumnDefinitionsEx="auto:PropertyGroup *">
                                         <TextBlock Grid.Column="0" Text="Color" />
                                         <TextBox Grid.Column="1" Text="{Binding Path=Color}" />
@@ -66,15 +66,15 @@
                                             Grid.Column="1"
                                             IsChecked="True" />
                                     </Grid>
-                                </con:StackPanelEx>
+                                </controls:StackPanelEx>
                             </GroupBox>
-                        </con:StackPanelEx>
+                        </controls:StackPanelEx>
                     </GroupBox>
                     <Grid
                         Grid.Column="1"
                         adp:GridProperties.ColumnDefinitionsEx="* *"
                         Background="#404040">
-                        <con:ColorPickerControl
+                        <controls:ColorPickerControl
                             Grid.Column="0"
                             Margin="120,150"
                             IsColorPaletteVisible="{Binding ElementName=IsColorPaletteVisibleCheckBox,
@@ -84,7 +84,7 @@
                             IsTransparencySupported="{Binding ElementName=IsTransparencySupportedCheckBox,
                                                               Path=IsChecked}"
                             Color="{Binding Path=Color}" />
-                        <con:MinimizedColorPickerControl
+                        <controls:MinimizedColorPickerControl
                             Grid.Column="1"
                             HorizontalAlignment="Center"
                             VerticalAlignment="Center"

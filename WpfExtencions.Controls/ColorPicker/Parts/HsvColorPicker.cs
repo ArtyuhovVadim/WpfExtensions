@@ -2,6 +2,7 @@
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
+using WpfExtensions.Utils;
 
 namespace WpfExtensions.Controls.ColorPicker.Parts;
 

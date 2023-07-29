@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Media;
 
-namespace WpfExtensions;
+namespace WpfExtensions.Utils;
 
 public static class ColorUtils
 {
@@ -18,7 +18,7 @@ public static class ColorUtils
         }
         else
         {
-            hue = ((hue != 360.0) ? (hue / 60.0) : 0.0);
+            hue = hue != 360.0 ? hue / 60.0 : 0.0;
             int num4 = (int)Math.Truncate(hue);
             double num5 = hue - num4;
             double num6 = value * (1.0 - saturation);
@@ -68,7 +68,7 @@ public static class ColorUtils
         double num2 = Math.Min(Math.Min(color.R, color.G), color.B);
         double num3 = Math.Max(Math.Max(color.R, color.G), color.B);
         double num4 = num3 - num2;
-        double num5 = ((num3 != 0.0) ? (num4 / num3) : 0.0);
+        double num5 = num3 != 0.0 ? num4 / num3 : 0.0;
 
         if (num5 == 0.0)
         {

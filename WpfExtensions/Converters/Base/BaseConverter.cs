@@ -3,7 +3,7 @@ using System.Globalization;
 using System.Windows.Data;
 using System.Windows.Markup;
 
-namespace WpfExtensions.Converters;
+namespace WpfExtensions.Converters.Base;
 
 public abstract class BaseConverter : MarkupExtension, IValueConverter
 {
