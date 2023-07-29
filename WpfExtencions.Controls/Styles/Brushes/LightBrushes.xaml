@@ -1,0 +1,10 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:brushes="clr-namespace:WpfExtensions.Controls.Styles.Brushes"
+    xmlns:o="http://schemas.microsoft.com/winfx/2006/xaml/presentation/options">
+    <SolidColorBrush
+        x:Key="{x:Static brushes:BrushesKeys.ColorPickerControlBackground}"
+        o:Freeze="True"
+        Color="White" />
+</ResourceDictionary>
