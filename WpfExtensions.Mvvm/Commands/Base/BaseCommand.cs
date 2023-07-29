@@ -1,14 +1,15 @@
-﻿using System.Windows.Input;
+﻿using System.Windows;
+using System.Windows.Input;
 
 namespace WpfExtensions.Mvvm.Commands.Base;
 
-public abstract class BaseCommand<T> : BaseCommand, ICommand<T>
+public abstract class BaseCommand<T> : BaseCommand, IRelayCommand<T>
 {
-    public abstract void Execute(T? parameter);
+    void IRelayCommand<T>.Execute(T? parameter) => OnExecute(parameter);
 
-    public virtual bool CanExecute(T? parameter) => true;
+    bool IRelayCommand<T>.CanExecute(T? parameter) => OnCanExecute(parameter);
 
-    public override void Execute(object? parameter)
+    protected override void OnExecute(object? parameter)
     {
         if (parameter is not T t)
             throw new ArgumentException($"Parameter must be {typeof(T)} type.");
@@ -16,24 +17,44 @@ public abstract class BaseCommand<T> : BaseCommand, ICommand<T>
         Execute(t);
     }
 
-    public override bool CanExecute(object? parameter)
+    protected override bool OnCanExecute(object? parameter)
     {
         if (parameter is not T t)
             throw new ArgumentException($"Parameter must be {typeof(T)} type.");
 
         return CanExecute(t);
     }
+
+    protected abstract void OnExecute(T? parameter);
+
+    protected virtual bool OnCanExecute(T? parameter) => true;
 }
 
-public abstract class BaseCommand : ICommand
+public abstract class BaseCommand : BindableBase, IRelayCommand
 {
+    private bool _isEnabled = true;
+
     public event EventHandler? CanExecuteChanged
     {
         add => CommandManager.RequerySuggested += value;
         remove => CommandManager.RequerySuggested -= value;
     }
 
-    public abstract void Execute(object? parameter);
+    public bool IsEnabled
+    {
+        get => _isEnabled;
+        set => Set(ref _isEnabled, value);
+    }
 
-    public virtual bool CanExecute(object? parameter) => true;
+    public bool CanExecute(object? parameter) => IsEnabled && OnCanExecute(parameter);
+
+    public void Execute(object? parameter)
+    {
+        if (CanExecute(parameter))
+            OnExecute(parameter);
+    }
+
+    protected virtual bool OnCanExecute(object? parameter) => true;
+
+    protected abstract void OnExecute(object? parameter);
 }

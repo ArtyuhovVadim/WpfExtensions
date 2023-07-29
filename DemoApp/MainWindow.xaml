@@ -16,6 +16,14 @@
     </Window.DataContext>
     <DockPanel>
         <TabControl TabStripPlacement="Left">
+            <TabItem Header="Command test">
+                <Button
+                    Padding="10"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Command="{Binding Path=SomeCommand1}"
+                    Content="Test button" />
+            </TabItem>
             <TabItem Header="ColorPicker">
                 <Grid adp:GridProperties.ColumnDefinitionsEx="* 4*">
                     <GroupBox Header="Properties">

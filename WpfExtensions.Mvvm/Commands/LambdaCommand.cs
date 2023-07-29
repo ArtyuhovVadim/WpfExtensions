@@ -19,11 +19,11 @@ public class LambdaCommand<T> : BaseCommand<T>
         _canExecute = canExecute;
     }
 
-    public override void Execute(T? parameter) => 
+    protected override void OnExecute(T? parameter) => 
         _executeAction.Invoke(parameter);
 
-    public override bool CanExecute(T? parameter) => 
-        _canExecute?.Invoke(parameter) ?? base.CanExecute(parameter);
+    protected override bool OnCanExecute(T? parameter) => 
+        _canExecute?.Invoke(parameter) ?? base.OnCanExecute(parameter);
 }
 
 public class LambdaCommand : BaseCommand
@@ -55,9 +55,9 @@ public class LambdaCommand : BaseCommand
         _canExecute = _ => canExecute();
     }
 
-    public override void Execute(object? parameter) =>
+    protected override void OnExecute(object? parameter) =>
         _executeAction.Invoke(parameter);
 
-    public override bool CanExecute(object? parameter) =>
-        _canExecute?.Invoke(parameter) ?? base.CanExecute(parameter);
+    protected override bool OnCanExecute(object? parameter) =>
+        _canExecute?.Invoke(parameter) ?? base.OnCanExecute(parameter);
 }

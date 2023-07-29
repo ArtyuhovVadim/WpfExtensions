@@ -8,6 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\WpfExtensions.Mvvm\WpfExtensions.Mvvm.csproj" />
     <ProjectReference Include="..\WpfExtensions\WpfExtensions.csproj" />
   </ItemGroup>
 
