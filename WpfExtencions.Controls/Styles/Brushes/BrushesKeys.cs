@@ -5,10 +5,15 @@ namespace WpfExtensions.Controls.Styles.Brushes;
 
 public static class BrushesKeys
 {
-    public static readonly ComponentResourceKey ColorPickerControlBackground = CreateInstance();
+    public static class ColorPickerControl
+    {
+        public static readonly ComponentResourceKey Background = CreateInstance();
+
+        public static readonly ComponentResourceKey Foreground = CreateInstance();
+    }
 
     private static ComponentResourceKey CreateInstance([CallerMemberName] string fieldName = null!)
     {
-        return new ComponentResourceKey(typeof(BrushesKeys), fieldName!);
+        return new ComponentResourceKey(typeof(BrushesKeys), fieldName);
     }
 }
