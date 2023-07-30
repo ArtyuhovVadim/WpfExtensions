@@ -16,9 +16,9 @@
         <Setter Property="FocusVisualStyle" Value="{x:Null}" />
         <Setter Property="UseLayoutRounding" Value="True" />
         <Setter Property="SnapsToDevicePixels" Value="True" />
-        <Setter Property="TextBlock.Foreground" Value="#E5E5E5" />
+        <Setter Property="TextBlock.Foreground" Value="{DynamicResource {x:Static b:BrushesKeys+ColorPickerControl.Foreground}}" />
         <Setter Property="BorderThickness" Value="1" />
-        <Setter Property="BorderBrush" Value="#222222" />
+        <Setter Property="BorderBrush" Value="{DynamicResource {x:Static b:BrushesKeys+ColorPickerControl.BorderBrush}}" />
         <Setter Property="Padding" Value="6" />
         <Setter Property="Background" Value="{DynamicResource {x:Static b:BrushesKeys+ColorPickerControl.Background}}" />
         <Setter Property="Template">

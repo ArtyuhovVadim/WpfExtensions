@@ -3,8 +3,63 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:b="clr-namespace:WpfExtensions.Controls.Styles.Brushes"
     xmlns:o="http://schemas.microsoft.com/winfx/2006/xaml/presentation/options">
+
+    <!--#region ColorPickerControl-->
+
     <SolidColorBrush
         x:Key="{x:Static b:BrushesKeys+ColorPickerControl.Background}"
         o:Freeze="True"
         Color="#484848" />
+
+    <SolidColorBrush
+        x:Key="{x:Static b:BrushesKeys+ColorPickerControl.Foreground}"
+        o:Freeze="True"
+        Color="#E5E5E5" />
+
+    <SolidColorBrush
+        x:Key="{x:Static b:BrushesKeys+ColorPickerControl.BorderBrush}"
+        o:Freeze="True"
+        Color="#222222" />
+
+    <!--#endregion-->
+
+    <!--#region MinimizedColorPickerControl-->
+
+    <SolidColorBrush
+        x:Key="{x:Static b:BrushesKeys+MinimizedColorPickerControl.Background}"
+        o:Freeze="True"
+        Color="#484848" />
+
+    <SolidColorBrush
+        x:Key="{x:Static b:BrushesKeys+MinimizedColorPickerControl.Foreground}"
+        o:Freeze="True"
+        Color="#E5E5E5" />
+
+    <SolidColorBrush
+        x:Key="{x:Static b:BrushesKeys+MinimizedColorPickerControl.BorderBrush}"
+        o:Freeze="True"
+        Color="#222222" />
+
+    <SolidColorBrush
+        x:Key="{x:Static b:BrushesKeys+MinimizedColorPickerControl.MinimizedBackground}"
+        o:Freeze="True"
+        Color="#545454" />
+
+    <SolidColorBrush
+        x:Key="{x:Static b:BrushesKeys+MinimizedColorPickerControl.MinimizedBorderBrush}"
+        o:Freeze="True"
+        Color="#222222" />
+
+    <SolidColorBrush
+        x:Key="{x:Static b:BrushesKeys+MinimizedColorPickerControl.MouseOverBrush}"
+        o:Freeze="True"
+        Color="#A2D2FD" />
+
+    <SolidColorBrush
+        x:Key="{x:Static b:BrushesKeys+MinimizedColorPickerControl.FocusedBrush}"
+        o:Freeze="True"
+        Color="#A2D2FD" />
+
+    <!--#endregion-->
+
 </ResourceDictionary>
