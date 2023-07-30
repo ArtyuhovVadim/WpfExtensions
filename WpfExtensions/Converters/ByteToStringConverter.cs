@@ -1,6 +1,5 @@
 ﻿using System.Globalization;
 using System.Text.RegularExpressions;
-using System;
 using System.Windows.Data;
 using System.Windows.Markup;
 using WpfExtensions.Converters.Base;

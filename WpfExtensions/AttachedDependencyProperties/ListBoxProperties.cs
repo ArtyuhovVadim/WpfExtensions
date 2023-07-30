@@ -1,6 +1,5 @@
 ﻿using System.Windows.Controls;
 using System.Windows;
-using System;
 
 namespace WpfExtensions.AttachedDependencyProperties;
 

@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace WpfExtensions;
+﻿namespace WpfExtensions;
 
 public struct HsvColor
 {

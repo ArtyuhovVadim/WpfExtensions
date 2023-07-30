@@ -1,22 +1,23 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <TargetFramework>net7.0-windows</TargetFramework>
-    <Nullable>enable</Nullable>
-    <UseWPF>true</UseWPF>
-  </PropertyGroup>
+	<PropertyGroup>
+		<TargetFramework>net7.0-windows</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+		<UseWPF>true</UseWPF>
+	</PropertyGroup>
 
-  <ItemGroup>
-    <None Remove="Resources\Images\TransparentBackground.png" />
-  </ItemGroup>
+	<ItemGroup>
+		<None Remove="Resources\Images\TransparentBackground.png" />
+	</ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\WpfExtensions.Mvvm\WpfExtensions.Mvvm.csproj" />
-    <ProjectReference Include="..\WpfExtensions\WpfExtensions.csproj" />
-  </ItemGroup>
+	<ItemGroup>
+		<ProjectReference Include="..\WpfExtensions.Mvvm\WpfExtensions.Mvvm.csproj" />
+		<ProjectReference Include="..\WpfExtensions\WpfExtensions.csproj" />
+	</ItemGroup>
 
-  <ItemGroup>
-    <Resource Include="Resources\Images\TransparentBackground.png" />
-  </ItemGroup>
+	<ItemGroup>
+		<Resource Include="Resources\Images\TransparentBackground.png" />
+	</ItemGroup>
 
 </Project>
