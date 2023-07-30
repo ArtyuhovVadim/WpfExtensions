@@ -62,4 +62,87 @@
 
     <!--#endregion-->
 
+    <!--#region ColorPalette-->
+
+    <SolidColorBrush
+        x:Key="{x:Static b:BrushesKeys+ColorPalette.Background}"
+        o:Freeze="True"
+        Color="Transparent" />
+
+    <SolidColorBrush
+        x:Key="{x:Static b:BrushesKeys+ColorPalette.BorderBrush}"
+        o:Freeze="True"
+        Color="#222222" />
+
+    <Color x:Key="{x:Static b:BrushesKeys+ColorPalette.HighlightColor}" o:Freeze="True">
+        #A2D2FD
+    </Color>
+
+    <!--#endregion-->
+
+    <!--#region ColorSlider-->
+
+    <SolidColorBrush
+        x:Key="{x:Static b:BrushesKeys+ColorSlider.Background}"
+        o:Freeze="True"
+        Color="#545454" />
+
+    <SolidColorBrush
+        x:Key="{x:Static b:BrushesKeys+ColorSlider.BorderBrush}"
+        o:Freeze="True"
+        Color="#222222" />
+
+    <SolidColorBrush
+        x:Key="{x:Static b:BrushesKeys+ColorSlider.ThumbBrush}"
+        o:Freeze="True"
+        Color="White" />
+
+    <!--#endregion-->
+
+    <!--#region HsvColorPicker-->
+
+    <SolidColorBrush
+        x:Key="{x:Static b:BrushesKeys+HsvColorPicker.Background}"
+        o:Freeze="True"
+        Color="Transparent" />
+
+    <SolidColorBrush
+        x:Key="{x:Static b:BrushesKeys+HsvColorPicker.BorderBrush}"
+        o:Freeze="True"
+        Color="#222222" />
+
+    <!--#endregion-->
+
+    <!--#region RecentBrushes-->
+
+    <SolidColorBrush
+        x:Key="{x:Static b:BrushesKeys+RecentBrushes.Background}"
+        o:Freeze="True"
+        Color="Transparent" />
+
+    <SolidColorBrush
+        x:Key="{x:Static b:BrushesKeys+RecentBrushes.BorderBrush}"
+        o:Freeze="True"
+        Color="#222222" />
+
+    <Color x:Key="{x:Static b:BrushesKeys+RecentBrushes.HighlightColor}" o:Freeze="True">
+        #A2D2FD
+    </Color>
+
+    <!--#endregion-->
+
+    <!--#region TextColorPicker-->
+
+    <SolidColorBrush
+        x:Key="{x:Static b:BrushesKeys+TextColorPicker.Background}"
+        o:Freeze="True"
+        Color="Transparent" />
+
+    <SolidColorBrush
+        x:Key="{x:Static b:BrushesKeys+TextColorPicker.BorderBrush}"
+        o:Freeze="True"
+        Color="#222222" />
+
+    <!--#endregion-->
+
 </ResourceDictionary>

@@ -7,6 +7,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="clr-namespace:DemoApp"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:parts="clr-namespace:WpfExtensions.Controls.ColorPicker.Parts;assembly=WpfExtensions.Controls"
     Title="DemoApp"
     Width="1280"
     Height="720"
@@ -16,6 +17,9 @@
     </Window.DataContext>
     <DockPanel>
         <TabControl TabStripPlacement="Left">
+            <TabItem>
+                <parts:TextColorPicker Margin="300,200" IsTransparencySupported="True" />
+            </TabItem>
             <TabItem Header="ColorPicker">
                 <Grid adp:GridProperties.ColumnDefinitionsEx="* 4*">
                     <GroupBox Header="Properties">

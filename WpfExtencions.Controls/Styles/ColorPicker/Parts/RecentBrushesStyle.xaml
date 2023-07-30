@@ -2,8 +2,9 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:b="http://schemas.microsoft.com/xaml/behaviors"
-    xmlns:parts="clr-namespace:WpfExtensions.Controls.ColorPicker.Parts"
-    xmlns:colorPicker="clr-namespace:WpfExtensions.Controls.ColorPicker">
+    xmlns:brushes="clr-namespace:WpfExtensions.Controls.Styles.Brushes"
+    xmlns:colorPicker="clr-namespace:WpfExtensions.Controls.ColorPicker"
+    xmlns:parts="clr-namespace:WpfExtensions.Controls.ColorPicker.Parts">
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary>
             <DropShadowEffect
@@ -11,7 +12,7 @@
                 BlurRadius="8"
                 RenderingBias="Quality"
                 ShadowDepth="0"
-                Color="#A2D2FD" />
+                Color="{DynamicResource {x:Static brushes:BrushesKeys+RecentBrushes.HighlightColor}}" />
             <Style x:Key="ColorBorderStyle" TargetType="{x:Type Border}">
                 <Setter Property="BorderThickness" Value="1" />
                 <Setter Property="BorderBrush" Value="{Binding RelativeSource={RelativeSource AncestorType={x:Type parts:RecentBrushes}}, Path=BorderBrush}" />
@@ -26,9 +27,9 @@
         </ResourceDictionary>
     </ResourceDictionary.MergedDictionaries>
     <Style TargetType="{x:Type parts:RecentBrushes}">
-        <Setter Property="BorderBrush" Value="#222222" />
+        <Setter Property="BorderBrush" Value="{DynamicResource {x:Static brushes:BrushesKeys+RecentBrushes.BorderBrush}}" />
         <Setter Property="Focusable" Value="False" />
-        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="Background" Value="{DynamicResource {x:Static brushes:BrushesKeys+RecentBrushes.Background}}" />
         <Setter Property="UseLayoutRounding" Value="True" />
         <Setter Property="SnapsToDevicePixels" Value="True" />
         <Setter Property="Template">

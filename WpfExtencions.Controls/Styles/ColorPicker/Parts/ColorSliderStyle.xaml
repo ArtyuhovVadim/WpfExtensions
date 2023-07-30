@@ -1,8 +1,9 @@
 ﻿<ResourceDictionary
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:parts="clr-namespace:WpfExtensions.Controls.ColorPicker.Parts"
-    xmlns:converters="clr-namespace:WpfExtensions.Converters;assembly=WpfExtensions">
+    xmlns:b="clr-namespace:WpfExtensions.Controls.Styles.Brushes"
+    xmlns:converters="clr-namespace:WpfExtensions.Converters;assembly=WpfExtensions"
+    xmlns:parts="clr-namespace:WpfExtensions.Controls.ColorPicker.Parts">
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary>
             <converters:LinearConverter x:Key="LinearConverter" K="-0.5" />
@@ -12,14 +13,14 @@
         <Setter Property="UseLayoutRounding" Value="True" />
         <Setter Property="SnapsToDevicePixels" Value="True" />
         <Setter Property="BorderThickness" Value="1" />
-        <Setter Property="Background" Value="White" />
+        <Setter Property="Background" Value="{DynamicResource {x:Static b:BrushesKeys+ColorSlider.Background}}" />
         <Setter Property="MinHeight" Value="8" />
         <Setter Property="Focusable" Value="False" />
         <Setter Property="ThumbWidth" Value="6" />
         <Setter Property="ThumbHeight" Value="14" />
-        <Setter Property="ThumbBrush" Value="#222222" />
+        <Setter Property="ThumbBrush" Value="{DynamicResource {x:Static b:BrushesKeys+ColorSlider.ThumbBrush}}" />
         <Setter Property="VerticalAlignment" Value="Center" />
-        <Setter Property="BorderBrush" Value="#222222" />
+        <Setter Property="BorderBrush" Value="{DynamicResource {x:Static b:BrushesKeys+ColorSlider.BorderBrush}}" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type parts:ColorSlider}">

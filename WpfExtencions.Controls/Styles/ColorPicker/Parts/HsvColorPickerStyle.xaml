@@ -3,9 +3,10 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:attachedDependencyProperties1="clr-namespace:WpfExtensions.AttachedDependencyProperties;assembly=WpfExtensions"
     xmlns:b="http://schemas.microsoft.com/xaml/behaviors"
+    xmlns:behaviors="clr-namespace:WpfExtensions.Behaviors;assembly=WpfExtensions"
+    xmlns:brushes="clr-namespace:WpfExtensions.Controls.Styles.Brushes"
     xmlns:converters="clr-namespace:WpfExtensions.Converters;assembly=WpfExtensions"
-    xmlns:parts="clr-namespace:WpfExtensions.Controls.ColorPicker.Parts"
-    xmlns:behaviors="clr-namespace:WpfExtensions.Behaviors;assembly=WpfExtensions">
+    xmlns:parts="clr-namespace:WpfExtensions.Controls.ColorPicker.Parts">
     <Style TargetType="{x:Type parts:HsvColorPicker}">
         <Style.Resources>
             <ResourceDictionary>
@@ -17,9 +18,9 @@
             </ResourceDictionary>
         </Style.Resources>
 
-        <Setter Property="BorderBrush" Value="#222222" />
+        <Setter Property="BorderBrush" Value="{DynamicResource {x:Static brushes:BrushesKeys+HsvColorPicker.BorderBrush}}" />
         <Setter Property="BorderThickness" Value="1" />
-        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="Background" Value="{DynamicResource {x:Static brushes:BrushesKeys+HsvColorPicker.Background}}" />
         <Setter Property="UseLayoutRounding" Value="True" />
         <Setter Property="Focusable" Value="False" />
         <Setter Property="SnapsToDevicePixels" Value="True" />
