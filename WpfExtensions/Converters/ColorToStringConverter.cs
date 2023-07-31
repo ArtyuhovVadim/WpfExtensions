@@ -9,11 +9,8 @@ namespace WpfExtensions.Converters;
 
 [ValueConversion(typeof(Color), typeof(string))]
 [MarkupExtensionReturnType(typeof(ColorToStringConverter))]
-public class ColorToStringConverter : BaseConverter
+public partial class ColorToStringConverter : BaseConverter
 {
-    private readonly Regex _regexWithTransparency = new("#[0-9A-Fa-f]{8}$");
-    private readonly Regex _regexWithoutTransparency = new("#[0-9A-Fa-f]{6}$");
-
     public bool IsTransparencySupported { get; set; }
 
     public override object Convert(object? value, Type targetType, object? parameter, CultureInfo culture)
@@ -34,11 +31,19 @@ public class ColorToStringConverter : BaseConverter
         if (value is not string str)
             return Binding.DoNothing;
 
-        var matchResult = IsTransparencySupported ? _regexWithTransparency.Match(str) : _regexWithoutTransparency.Match(str);
+        var matchResult = IsTransparencySupported
+            ? RegexWithTransparency().Match(str)
+            : RegexWithoutTransparency().Match(str);
 
         if (!matchResult.Success)
             return Binding.DoNothing;
 
         return (Color)ColorConverter.ConvertFromString(str)!;
     }
+
+    [GeneratedRegex("#[0-9A-Fa-f]{8}$")]
+    private static partial Regex RegexWithTransparency();
+
+    [GeneratedRegex("#[0-9A-Fa-f]{6}$")]
+    private static partial Regex RegexWithoutTransparency();
 }
