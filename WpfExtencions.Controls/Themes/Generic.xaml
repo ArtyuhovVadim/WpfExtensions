@@ -1,5 +1,8 @@
 <ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
     <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="../Styles/ButtonStyle.xaml" />
+        <ResourceDictionary Source="../Styles/TextBoxStyle.xaml" />
+
         <ResourceDictionary Source="../Styles/ColorPicker/Parts/HsvColorPickerStyle.xaml" />
         <ResourceDictionary Source="../Styles/ColorPicker/Parts/TextColorPickerStyle.xaml" />
         <ResourceDictionary Source="../Styles/ColorPicker/Parts/ColorSliderStyle.xaml" />
@@ -8,7 +11,5 @@
 
         <ResourceDictionary Source="../Styles/ColorPickerControlStyle.xaml" />
         <ResourceDictionary Source="../Styles/MinimizedColorPickerControlStyle.xaml" />
-
-        <ResourceDictionary Source="../Styles/ButtonStyle.xaml" />
     </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>
