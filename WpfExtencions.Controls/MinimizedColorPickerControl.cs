@@ -83,7 +83,13 @@ public class MinimizedColorPickerControl : BaseColorPickerControl
 
         _applyButton.Click += OnApplyButtonClick;
         _cancelButton.Click += OnCancelButtonClick;
+        _rootPopup.Opened += OnRootPopupOpened;
+        _rootPopup.Closed += OnRootPopupClosed;
     }
+
+    private void OnRootPopupOpened(object? sender, EventArgs e) => Focus();
+
+    private void OnRootPopupClosed(object? sender, EventArgs e) => Color = SelectedColor;
 
     private void OnApplyButtonClick(object sender, RoutedEventArgs e)
     {

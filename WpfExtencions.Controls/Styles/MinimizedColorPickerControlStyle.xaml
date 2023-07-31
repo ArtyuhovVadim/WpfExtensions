@@ -39,7 +39,6 @@
     </ResourceDictionary.MergedDictionaries>
     <Style TargetType="{x:Type controls:MinimizedColorPickerControl}">
         <Setter Property="FocusVisualStyle" Value="{x:Null}" />
-        <Setter Property="Focusable" Value="False" />
         <Setter Property="UseLayoutRounding" Value="True" />
         <Setter Property="SnapsToDevicePixels" Value="True" />
         <Setter Property="TextBlock.Foreground" Value="{DynamicResource {x:Static b:BrushesKeys+MinimizedColorPickerControl.Foreground}}" />
