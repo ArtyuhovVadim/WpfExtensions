@@ -71,6 +71,37 @@ public static class BrushesKeys
         public static readonly ComponentResourceKey BorderBrush = CreateInstance();
     }
 
+    public static class Button
+    {
+        public static readonly ComponentResourceKey Background = CreateInstance();
+
+        public static readonly ComponentResourceKey Foreground = CreateInstance();
+
+        public static readonly ComponentResourceKey BorderBrush = CreateInstance();
+
+        public static readonly ComponentResourceKey FocusedBackground = CreateInstance();
+
+        public static readonly ComponentResourceKey FocusedBorderBrush = CreateInstance();
+
+        public static readonly ComponentResourceKey MouseOverBackground = CreateInstance();
+
+        public static readonly ComponentResourceKey MouseOverBorderBrush = CreateInstance();
+
+        public static readonly ComponentResourceKey PressedBackground = CreateInstance();
+
+        public static readonly ComponentResourceKey PressedBorderBrush = CreateInstance();
+
+        public static readonly ComponentResourceKey DefaultedBackground = CreateInstance();
+
+        public static readonly ComponentResourceKey DefaultedBorderBrush = CreateInstance();
+
+        public static readonly ComponentResourceKey DisabledBackground = CreateInstance();
+
+        public static readonly ComponentResourceKey DisabledForeground = CreateInstance();
+
+        public static readonly ComponentResourceKey DisabledBorderBrush = CreateInstance();
+    }
+
     private static ComponentResourceKey CreateInstance() =>
         new(typeof(BrushesKeys), Guid.NewGuid());
 }
