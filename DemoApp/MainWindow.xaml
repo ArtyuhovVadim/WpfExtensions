@@ -2,98 +2,11 @@
     x:Class="DemoApp.MainWindow"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:adp="clr-namespace:WpfExtensions.AttachedDependencyProperties;assembly=WpfExtensions"
-    xmlns:controls="clr-namespace:WpfExtensions.Controls;assembly=WpfExtensions.Controls"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:local="clr-namespace:DemoApp"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:parts="clr-namespace:WpfExtensions.Controls.ColorPicker.Parts;assembly=WpfExtensions.Controls"
     Title="DemoApp"
     Width="1280"
     Height="720"
     mc:Ignorable="d">
-    <Window.DataContext>
-        <local:MainWindowViewModel />
-    </Window.DataContext>
-    <DockPanel>
-        <TabControl TabStripPlacement="Left">
-            <TabItem>
-                <parts:TextColorPicker Margin="300,200" IsTransparencySupported="True" />
-            </TabItem>
-            <TabItem Header="ColorPicker">
-                <Grid adp:GridProperties.ColumnDefinitionsEx="* 4*">
-                    <GroupBox Header="Properties">
-                        <GroupBox.Resources>
-                            <Style TargetType="{x:Type TextBlock}">
-                                <Setter Property="HorizontalAlignment" Value="Right" />
-                                <Setter Property="VerticalAlignment" Value="Center" />
-                                <Setter Property="Margin" Value="0,0,5,0" />
-                            </Style>
-                            <Style TargetType="{x:Type TextBox}">
-                                <Setter Property="VerticalAlignment" Value="Center" />
-                                <Setter Property="Margin" Value="0,0,0,0" />
-                            </Style>
-                        </GroupBox.Resources>
-                        <controls:StackPanelEx>
-                            <GroupBox Grid.IsSharedSizeScope="True" Header="ColorPickerControlProperties">
-                                <controls:StackPanelEx Spacing="3">
-                                    <Grid adp:GridProperties.ColumnDefinitionsEx="auto:PropertyGroup *">
-                                        <TextBlock Grid.Column="0" Text="Color" />
-                                        <TextBox Grid.Column="1" Text="{Binding Path=Color}" />
-                                    </Grid>
-                                    <Grid adp:GridProperties.ColumnDefinitionsEx="auto:PropertyGroup *">
-                                        <TextBlock Grid.Column="0" Text="IsTransparencySupported" />
-                                        <CheckBox
-                                            x:Name="IsTransparencySupportedCheckBox"
-                                            Grid.Column="1"
-                                            IsChecked="True" />
-                                    </Grid>
-                                    <Grid adp:GridProperties.ColumnDefinitionsEx="auto:PropertyGroup *">
-                                        <TextBlock Grid.Column="0" Text="IsColorPaletteVisible" />
-                                        <CheckBox
-                                            x:Name="IsColorPaletteVisibleCheckBox"
-                                            Grid.Column="1"
-                                            IsChecked="True" />
-                                    </Grid>
-                                    <Grid adp:GridProperties.ColumnDefinitionsEx="auto:PropertyGroup *">
-                                        <TextBlock Grid.Column="0" Text="IsRecentColorsVisible" />
-                                        <CheckBox
-                                            x:Name="IsRecentColorsVisibleCheckBox"
-                                            Grid.Column="1"
-                                            IsChecked="True" />
-                                    </Grid>
-                                </controls:StackPanelEx>
-                            </GroupBox>
-                        </controls:StackPanelEx>
-                    </GroupBox>
-                    <Grid
-                        Grid.Column="1"
-                        adp:GridProperties.ColumnDefinitionsEx="* *"
-                        Background="#404040">
-                        <controls:ColorPickerControl
-                            Grid.Column="0"
-                            Margin="120,150"
-                            IsColorPaletteVisible="{Binding ElementName=IsColorPaletteVisibleCheckBox,
-                                                            Path=IsChecked}"
-                            IsRecentColorsVisible="{Binding ElementName=IsRecentColorsVisibleCheckBox,
-                                                            Path=IsChecked}"
-                            IsTransparencySupported="{Binding ElementName=IsTransparencySupportedCheckBox,
-                                                              Path=IsChecked}"
-                            Color="{Binding Path=Color}" />
-                        <controls:MinimizedColorPickerControl
-                            Grid.Column="1"
-                            HorizontalAlignment="Center"
-                            VerticalAlignment="Center"
-                            IsColorPaletteVisible="{Binding ElementName=IsColorPaletteVisibleCheckBox,
-                                                            Path=IsChecked}"
-                            IsRecentColorsVisible="{Binding ElementName=IsRecentColorsVisibleCheckBox,
-                                                            Path=IsChecked}"
-                            IsTransparencySupported="{Binding ElementName=IsTransparencySupportedCheckBox,
-                                                              Path=IsChecked}"
-                            SelectedColor="{Binding Path=Color}" />
-                    </Grid>
-                </Grid>
-            </TabItem>
-        </TabControl>
-    </DockPanel>
+    <DockPanel />
 </Window>
