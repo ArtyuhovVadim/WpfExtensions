@@ -268,4 +268,38 @@
 
     <!--#endregion-->
 
+    <!--#region CheckBox-->
+
+    <SolidColorBrush
+        x:Key="{x:Static b:BrushesKeys+CheckBox.Background}"
+        o:Freeze="True"
+        Color="#545454" />
+
+    <SolidColorBrush
+        x:Key="{x:Static b:BrushesKeys+CheckBox.Foreground}"
+        o:Freeze="True"
+        Color="#FFFFFF" />
+
+    <SolidColorBrush
+        x:Key="{x:Static b:BrushesKeys+CheckBox.BorderBrush}"
+        o:Freeze="True"
+        Color="#222222" />
+
+    <SolidColorBrush
+        x:Key="{x:Static b:BrushesKeys+CheckBox.GlyphBrush}"
+        o:Freeze="True"
+        Color="#DBDBDB" />
+
+    <SolidColorBrush
+        x:Key="{x:Static b:BrushesKeys+CheckBox.MouseOverBackground}"
+        o:Freeze="True"
+        Color="#5C5C5C" />
+
+    <SolidColorBrush
+        x:Key="{x:Static b:BrushesKeys+CheckBox.FocusedBorderBrush}"
+        o:Freeze="True"
+        Color="#A2D2FD" />
+
+    <!--#endregion-->
+
 </ResourceDictionary>
