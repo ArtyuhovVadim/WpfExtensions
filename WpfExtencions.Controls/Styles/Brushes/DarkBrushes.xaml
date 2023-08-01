@@ -302,4 +302,52 @@
 
     <!--#endregion-->
 
+    <!--#region ComboBox-->
+
+    <SolidColorBrush
+        x:Key="{x:Static b:BrushesKeys+ComboBox.Background}"
+        o:Freeze="True"
+        Color="#545454" />
+
+    <SolidColorBrush
+        x:Key="{x:Static b:BrushesKeys+ComboBox.Foreground}"
+        o:Freeze="True"
+        Color="#FFFFFF" />
+
+    <SolidColorBrush
+        x:Key="{x:Static b:BrushesKeys+ComboBox.BorderBrush}"
+        o:Freeze="True"
+        Color="#222222" />
+
+    <SolidColorBrush
+        x:Key="{x:Static b:BrushesKeys+ComboBox.MouseOverBackground}"
+        o:Freeze="True"
+        Color="#5C5C5C" />
+
+    <SolidColorBrush
+        x:Key="{x:Static b:BrushesKeys+ComboBox.FocusedBorderBrush}"
+        o:Freeze="True"
+        Color="#A2D2FD" />
+
+    <SolidColorBrush
+        x:Key="{x:Static b:BrushesKeys+ComboBox.ItemHighlightBrush}"
+        o:Freeze="True"
+        Color="#6283A2" />
+
+    <SolidColorBrush
+        x:Key="{x:Static b:BrushesKeys+ComboBox.PopupBackground}"
+        o:Freeze="True"
+        Color="#2E2E2E" />
+
+    <SolidColorBrush
+        x:Key="{x:Static b:BrushesKeys+ComboBox.PopupBorderBrush}"
+        o:Freeze="True"
+        Color="#222222" />
+
+    <SolidColorBrush
+        x:Key="{x:Static b:BrushesKeys+ComboBox.IconBrush}"
+        o:Freeze="True"
+        Color="#FFFFFF" />
+
+    <!--#endregion-->
 </ResourceDictionary>

@@ -138,6 +138,27 @@ public static class BrushesKeys
         public static readonly ComponentResourceKey FocusedBorderBrush = CreateInstance();
     }
 
+    public static class ComboBox
+    {
+        public static readonly ComponentResourceKey Background = CreateInstance();
+
+        public static readonly ComponentResourceKey Foreground = CreateInstance();
+
+        public static readonly ComponentResourceKey BorderBrush = CreateInstance();
+
+        public static readonly ComponentResourceKey MouseOverBackground = CreateInstance();
+
+        public static readonly ComponentResourceKey FocusedBorderBrush = CreateInstance();
+
+        public static readonly ComponentResourceKey ItemHighlightBrush = CreateInstance();
+
+        public static readonly ComponentResourceKey PopupBackground = CreateInstance();
+
+        public static readonly ComponentResourceKey PopupBorderBrush = CreateInstance();
+
+        public static readonly ComponentResourceKey IconBrush = CreateInstance();
+    }
+
     private static ComponentResourceKey CreateInstance() =>
         new(typeof(BrushesKeys), Guid.NewGuid());
 }
