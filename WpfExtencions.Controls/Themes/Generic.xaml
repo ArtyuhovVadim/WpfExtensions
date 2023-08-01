@@ -4,6 +4,9 @@
         <ResourceDictionary Source="../Styles/TextBoxStyle.xaml" />
         <ResourceDictionary Source="../Styles/CheckBoxStyle.xaml" />
         <ResourceDictionary Source="../Styles/ComboBoxStyle.xaml" />
+        <ResourceDictionary Source="../Styles/TextBlockStyle.xaml" />
+        <ResourceDictionary Source="../Styles/MenuStyle.xaml" />
+        <ResourceDictionary Source="../Styles/MenuItemStyle.xaml" />
 
         <ResourceDictionary Source="../Styles/ColorPicker/Parts/HsvColorPickerStyle.xaml" />
         <ResourceDictionary Source="../Styles/ColorPicker/Parts/TextColorPickerStyle.xaml" />

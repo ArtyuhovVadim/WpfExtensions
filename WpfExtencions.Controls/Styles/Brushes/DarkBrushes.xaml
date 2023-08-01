@@ -359,4 +359,73 @@
         Color="#FFFFFF" />
 
     <!--#endregion-->
+
+    <!--#region Menu-->
+
+    <SolidColorBrush
+        x:Key="{x:Static b:BrushesKeys+Menu.Background}"
+        o:Freeze="True"
+        Color="#424242" />
+
+    <SolidColorBrush
+        x:Key="{x:Static b:BrushesKeys+Menu.Foreground}"
+        o:Freeze="True"
+        Color="#E5E5E5" />
+
+    <!--#endregion-->
+
+    <!--#region MenuItem-->
+
+    <SolidColorBrush
+        x:Key="{x:Static b:BrushesKeys+MenuItem.Background}"
+        o:Freeze="True"
+        Color="#424242" />
+
+    <SolidColorBrush
+        x:Key="{x:Static b:BrushesKeys+MenuItem.Foreground}"
+        o:Freeze="True"
+        Color="#FFFFFF" />
+
+    <SolidColorBrush
+        x:Key="{x:Static b:BrushesKeys+MenuItem.BorderBrush}"
+        o:Freeze="True"
+        Color="#222222" />
+
+    <SolidColorBrush
+        x:Key="{x:Static b:BrushesKeys+MenuItem.HighlightBackground}"
+        o:Freeze="True"
+        Color="#6283A2" />
+
+    <SolidColorBrush
+        x:Key="{x:Static b:BrushesKeys+MenuItem.HighlightBorderBrush}"
+        o:Freeze="True"
+        Color="Transparent" />
+
+    <SolidColorBrush
+        x:Key="{x:Static b:BrushesKeys+MenuItem.DisabledForeground}"
+        o:Freeze="True"
+        Color="#707070" />
+
+    <SolidColorBrush
+        x:Key="{x:Static b:BrushesKeys+MenuItem.SelectedBackground}"
+        o:Freeze="True"
+        Color="#505050" />
+
+    <SolidColorBrush
+        x:Key="{x:Static b:BrushesKeys+MenuItem.SelectedBorderBrush}"
+        o:Freeze="True"
+        Color="#6283A2" />
+
+    <SolidColorBrush
+        x:Key="{x:Static b:BrushesKeys+MenuItem.HighlightDisabledBackground}"
+        o:Freeze="True"
+        Color="#0A000000" />
+
+    <SolidColorBrush
+        x:Key="{x:Static b:BrushesKeys+MenuItem.HighlightDisabledBorderBrush}"
+        o:Freeze="True"
+        Color="#21000000" />
+
+    <!--#endregion-->
+
 </ResourceDictionary>

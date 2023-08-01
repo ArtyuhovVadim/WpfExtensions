@@ -164,6 +164,36 @@ public static class BrushesKeys
         public static readonly ComponentResourceKey Foreground = CreateInstance();
     }
 
+    public static class Menu
+    {
+        public static readonly ComponentResourceKey Background = CreateInstance();
+
+        public static readonly ComponentResourceKey Foreground = CreateInstance();
+    }
+
+    public static class MenuItem
+    {
+        public static readonly ComponentResourceKey Background = CreateInstance();
+
+        public static readonly ComponentResourceKey Foreground = CreateInstance();
+
+        public static readonly ComponentResourceKey BorderBrush = CreateInstance();
+
+        public static readonly ComponentResourceKey HighlightBackground = CreateInstance();
+
+        public static readonly ComponentResourceKey HighlightBorderBrush = CreateInstance();
+
+        public static readonly ComponentResourceKey DisabledForeground = CreateInstance();
+
+        public static readonly ComponentResourceKey SelectedBackground = CreateInstance();
+
+        public static readonly ComponentResourceKey SelectedBorderBrush = CreateInstance();
+
+        public static readonly ComponentResourceKey HighlightDisabledBackground = CreateInstance();
+
+        public static readonly ComponentResourceKey HighlightDisabledBorderBrush = CreateInstance();
+    }
+
     private static ComponentResourceKey CreateInstance() =>
         new(typeof(BrushesKeys), Guid.NewGuid());
 }
