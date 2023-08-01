@@ -159,6 +159,11 @@ public static class BrushesKeys
         public static readonly ComponentResourceKey IconBrush = CreateInstance();
     }
 
+    public static class TextBlock
+    {
+        public static readonly ComponentResourceKey Foreground = CreateInstance();
+    }
+
     private static ComponentResourceKey CreateInstance() =>
         new(typeof(BrushesKeys), Guid.NewGuid());
 }
