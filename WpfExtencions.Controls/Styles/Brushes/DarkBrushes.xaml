@@ -476,4 +476,23 @@
 
     <!--#endregion-->
 
+    <!--#region ContextMenu-->
+
+    <SolidColorBrush
+        x:Key="{x:Static b:BrushesKeys+ContextMenu.Background}"
+        o:Freeze="True"
+        Color="#404040" />
+
+    <SolidColorBrush
+        x:Key="{x:Static b:BrushesKeys+ContextMenu.Foreground}"
+        o:Freeze="True"
+        Color="#E5E5E5" />
+
+    <SolidColorBrush
+        x:Key="{x:Static b:BrushesKeys+ContextMenu.BorderBrush}"
+        o:Freeze="True"
+        Color="#222222" />
+
+    <!--#endregion-->
+
 </ResourceDictionary>
