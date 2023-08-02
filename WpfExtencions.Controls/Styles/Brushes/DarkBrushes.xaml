@@ -514,5 +514,18 @@
 
     <!--#endregion-->
 
+    <!--#region Separator-->
+
+    <SolidColorBrush
+        x:Key="{x:Static b:BrushesKeys+Separator.VerticalBackground}"
+        o:Freeze="True"
+        Color="#C3C3C3" />
+
+    <SolidColorBrush
+        x:Key="{x:Static b:BrushesKeys+Separator.HorizontalBackground}"
+        o:Freeze="True"
+        Color="#C3C3C3" />
+
+    <!--#endregion-->
 
 </ResourceDictionary>

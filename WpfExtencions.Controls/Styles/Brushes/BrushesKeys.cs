@@ -233,7 +233,13 @@ public static class BrushesKeys
 
         public static readonly ComponentResourceKey BorderBrush = CreateInstance();
     }
+    
+    public static class Separator
+    {
+        public static readonly ComponentResourceKey VerticalBackground = CreateInstance();
 
+        public static readonly ComponentResourceKey HorizontalBackground = CreateInstance();
+    }
 
     private static ComponentResourceKey CreateInstance() =>
         new(typeof(BrushesKeys), Guid.NewGuid());

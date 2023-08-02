@@ -13,6 +13,7 @@
         <ResourceDictionary Source="../Styles/StatusBarStyle.xaml" />
         <ResourceDictionary Source="../Styles/ContextMenuStyle.xaml" />
         <ResourceDictionary Source="../Styles/ToolTipStyle.xaml" />
+        <ResourceDictionary Source="../Styles/SeparatorStyle.xaml" />
 
         <ResourceDictionary Source="../Styles/ColorPicker/Parts/HsvColorPickerStyle.xaml" />
         <ResourceDictionary Source="../Styles/ColorPicker/Parts/TextColorPickerStyle.xaml" />
