@@ -9,6 +9,7 @@
         <Setter Property="Background" Value="{DynamicResource {x:Static b:BrushesKeys+ContextMenu.Background}}" />
         <Setter Property="BorderBrush" Value="{DynamicResource {x:Static b:BrushesKeys+ContextMenu.BorderBrush}}" />
         <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="FontSize" Value="11" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type ContextMenu}">

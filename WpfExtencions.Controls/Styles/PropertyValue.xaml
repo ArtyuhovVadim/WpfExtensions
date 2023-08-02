@@ -10,6 +10,7 @@
         <Setter Property="HorizontalContentAlignment" Value="Stretch" />
         <Setter Property="VerticalTitleAlignment" Value="Center" />
         <Setter Property="HorizontalTitleAlignment" Value="Right" />
+        <Setter Property="FontSize" Value="11" />
         <Setter Property="UseLayoutRounding" Value="True" />
         <Setter Property="SnapsToDevicePixels" Value="True" />
         <Setter Property="BorderThickness" Value="0" />
