@@ -571,4 +571,58 @@
 
     <!--#endregion-->
 
+    <!--#region RadioButton-->
+
+    <SolidColorBrush
+        x:Key="{x:Static b:BrushesKeys+RadioButton.Background}"
+        o:Freeze="True"
+        Color="#545454" />
+
+    <SolidColorBrush
+        x:Key="{x:Static b:BrushesKeys+RadioButton.Foreground}"
+        o:Freeze="True"
+        Color="#FFFFFF" />
+
+    <SolidColorBrush
+        x:Key="{x:Static b:BrushesKeys+RadioButton.BorderBrush}"
+        o:Freeze="True"
+        Color="#222222" />
+
+    <SolidColorBrush
+        x:Key="{x:Static b:BrushesKeys+RadioButton.MarkBrush}"
+        o:Freeze="True"
+        Color="#FFFFFF" />
+
+    <SolidColorBrush
+        x:Key="{x:Static b:BrushesKeys+RadioButton.DisabledBackground}"
+        o:Freeze="True"
+        Color="#484848" />
+
+    <SolidColorBrush
+        x:Key="{x:Static b:BrushesKeys+RadioButton.DisabledForeground}"
+        o:Freeze="True"
+        Color="#A3A3A3" />
+
+    <SolidColorBrush
+        x:Key="{x:Static b:BrushesKeys+RadioButton.DisabledBorderBrush}"
+        o:Freeze="True"
+        Color="#333333" />
+
+    <SolidColorBrush
+        x:Key="{x:Static b:BrushesKeys+RadioButton.DisabledMarkBrush}"
+        o:Freeze="True"
+        Color="#A3A3A3" />
+
+    <SolidColorBrush
+        x:Key="{x:Static b:BrushesKeys+RadioButton.FocusedBorderBrush}"
+        o:Freeze="True"
+        Color="#A2D2FD" />
+
+    <SolidColorBrush
+        x:Key="{x:Static b:BrushesKeys+RadioButton.MouseOverBackground}"
+        o:Freeze="True"
+        Color="#5C5C5C" />
+
+    <!--#endregion-->
+
 </ResourceDictionary>
