@@ -452,4 +452,23 @@
 
     <!--#endregion-->
 
+    <!--#region PropertyValue-->
+
+    <SolidColorBrush
+        x:Key="{x:Static b:BrushesKeys+PropertyValue.Background}"
+        o:Freeze="True"
+        Color="Transparent" />
+
+    <SolidColorBrush
+        x:Key="{x:Static b:BrushesKeys+PropertyValue.Foreground}"
+        o:Freeze="True"
+        Color="#FFFFFF" />
+
+    <SolidColorBrush
+        x:Key="{x:Static b:BrushesKeys+PropertyValue.BorderBrush}"
+        o:Freeze="True"
+        Color="#222222" />
+
+    <!--#endregion-->
+
 </ResourceDictionary>
