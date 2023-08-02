@@ -5,7 +5,7 @@ using System.Windows.Media;
 
 namespace WpfExtensions.AttachedDependencyProperties;
 
-public static class GridProperties
+public static class GridProps
 {
     private enum RowOrColumn
     {
@@ -24,7 +24,7 @@ public static class GridProperties
     #region ShowGridLinesExProperty
 
     public static readonly DependencyProperty ShowGridLinesExProperty =
-        DependencyProperty.RegisterAttached("ShowGridLinesEx", typeof(bool), typeof(GridProperties), new PropertyMetadata(false, OnShowGridLinesExPropertyChanged));
+        DependencyProperty.RegisterAttached("ShowGridLinesEx", typeof(bool), typeof(GridProps), new PropertyMetadata(false, OnShowGridLinesExPropertyChanged));
 
     private static void OnShowGridLinesExPropertyChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
     {
@@ -50,7 +50,7 @@ public static class GridProperties
     #region ColumnDefinitionsExProperty
 
     public static readonly DependencyProperty ColumnDefinitionsExProperty =
-        DependencyProperty.RegisterAttached("ColumnDefinitionsEx", typeof(string), typeof(GridProperties), new PropertyMetadata(string.Empty, OnColumnDefinitionsExPropertyChanged));
+        DependencyProperty.RegisterAttached("ColumnDefinitionsEx", typeof(string), typeof(GridProps), new PropertyMetadata(string.Empty, OnColumnDefinitionsExPropertyChanged));
 
     private static void OnColumnDefinitionsExPropertyChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
     {
@@ -110,7 +110,7 @@ public static class GridProperties
     #region RowDefinitionsExProperty
 
     public static readonly DependencyProperty RowDefinitionsExProperty =
-        DependencyProperty.RegisterAttached("RowDefinitionsEx", typeof(string), typeof(GridProperties), new PropertyMetadata(string.Empty, OnRowDefinitionsExPropertyChanged));
+        DependencyProperty.RegisterAttached("RowDefinitionsEx", typeof(string), typeof(GridProps), new PropertyMetadata(string.Empty, OnRowDefinitionsExPropertyChanged));
 
     private static void OnRowDefinitionsExPropertyChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
     {

@@ -3,12 +3,12 @@ using System.Windows;
 
 namespace WpfExtensions.AttachedDependencyProperties;
 
-public static class ListBoxProperties
+public static class ListBoxProps
 {
     #region AutoScrollToSelectedItemProperty
 
     public static readonly DependencyProperty AutoScrollToSelectedItemProperty =
-        DependencyProperty.RegisterAttached("AutoScrollToSelectedItem", typeof(bool), typeof(ListBoxProperties), new PropertyMetadata(false, OnAutoScrollToSelectedItemPropertyChanged));
+        DependencyProperty.RegisterAttached("AutoScrollToSelectedItem", typeof(bool), typeof(ListBoxProps), new PropertyMetadata(false, OnAutoScrollToSelectedItemPropertyChanged));
 
     private static void OnAutoScrollToSelectedItemPropertyChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
     {
