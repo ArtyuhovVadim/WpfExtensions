@@ -495,4 +495,24 @@
 
     <!--#endregion-->
 
+    <!--#region ToolTip-->
+
+    <SolidColorBrush
+        x:Key="{x:Static b:BrushesKeys+ToolTip.Background}"
+        o:Freeze="True"
+        Color="#404040" />
+
+    <SolidColorBrush
+        x:Key="{x:Static b:BrushesKeys+ToolTip.Foreground}"
+        o:Freeze="True"
+        Color="#FFFFFF" />
+
+    <SolidColorBrush
+        x:Key="{x:Static b:BrushesKeys+ToolTip.BorderBrush}"
+        o:Freeze="True"
+        Color="#222222" />
+
+    <!--#endregion-->
+
+
 </ResourceDictionary>
