@@ -194,6 +194,17 @@ public static class BrushesKeys
         public static readonly ComponentResourceKey HighlightDisabledBorderBrush = CreateInstance();
     }
 
+    public static class ScrollBar
+    {
+        public static readonly ComponentResourceKey Background = CreateInstance();
+
+        public static readonly ComponentResourceKey ArrowBrush = CreateInstance();
+
+        public static readonly ComponentResourceKey MouseOverBackground = CreateInstance();
+
+        public static readonly ComponentResourceKey ThumbBrush = CreateInstance();
+    }
+
     private static ComponentResourceKey CreateInstance() =>
         new(typeof(BrushesKeys), Guid.NewGuid());
 }

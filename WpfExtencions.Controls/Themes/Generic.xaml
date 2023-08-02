@@ -7,6 +7,7 @@
         <ResourceDictionary Source="../Styles/TextBlockStyle.xaml" />
         <ResourceDictionary Source="../Styles/MenuStyle.xaml" />
         <ResourceDictionary Source="../Styles/MenuItemStyle.xaml" />
+        <ResourceDictionary Source="../Styles/ScrollBarStyle.xaml" />
 
         <ResourceDictionary Source="../Styles/ColorPicker/Parts/HsvColorPickerStyle.xaml" />
         <ResourceDictionary Source="../Styles/ColorPicker/Parts/TextColorPickerStyle.xaml" />
