@@ -159,11 +159,6 @@ public static class BrushesKeys
         public static readonly ComponentResourceKey IconBrush = CreateInstance();
     }
 
-    public static class TextBlock
-    {
-        public static readonly ComponentResourceKey Foreground = CreateInstance();
-    }
-
     public static class Menu
     {
         public static readonly ComponentResourceKey Background = CreateInstance();
