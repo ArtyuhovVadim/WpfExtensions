@@ -34,7 +34,7 @@
                         SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
                         TextBlock.Foreground="{TemplateBinding TextBlock.Foreground}"
                         UseLayoutRounding="{TemplateBinding UseLayoutRounding}">
-                        <Grid adp:GridProperties.RowDefinitionsEx="auto auto auto auto * auto auto">
+                        <Grid adp:GridProps.RowDefinitionsEx="auto auto auto auto * auto auto">
                             <parts:RecentBrushes
                                 x:Name="RecentBrushes"
                                 Grid.Row="0"

@@ -27,7 +27,7 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type parts:HsvColorPicker}">
-                    <Grid attachedDependencyProperties1:GridProperties.RowDefinitionsEx="* auto auto" Background="{TemplateBinding Background}">
+                    <Grid attachedDependencyProperties1:GridProps.RowDefinitionsEx="* auto auto" Background="{TemplateBinding Background}">
                         <Border
                             Grid.Row="0"
                             Margin="0,0,0,6"

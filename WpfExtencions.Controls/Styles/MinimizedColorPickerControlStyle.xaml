@@ -102,7 +102,7 @@
                                 SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
                                 TextBlock.Foreground="{TemplateBinding TextBlock.Foreground}"
                                 UseLayoutRounding="{TemplateBinding UseLayoutRounding}">
-                                <Grid adp:GridProperties.RowDefinitionsEx="auto auto auto auto * auto auto auto auto">
+                                <Grid adp:GridProps.RowDefinitionsEx="auto auto auto auto * auto auto auto auto">
                                     <parts:RecentBrushes
                                         x:Name="RecentBrushes"
                                         Grid.Row="0"
@@ -172,7 +172,7 @@
                                         Margin="-6,6"
                                         Background="{TemplateBinding BorderBrush}" />
 
-                                    <Grid Grid.Row="8" adp:GridProperties.ColumnDefinitionsEx="2* *">
+                                    <Grid Grid.Row="8" adp:GridProps.ColumnDefinitionsEx="2* *">
                                         <Button
                                             x:Name="PART_ApplyButton"
                                             Grid.Column="0"

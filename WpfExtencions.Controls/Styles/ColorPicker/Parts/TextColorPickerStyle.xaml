@@ -37,8 +37,8 @@
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type parts:TextColorPicker}">
                     <Grid
-                        adp:GridProperties.ColumnDefinitionsEx="* 2* auto"
-                        adp:GridProperties.RowDefinitionsEx="* auto"
+                        adp:GridProps.ColumnDefinitionsEx="* 2* auto"
+                        adp:GridProps.RowDefinitionsEx="* auto"
                         Background="{TemplateBinding Background}">
 
 
