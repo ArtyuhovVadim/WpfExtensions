@@ -471,4 +471,18 @@
 
     <!--#endregion-->
 
+    <!--#region PropertyValue-->
+
+    <SolidColorBrush
+        x:Key="{x:Static b:BrushesKeys+StatusBar.Background}"
+        o:Freeze="True"
+        Color="#404040" />
+
+    <SolidColorBrush
+        x:Key="{x:Static b:BrushesKeys+StatusBar.Foreground}"
+        o:Freeze="True"
+        Color="#E5E5E5" />
+
+    <!--#endregion-->
+
 </ResourceDictionary>

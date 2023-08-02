@@ -214,6 +214,13 @@ public static class BrushesKeys
         public static readonly ComponentResourceKey BorderBrush = CreateInstance();
     }
 
+    public static class StatusBar
+    {
+        public static readonly ComponentResourceKey Background = CreateInstance();
+
+        public static readonly ComponentResourceKey Foreground = CreateInstance();
+    }
+
     private static ComponentResourceKey CreateInstance() =>
         new(typeof(BrushesKeys), Guid.NewGuid());
 }
