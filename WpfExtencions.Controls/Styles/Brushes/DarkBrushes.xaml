@@ -528,4 +528,13 @@
 
     <!--#endregion-->
 
+    <!--#region ResizeGrip-->
+
+    <SolidColorBrush
+        x:Key="{x:Static b:BrushesKeys+ResizeGrip.Background}"
+        o:Freeze="True"
+        Color="White" />
+
+    <!--#endregion-->
+
 </ResourceDictionary>

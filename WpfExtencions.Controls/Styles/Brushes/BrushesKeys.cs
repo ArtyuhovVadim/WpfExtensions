@@ -241,6 +241,11 @@ public static class BrushesKeys
         public static readonly ComponentResourceKey HorizontalBackground = CreateInstance();
     }
 
+    public static class ResizeGrip
+    {
+        public static readonly ComponentResourceKey Background = CreateInstance();
+    }
+
     private static ComponentResourceKey CreateInstance() =>
         new(typeof(BrushesKeys), Guid.NewGuid());
 }
