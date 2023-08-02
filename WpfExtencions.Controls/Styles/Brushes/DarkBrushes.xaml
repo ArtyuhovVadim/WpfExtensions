@@ -625,4 +625,18 @@
 
     <!--#endregion-->
 
+    <!--#region RadioButton-->
+
+    <SolidColorBrush
+        x:Key="{x:Static b:BrushesKeys+GridSplitter.Background}"
+        o:Freeze="True"
+        Color="Transparent" />
+
+    <SolidColorBrush
+        x:Key="{x:Static b:BrushesKeys+GridSplitter.PreviewBackground}"
+        o:Freeze="True"
+        Color="#101010" />
+
+    <!--#endregion-->
+
 </ResourceDictionary>

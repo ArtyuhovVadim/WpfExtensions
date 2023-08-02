@@ -284,6 +284,13 @@ public static class BrushesKeys
         public static readonly ComponentResourceKey MouseOverBackground = CreateInstance();
     }
 
+    public static class GridSplitter
+    {
+        public static readonly ComponentResourceKey Background = CreateInstance();
+
+        public static readonly ComponentResourceKey PreviewBackground = CreateInstance();
+    }
+
     private static ComponentResourceKey CreateInstance() =>
         new(typeof(BrushesKeys), Guid.NewGuid());
 }
