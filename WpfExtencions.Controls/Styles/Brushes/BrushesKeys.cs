@@ -246,6 +246,21 @@ public static class BrushesKeys
         public static readonly ComponentResourceKey Background = CreateInstance();
     }
 
+    public static class Expander
+    {
+        public static readonly ComponentResourceKey Background = CreateInstance();
+
+        public static readonly ComponentResourceKey Foreground = CreateInstance();
+
+        public static readonly ComponentResourceKey BorderBrush = CreateInstance();
+
+        public static readonly ComponentResourceKey ArrowBrush = CreateInstance();
+
+        public static readonly ComponentResourceKey DisabledArrowBrush = CreateInstance();
+     
+        public static readonly ComponentResourceKey DisabledForeground = CreateInstance();
+    }
+
     private static ComponentResourceKey CreateInstance() =>
         new(typeof(BrushesKeys), Guid.NewGuid());
 }

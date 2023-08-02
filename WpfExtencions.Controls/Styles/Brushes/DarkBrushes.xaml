@@ -537,4 +537,38 @@
 
     <!--#endregion-->
 
+    <!--#region Expander-->
+
+    <SolidColorBrush
+        x:Key="{x:Static b:BrushesKeys+Expander.Background}"
+        o:Freeze="True"
+        Color="#484848" />
+
+    <SolidColorBrush
+        x:Key="{x:Static b:BrushesKeys+Expander.Foreground}"
+        o:Freeze="True"
+        Color="#FFFFFF" />
+
+    <SolidColorBrush
+        x:Key="{x:Static b:BrushesKeys+Expander.BorderBrush}"
+        o:Freeze="True"
+        Color="#222222" />
+
+    <SolidColorBrush
+        x:Key="{x:Static b:BrushesKeys+Expander.ArrowBrush}"
+        o:Freeze="True"
+        Color="#FFFFFF" />
+
+    <SolidColorBrush
+        x:Key="{x:Static b:BrushesKeys+Expander.DisabledArrowBrush}"
+        o:Freeze="True"
+        Color="#A3A3A3" />
+
+    <SolidColorBrush
+        x:Key="{x:Static b:BrushesKeys+Expander.DisabledForeground}"
+        o:Freeze="True"
+        Color="#A3A3A3" />
+
+    <!--#endregion-->
+
 </ResourceDictionary>
