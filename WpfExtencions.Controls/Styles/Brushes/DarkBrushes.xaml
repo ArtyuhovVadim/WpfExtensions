@@ -658,4 +658,58 @@
 
     <!--#endregion-->
 
+    <!--#region Slider-->
+
+    <SolidColorBrush
+        x:Key="{x:Static b:BrushesKeys+Slider.Background}"
+        o:Freeze="True"
+        Color="#484848" />
+
+    <SolidColorBrush
+        x:Key="{x:Static b:BrushesKeys+Slider.BorderBrush}"
+        o:Freeze="True"
+        Color="#222222" />
+
+    <SolidColorBrush
+        x:Key="{x:Static b:BrushesKeys+Slider.FocusedBorderBrush}"
+        o:Freeze="True"
+        Color="#7BA0C1" />
+
+    <SolidColorBrush
+        x:Key="{x:Static b:BrushesKeys+Slider.ThumbBackground}"
+        o:Freeze="True"
+        Color="#E5E5E5" />
+
+    <SolidColorBrush
+        x:Key="{x:Static b:BrushesKeys+Slider.ThumbBorderBrush}"
+        o:Freeze="True"
+        Color="#222222" />
+
+    <SolidColorBrush
+        x:Key="{x:Static b:BrushesKeys+Slider.MouseOverThumbBorderBrush}"
+        o:Freeze="True"
+        Color="#A2D2FD" />
+
+    <SolidColorBrush
+        x:Key="{x:Static b:BrushesKeys+Slider.DraggingThumbBorderBrush}"
+        o:Freeze="True"
+        Color="#A2D2FD" />
+
+    <SolidColorBrush
+        x:Key="{x:Static b:BrushesKeys+Slider.DisableThumbBackground}"
+        o:Freeze="True"
+        Color="#7A7A7A" />
+
+    <SolidColorBrush
+        x:Key="{x:Static b:BrushesKeys+Slider.DisableThumbBorderBrush}"
+        o:Freeze="True"
+        Color="#343434" />
+
+    <SolidColorBrush
+        x:Key="{x:Static b:BrushesKeys+Slider.SelectionRangeBrush}"
+        o:Freeze="True"
+        Color="#6283A2" />
+
+    <!--#endregion-->
+
 </ResourceDictionary>

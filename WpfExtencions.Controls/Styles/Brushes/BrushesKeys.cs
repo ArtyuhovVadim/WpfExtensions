@@ -300,6 +300,29 @@ public static class BrushesKeys
         public static readonly ComponentResourceKey BorderBrush = CreateInstance();
     }
 
+    public static class Slider
+    {
+        public static readonly ComponentResourceKey Background = CreateInstance();
+        
+        public static readonly ComponentResourceKey BorderBrush = CreateInstance();
+
+        public static readonly ComponentResourceKey FocusedBorderBrush = CreateInstance();
+
+        public static readonly ComponentResourceKey ThumbBackground = CreateInstance();
+        
+        public static readonly ComponentResourceKey ThumbBorderBrush = CreateInstance();
+
+        public static readonly ComponentResourceKey MouseOverThumbBorderBrush = CreateInstance();
+
+        public static readonly ComponentResourceKey DraggingThumbBorderBrush = CreateInstance();
+
+        public static readonly ComponentResourceKey DisableThumbBackground = CreateInstance();
+        
+        public static readonly ComponentResourceKey DisableThumbBorderBrush = CreateInstance();
+
+        public static readonly ComponentResourceKey SelectionRangeBrush = CreateInstance();
+    }
+
     private static ComponentResourceKey CreateInstance() =>
         new(typeof(BrushesKeys), Guid.NewGuid());
 }
