@@ -6,12 +6,8 @@
     xmlns:controls="clr-namespace:WpfExtensions.Controls"
     xmlns:converters="clr-namespace:WpfExtensions.Converters;assembly=WpfExtensions"
     xmlns:parts="clr-namespace:WpfExtensions.Controls.ColorPicker.Parts">
-    <ResourceDictionary.MergedDictionaries>
-        <ResourceDictionary>
-            <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
-            <converters:EnumerableToCountConverter x:Key="EnumerableToCountConverter" />
-        </ResourceDictionary>
-    </ResourceDictionary.MergedDictionaries>
+    <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
+    <converters:EnumerableToCountConverter x:Key="EnumerableToCountConverter" />
     <Style TargetType="{x:Type controls:ColorPickerControl}">
         <Setter Property="FocusVisualStyle" Value="{x:Null}" />
         <Setter Property="UseLayoutRounding" Value="True" />
