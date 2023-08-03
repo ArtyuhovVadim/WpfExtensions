@@ -18,6 +18,7 @@
         <ResourceDictionary Source="../Styles/ExpanderStyle.xaml" />
         <ResourceDictionary Source="../Styles/RadioButtonStyle.xaml" />
         <ResourceDictionary Source="../Styles/GridSplitterStyle.xaml" />
+        <ResourceDictionary Source="../Styles/GroupBoxStyle.xaml" />
 
         <ResourceDictionary Source="../Styles/ColorPicker/Parts/HsvColorPickerStyle.xaml" />
         <ResourceDictionary Source="../Styles/ColorPicker/Parts/TextColorPickerStyle.xaml" />

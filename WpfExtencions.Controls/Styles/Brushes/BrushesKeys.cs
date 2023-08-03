@@ -291,6 +291,15 @@ public static class BrushesKeys
         public static readonly ComponentResourceKey PreviewBackground = CreateInstance();
     }
 
+    public static class GroupBox
+    {
+        public static readonly ComponentResourceKey Background = CreateInstance();
+        
+        public static readonly ComponentResourceKey Foreground = CreateInstance();
+     
+        public static readonly ComponentResourceKey BorderBrush = CreateInstance();
+    }
+
     private static ComponentResourceKey CreateInstance() =>
         new(typeof(BrushesKeys), Guid.NewGuid());
 }

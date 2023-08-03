@@ -639,4 +639,23 @@
 
     <!--#endregion-->
 
+    <!--#region GroupBox-->
+
+    <SolidColorBrush
+        x:Key="{x:Static b:BrushesKeys+GroupBox.Background}"
+        o:Freeze="True"
+        Color="#484848" />
+
+    <SolidColorBrush
+        x:Key="{x:Static b:BrushesKeys+GroupBox.Foreground}"
+        o:Freeze="True"
+        Color="#FFFFFF" />
+
+    <SolidColorBrush
+        x:Key="{x:Static b:BrushesKeys+GroupBox.BorderBrush}"
+        o:Freeze="True"
+        Color="#222222" />
+
+    <!--#endregion-->
+
 </ResourceDictionary>
