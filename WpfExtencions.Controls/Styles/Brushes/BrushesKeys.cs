@@ -323,6 +323,27 @@ public static class BrushesKeys
         public static readonly ComponentResourceKey SelectionRangeBrush = CreateInstance();
     }
 
+    public static class PasswordBox
+    {
+        public static readonly ComponentResourceKey Background = CreateInstance();
+
+        public static readonly ComponentResourceKey Foreground = CreateInstance();
+
+        public static readonly ComponentResourceKey BorderBrush = CreateInstance();
+
+        public static readonly ComponentResourceKey SelectionBrush = CreateInstance();
+
+        public static readonly ComponentResourceKey CaretBrush = CreateInstance();
+
+        public static readonly ComponentResourceKey FocusedBorderBrush = CreateInstance();
+
+        public static readonly ComponentResourceKey DisabledBackground = CreateInstance();
+
+        public static readonly ComponentResourceKey DisabledForeground = CreateInstance();
+
+        public static readonly ComponentResourceKey DisabledBorderBrush = CreateInstance();
+    }
+
     private static ComponentResourceKey CreateInstance() =>
         new(typeof(BrushesKeys), Guid.NewGuid());
 }

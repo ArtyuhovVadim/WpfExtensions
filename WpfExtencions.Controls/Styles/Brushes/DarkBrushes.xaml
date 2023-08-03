@@ -712,4 +712,53 @@
 
     <!--#endregion-->
 
+    <!--#region PasswordBox-->
+
+    <SolidColorBrush
+        x:Key="{x:Static b:BrushesKeys+PasswordBox.Background}"
+        o:Freeze="True"
+        Color="#2E2E2E" />
+
+    <SolidColorBrush
+        x:Key="{x:Static b:BrushesKeys+PasswordBox.Foreground}"
+        o:Freeze="True"
+        Color="#FFFFFF" />
+
+    <SolidColorBrush
+        x:Key="{x:Static b:BrushesKeys+PasswordBox.BorderBrush}"
+        o:Freeze="True"
+        Color="#222222" />
+
+    <SolidColorBrush
+        x:Key="{x:Static b:BrushesKeys+PasswordBox.SelectionBrush}"
+        o:Freeze="True"
+        Color="#949494" />
+
+    <SolidColorBrush
+        x:Key="{x:Static b:BrushesKeys+PasswordBox.CaretBrush}"
+        o:Freeze="True"
+        Color="#D1D1D1" />
+
+    <SolidColorBrush
+        x:Key="{x:Static b:BrushesKeys+PasswordBox.FocusedBorderBrush}"
+        o:Freeze="True"
+        Color="#A2D2FD" />
+
+    <SolidColorBrush
+        x:Key="{x:Static b:BrushesKeys+PasswordBox.DisabledBackground}"
+        o:Freeze="True"
+        Color="#353535" />
+
+    <SolidColorBrush
+        x:Key="{x:Static b:BrushesKeys+PasswordBox.DisabledForeground}"
+        o:Freeze="True"
+        Color="#868686" />
+
+    <SolidColorBrush
+        x:Key="{x:Static b:BrushesKeys+PasswordBox.DisabledBorderBrush}"
+        o:Freeze="True"
+        Color="#333333" />
+
+    <!--#endregion-->
+
 </ResourceDictionary>
