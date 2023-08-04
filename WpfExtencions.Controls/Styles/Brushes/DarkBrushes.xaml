@@ -899,4 +899,37 @@
 
     <!--#endregion-->
 
+    <!--#region TabControl-->
+
+    <SolidColorBrush
+        x:Key="{x:Static b:BrushesKeys+TabControl.Background}"
+        o:Freeze="True"
+        Color="#404040" />
+
+    <SolidColorBrush
+        x:Key="{x:Static b:BrushesKeys+TabControl.BorderBrush}"
+        o:Freeze="True"
+        Color="#222222" />
+
+    <!--#endregion-->
+
+    <!--#region TabItem-->
+
+    <SolidColorBrush
+        x:Key="{x:Static b:BrushesKeys+TabItem.Background}"
+        o:Freeze="True"
+        Color="#353535" />
+
+    <SolidColorBrush
+        x:Key="{x:Static b:BrushesKeys+TabItem.Foreground}"
+        o:Freeze="True"
+        Color="#E5E5E5" />
+
+    <SolidColorBrush
+        x:Key="{x:Static b:BrushesKeys+TabItem.BorderBrush}"
+        o:Freeze="True"
+        Color="#222222" />
+
+    <!--#endregion-->
+
 </ResourceDictionary>

@@ -402,6 +402,28 @@ public static class BrushesKeys
         public static readonly ComponentResourceKey DisabledBorderBrush = CreateInstance();
     }
 
+    public static class TabControl
+    {
+        public static readonly ComponentResourceKey Background = CreateInstance();
+
+        public static readonly ComponentResourceKey BorderBrush = CreateInstance();
+    }
+
+    public static class TabItem
+    {
+        public static readonly ComponentResourceKey Background = CreateInstance();
+
+        public static readonly ComponentResourceKey Foreground = CreateInstance();
+
+        public static readonly ComponentResourceKey BorderBrush = CreateInstance();
+        
+        public static readonly ComponentResourceKey MouseOverBackground = CreateInstance();
+
+        public static readonly ComponentResourceKey SelectedBackground = CreateInstance();
+
+        public static readonly ComponentResourceKey SelectedForeground = CreateInstance();
+    }
+
     private static ComponentResourceKey CreateInstance() =>
         new(typeof(BrushesKeys), Guid.NewGuid());
 }
