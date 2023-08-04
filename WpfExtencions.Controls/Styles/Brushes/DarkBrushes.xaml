@@ -761,4 +761,68 @@
 
     <!--#endregion-->
 
+    <!--#region ToggleButton-->
+
+    <SolidColorBrush
+        x:Key="{x:Static b:BrushesKeys+ToggleButton.Background}"
+        o:Freeze="True"
+        Color="#545454" />
+
+    <SolidColorBrush
+        x:Key="{x:Static b:BrushesKeys+ToggleButton.Foreground}"
+        o:Freeze="True"
+        Color="#FFFFFF" />
+
+    <SolidColorBrush
+        x:Key="{x:Static b:BrushesKeys+ToggleButton.BorderBrush}"
+        o:Freeze="True"
+        Color="#222222" />
+
+    <SolidColorBrush
+        x:Key="{x:Static b:BrushesKeys+ToggleButton.FocusedBorderBrush}"
+        o:Freeze="True"
+        Color="#A2D2FD" />
+
+    <SolidColorBrush
+        x:Key="{x:Static b:BrushesKeys+ToggleButton.MouseOverBackground}"
+        o:Freeze="True"
+        Color="#5C5C5C" />
+
+    <SolidColorBrush
+        x:Key="{x:Static b:BrushesKeys+ToggleButton.PressedBackground}"
+        o:Freeze="True"
+        Color="#505050" />
+
+    <SolidColorBrush
+        x:Key="{x:Static b:BrushesKeys+ToggleButton.DefaultedBackground}"
+        o:Freeze="True"
+        Color="#545454" />
+
+    <SolidColorBrush
+        x:Key="{x:Static b:BrushesKeys+ToggleButton.DefaultedBorderBrush}"
+        o:Freeze="True"
+        Color="#A2D2FD" />
+
+    <SolidColorBrush
+        x:Key="{x:Static b:BrushesKeys+ToggleButton.DisabledBackground}"
+        o:Freeze="True"
+        Color="#484848" />
+
+    <SolidColorBrush
+        x:Key="{x:Static b:BrushesKeys+ToggleButton.DisabledForeground}"
+        o:Freeze="True"
+        Color="#A3A3A3" />
+
+    <SolidColorBrush
+        x:Key="{x:Static b:BrushesKeys+ToggleButton.DisabledBorderBrush}"
+        o:Freeze="True"
+        Color="#333333" />
+
+    <SolidColorBrush
+        x:Key="{x:Static b:BrushesKeys+ToggleButton.CheckedBackground}"
+        o:Freeze="True"
+        Color="#6A8EAF" />
+
+    <!--#endregion-->
+
 </ResourceDictionary>

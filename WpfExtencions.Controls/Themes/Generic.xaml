@@ -21,6 +21,7 @@
         <ResourceDictionary Source="../Styles/GroupBoxStyle.xaml" />
         <ResourceDictionary Source="../Styles/SliderStyle.xaml" />
         <ResourceDictionary Source="../Styles/PasswordBoxStyle.xaml" />
+        <ResourceDictionary Source="../Styles/ToggleButtonStyle.xaml" />
 
         <ResourceDictionary Source="../Styles/ColorPicker/Parts/HsvColorPickerStyle.xaml" />
         <ResourceDictionary Source="../Styles/ColorPicker/Parts/TextColorPickerStyle.xaml" />

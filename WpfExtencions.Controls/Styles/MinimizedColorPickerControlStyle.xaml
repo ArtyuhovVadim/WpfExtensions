@@ -8,7 +8,7 @@
     xmlns:parts="clr-namespace:WpfExtensions.Controls.ColorPicker.Parts">
     <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
     <converters:EnumerableToCountConverter x:Key="EnumerableToCountConverter" />
-    <Style x:Key="ToggleButtonStyle" TargetType="{x:Type ToggleButton}">
+    <Style x:Key="ColorPickerToggleButtonStyle" TargetType="{x:Type ToggleButton}">
         <Setter Property="FocusVisualStyle" Value="{x:Null}" />
         <Setter Property="Template">
             <Setter.Value>
@@ -55,7 +55,7 @@
                             Background="{DynamicResource {x:Static b:BrushesKeys+MinimizedColorPickerControl.MinimizedBackground}}"
                             BorderBrush="{DynamicResource {x:Static b:BrushesKeys+MinimizedColorPickerControl.MinimizedBorderBrush}}"
                             BorderThickness="1"
-                            Style="{StaticResource ToggleButtonStyle}">
+                            Style="{StaticResource ColorPickerToggleButtonStyle}">
                             <Grid>
                                 <Border
                                     Margin="2"
