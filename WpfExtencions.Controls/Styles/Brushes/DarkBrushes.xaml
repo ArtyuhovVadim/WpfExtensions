@@ -930,6 +930,21 @@
         o:Freeze="True"
         Color="#222222" />
 
+    <SolidColorBrush
+        x:Key="{x:Static b:BrushesKeys+TabItem.MouseOverBackground}"
+        o:Freeze="True"
+        Color="#545454" />
+
+    <SolidColorBrush
+        x:Key="{x:Static b:BrushesKeys+TabItem.SelectedBackground}"
+        o:Freeze="True"
+        Color="#4E4E4E" />
+
+    <SolidColorBrush
+        x:Key="{x:Static b:BrushesKeys+TabItem.SelectedForeground}"
+        o:Freeze="True"
+        Color="#FFFFFF" />
+
     <!--#endregion-->
 
 </ResourceDictionary>
