@@ -424,6 +424,15 @@ public static class BrushesKeys
         public static readonly ComponentResourceKey SelectedForeground = CreateInstance();
     }
 
+    public static class ProgressBar
+    {
+        public static readonly ComponentResourceKey Background = CreateInstance();
+
+        public static readonly ComponentResourceKey Foreground = CreateInstance();
+
+        public static readonly ComponentResourceKey BorderBrush = CreateInstance();
+    }
+
     private static ComponentResourceKey CreateInstance() =>
         new(typeof(BrushesKeys), Guid.NewGuid());
 }

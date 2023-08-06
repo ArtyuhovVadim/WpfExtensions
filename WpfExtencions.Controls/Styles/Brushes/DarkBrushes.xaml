@@ -462,7 +462,7 @@
 
     <!--#endregion-->
 
-    <!--#region PropertyValue-->
+    <!--#region StatusBar-->
 
     <SolidColorBrush
         x:Key="{x:Static b:BrushesKeys+StatusBar.Background}"
@@ -625,7 +625,7 @@
 
     <!--#endregion-->
 
-    <!--#region RadioButton-->
+    <!--#region GridSplitter-->
 
     <SolidColorBrush
         x:Key="{x:Static b:BrushesKeys+GridSplitter.Background}"
@@ -944,6 +944,25 @@
         x:Key="{x:Static b:BrushesKeys+TabItem.SelectedForeground}"
         o:Freeze="True"
         Color="#FFFFFF" />
+
+    <!--#endregion-->
+
+    <!--#region ProgressBar-->
+
+    <SolidColorBrush
+        x:Key="{x:Static b:BrushesKeys+ProgressBar.Background}"
+        o:Freeze="True"
+        Color="#484848" />
+
+    <SolidColorBrush
+        x:Key="{x:Static b:BrushesKeys+ProgressBar.Foreground}"
+        o:Freeze="True"
+        Color="#6283A2" />
+
+    <SolidColorBrush
+        x:Key="{x:Static b:BrushesKeys+ProgressBar.BorderBrush}"
+        o:Freeze="True"
+        Color="#222222" />
 
     <!--#endregion-->
 
