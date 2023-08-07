@@ -433,6 +433,30 @@ public static class BrushesKeys
         public static readonly ComponentResourceKey BorderBrush = CreateInstance();
     }
 
+    public static class ListBox
+    {
+        public static readonly ComponentResourceKey Background = CreateInstance();
+
+        public static readonly ComponentResourceKey Foreground = CreateInstance();
+
+        public static readonly ComponentResourceKey BorderBrush = CreateInstance();
+    }
+
+    public static class ListBoxItem
+    {
+        public static readonly ComponentResourceKey Background = CreateInstance();
+
+        public static readonly ComponentResourceKey BorderBrush = CreateInstance();
+
+        public static readonly ComponentResourceKey MouseOverBackground = CreateInstance();
+
+        public static readonly ComponentResourceKey SelectedBackground = CreateInstance();
+
+        public static readonly ComponentResourceKey InactiveSelectedBackground = CreateInstance();
+
+        public static readonly ComponentResourceKey DisabledBackground = CreateInstance();
+    }
+
     private static ComponentResourceKey CreateInstance() =>
         new(typeof(BrushesKeys), Guid.NewGuid());
 }
