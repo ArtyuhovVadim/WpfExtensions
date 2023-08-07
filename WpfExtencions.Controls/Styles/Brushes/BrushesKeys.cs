@@ -457,6 +457,36 @@ public static class BrushesKeys
         public static readonly ComponentResourceKey DisabledBackground = CreateInstance();
     }
 
+    public static class ListView
+    {
+        public static readonly ComponentResourceKey Background = CreateInstance();
+
+        public static readonly ComponentResourceKey Foreground = CreateInstance();
+
+        public static readonly ComponentResourceKey BorderBrush = CreateInstance();
+
+        public static readonly ComponentResourceKey HeaderBackground = CreateInstance();
+
+        public static readonly ComponentResourceKey FloatingIndicatorBrush = CreateInstance();
+
+        public static readonly ComponentResourceKey ThumbBrush = CreateInstance();
+    }
+
+    public static class ListViewItem
+    {
+        public static readonly ComponentResourceKey Background = CreateInstance();
+
+        public static readonly ComponentResourceKey BorderBrush = CreateInstance();
+
+        public static readonly ComponentResourceKey MouseOverBackground = CreateInstance();
+
+        public static readonly ComponentResourceKey SelectedBackground = CreateInstance();
+
+        public static readonly ComponentResourceKey InactiveSelectedBackground = CreateInstance();
+
+        public static readonly ComponentResourceKey DisabledBackground = CreateInstance();
+    }
+
     private static ComponentResourceKey CreateInstance() =>
         new(typeof(BrushesKeys), Guid.NewGuid());
 }

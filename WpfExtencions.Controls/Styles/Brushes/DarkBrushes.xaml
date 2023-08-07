@@ -1019,4 +1019,72 @@
 
     <!--#endregion-->
 
+    <!--#region ListView-->
+
+    <SolidColorBrush
+        x:Key="{x:Static b:BrushesKeys+ListView.Background}"
+        o:Freeze="True"
+        Color="#3B3B3B" />
+
+    <SolidColorBrush
+        x:Key="{x:Static b:BrushesKeys+ListView.Foreground}"
+        o:Freeze="True"
+        Color="#FFFFFF" />
+
+    <SolidColorBrush
+        x:Key="{x:Static b:BrushesKeys+ListView.BorderBrush}"
+        o:Freeze="True"
+        Color="#222222" />
+
+    <SolidColorBrush
+        x:Key="{x:Static b:BrushesKeys+ListView.HeaderBackground}"
+        o:Freeze="True"
+        Color="#484848" />
+
+    <SolidColorBrush
+        x:Key="{x:Static b:BrushesKeys+ListView.FloatingIndicatorBrush}"
+        o:Freeze="True"
+        Color="#A2D2FD" />
+
+    <SolidColorBrush
+        x:Key="{x:Static b:BrushesKeys+ListView.ThumbBrush}"
+        o:Freeze="True"
+        Color="#222222" />
+
+    <!--#endregion-->
+
+    <!--#region ListViewItem-->
+
+    <SolidColorBrush
+        x:Key="{x:Static b:BrushesKeys+ListViewItem.Background}"
+        o:Freeze="True"
+        Color="Transparent" />
+
+    <SolidColorBrush
+        x:Key="{x:Static b:BrushesKeys+ListViewItem.BorderBrush}"
+        o:Freeze="True"
+        Color="Transparent" />
+
+    <SolidColorBrush
+        x:Key="{x:Static b:BrushesKeys+ListViewItem.MouseOverBackground}"
+        o:Freeze="True"
+        Color="#5C5C5C" />
+
+    <SolidColorBrush
+        x:Key="{x:Static b:BrushesKeys+ListViewItem.SelectedBackground}"
+        o:Freeze="True"
+        Color="#6283A2" />
+
+    <SolidColorBrush
+        x:Key="{x:Static b:BrushesKeys+ListViewItem.InactiveSelectedBackground}"
+        o:Freeze="True"
+        Color="#4F5F6F" />
+
+    <SolidColorBrush
+        x:Key="{x:Static b:BrushesKeys+ListViewItem.DisabledBackground}"
+        o:Freeze="True"
+        Color="#A3A3A3" />
+
+    <!--#endregion-->
+
 </ResourceDictionary>
