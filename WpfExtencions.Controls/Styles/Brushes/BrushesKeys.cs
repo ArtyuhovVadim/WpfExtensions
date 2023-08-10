@@ -489,6 +489,53 @@ public static class BrushesKeys
         public static readonly ComponentResourceKey DisabledBackground = CreateInstance();
     }
 
+    public static class DataGrid
+    {
+        public static readonly ComponentResourceKey Background = CreateInstance();
+
+        public static readonly ComponentResourceKey Foreground = CreateInstance();
+
+        public static readonly ComponentResourceKey BorderBrush = CreateInstance();
+
+        public static readonly ComponentResourceKey HorizontalGridLinesBrush = CreateInstance();
+
+        public static readonly ComponentResourceKey VerticalGridLinesBrush = CreateInstance();
+
+        public static readonly ComponentResourceKey RowHeaderBackground = CreateInstance();
+
+        public static readonly ComponentResourceKey MouseOverRowHeaderBackground = CreateInstance();
+
+        public static readonly ComponentResourceKey ColumnHeaderBackground = CreateInstance();
+
+        public static readonly ComponentResourceKey SortDirectionIconBrush = CreateInstance();
+
+        public static readonly ComponentResourceKey ValidationErrorForeground = CreateInstance();
+
+        public static readonly ComponentResourceKey SeparatorBackground = CreateInstance();
+
+        public static readonly ComponentResourceKey SelectionAllButtonBackground = CreateInstance();
+
+        public static readonly ComponentResourceKey MouseOverSelectionAllButtonBackground = CreateInstance();
+        
+        public static readonly ComponentResourceKey SelectionAllButtonIconBrush = CreateInstance();
+
+        public static readonly ComponentResourceKey DropLocationSeparatorBrush = CreateInstance();
+
+        public static readonly ComponentResourceKey DragIndicatorBorderBrush = CreateInstance();
+
+        public static readonly ComponentResourceKey DataGridCellBackground = CreateInstance();
+
+        public static readonly ComponentResourceKey DataGridCellBorderBrush = CreateInstance();
+
+        public static readonly ComponentResourceKey SelectedDataGridCellBackground = CreateInstance();
+
+        public static readonly ComponentResourceKey KeyboardFocusedDataGridCellBorderBrush = CreateInstance();
+
+        public static readonly ComponentResourceKey ActiveSelectionDataGridCellBackground = CreateInstance();
+        
+        public static readonly ComponentResourceKey ActiveSelectionDataGridCellForeground = CreateInstance();
+    }
+
     private static ComponentResourceKey CreateInstance() =>
         new(typeof(BrushesKeys), Guid.NewGuid());
 }

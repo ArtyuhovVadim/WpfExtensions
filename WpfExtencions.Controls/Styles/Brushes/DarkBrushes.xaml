@@ -1092,4 +1092,118 @@
 
     <!--#endregion-->
 
+    <!--#region DataGrid-->
+
+    <SolidColorBrush
+        x:Key="{x:Static b:BrushesKeys+DataGrid.Background}"
+        o:Freeze="True"
+        Color="#3B3B3B" />
+
+    <SolidColorBrush
+        x:Key="{x:Static b:BrushesKeys+DataGrid.Foreground}"
+        o:Freeze="True"
+        Color="#FFFFFF" />
+
+    <SolidColorBrush
+        x:Key="{x:Static b:BrushesKeys+DataGrid.BorderBrush}"
+        o:Freeze="True"
+        Color="#222222" />
+
+    <SolidColorBrush
+        x:Key="{x:Static b:BrushesKeys+DataGrid.HorizontalGridLinesBrush}"
+        o:Freeze="True"
+        Color="#353535" />
+
+    <SolidColorBrush
+        x:Key="{x:Static b:BrushesKeys+DataGrid.VerticalGridLinesBrush}"
+        o:Freeze="True"
+        Color="#353535" />
+
+    <SolidColorBrush
+        x:Key="{x:Static b:BrushesKeys+DataGrid.RowHeaderBackground}"
+        o:Freeze="True"
+        Color="#484848" />
+
+    <SolidColorBrush
+        x:Key="{x:Static b:BrushesKeys+DataGrid.MouseOverRowHeaderBackground}"
+        o:Freeze="True"
+        Color="#6283A2" />
+
+    <SolidColorBrush
+        x:Key="{x:Static b:BrushesKeys+DataGrid.ColumnHeaderBackground}"
+        o:Freeze="True"
+        Color="#484848" />
+
+    <SolidColorBrush
+        x:Key="{x:Static b:BrushesKeys+DataGrid.SortDirectionIconBrush}"
+        o:Freeze="True"
+        Color="#FFFFFF" />
+
+    <SolidColorBrush
+        x:Key="{x:Static b:BrushesKeys+DataGrid.ValidationErrorForeground}"
+        o:Freeze="True"
+        Color="#FF0000" />
+
+    <SolidColorBrush
+        x:Key="{x:Static b:BrushesKeys+DataGrid.SeparatorBackground}"
+        o:Freeze="True"
+        Color="#222222" />
+
+    <SolidColorBrush
+        x:Key="{x:Static b:BrushesKeys+DataGrid.SelectionAllButtonBackground}"
+        o:Freeze="True"
+        Color="#484848" />
+
+    <SolidColorBrush
+        x:Key="{x:Static b:BrushesKeys+DataGrid.MouseOverSelectionAllButtonBackground}"
+        o:Freeze="True"
+        Color="#6283A2" />
+
+    <SolidColorBrush
+        x:Key="{x:Static b:BrushesKeys+DataGrid.SelectionAllButtonIconBrush}"
+        o:Freeze="True"
+        Color="#FFFFFF" />
+
+    <SolidColorBrush
+        x:Key="{x:Static b:BrushesKeys+DataGrid.DropLocationSeparatorBrush}"
+        o:Freeze="True"
+        Color="#A2D2FD" />
+
+    <SolidColorBrush
+        x:Key="{x:Static b:BrushesKeys+DataGrid.DragIndicatorBorderBrush}"
+        o:Freeze="True"
+        Color="#A2D2FD" />
+
+    <SolidColorBrush
+        x:Key="{x:Static b:BrushesKeys+DataGrid.DataGridCellBackground}"
+        o:Freeze="True"
+        Color="Transparent" />
+
+    <SolidColorBrush
+        x:Key="{x:Static b:BrushesKeys+DataGrid.DataGridCellBorderBrush}"
+        o:Freeze="True"
+        Color="Transparent" />
+
+    <SolidColorBrush
+        x:Key="{x:Static b:BrushesKeys+DataGrid.SelectedDataGridCellBackground}"
+        o:Freeze="True"
+        Color="#6283A2" />
+
+    <SolidColorBrush
+        x:Key="{x:Static b:BrushesKeys+DataGrid.KeyboardFocusedDataGridCellBorderBrush}"
+        o:Freeze="True"
+        Color="#A2D2FD" />
+
+    <SolidColorBrush
+        x:Key="{x:Static b:BrushesKeys+DataGrid.ActiveSelectionDataGridCellBackground}"
+        o:Freeze="True"
+        Color="#4F5F6F" />
+
+    <SolidColorBrush
+        x:Key="{x:Static b:BrushesKeys+DataGrid.ActiveSelectionDataGridCellForeground}"
+        o:Freeze="True"
+        Color="#FFFFFF" />
+
+    <!--#endregion-->
+
 </ResourceDictionary>
