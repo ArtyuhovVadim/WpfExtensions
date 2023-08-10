@@ -469,6 +469,8 @@ public static class BrushesKeys
 
         public static readonly ComponentResourceKey FloatingIndicatorBrush = CreateInstance();
 
+        public static readonly ComponentResourceKey FloatingBorderBrush = CreateInstance();
+
         public static readonly ComponentResourceKey ThumbBrush = CreateInstance();
     }
 

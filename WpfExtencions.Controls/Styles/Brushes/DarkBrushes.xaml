@@ -1047,6 +1047,11 @@
         Color="#A2D2FD" />
 
     <SolidColorBrush
+        x:Key="{x:Static b:BrushesKeys+ListView.FloatingBorderBrush}"
+        o:Freeze="True"
+        Color="#A2D2FD" />
+
+    <SolidColorBrush
         x:Key="{x:Static b:BrushesKeys+ListView.ThumbBrush}"
         o:Freeze="True"
         Color="#222222" />

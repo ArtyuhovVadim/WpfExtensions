@@ -135,7 +135,9 @@
                 <Setter Property="Template">
                     <Setter.Value>
                         <ControlTemplate TargetType="GridViewColumnHeader">
-                            <Canvas Name="PART_FloatingHeaderCanvas" />
+                            <Border BorderBrush="{DynamicResource {x:Static b:BrushesKeys+ListView.FloatingBorderBrush}}" BorderThickness="1">
+                                <Canvas Name="PART_FloatingHeaderCanvas" Margin="-1,-1,0,-1" />
+                            </Border>
                         </ControlTemplate>
                     </Setter.Value>
                 </Setter>
