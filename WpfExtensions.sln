@@ -9,7 +9,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WpfExtensions", "WpfExtensi
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WpfExtensions.Mvvm", "WpfExtensions.Mvvm\WpfExtensions.Mvvm.csproj", "{AB092CE6-0EB8-4B27-9BBD-336E106D0282}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfExtensions.Controls", "WpfExtencions.Controls\WpfExtensions.Controls.csproj", "{FC57466C-69CD-4427-BA86-B7E1906789B4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WpfExtensions.Controls", "WpfExtencions.Controls\WpfExtensions.Controls.csproj", "{FC57466C-69CD-4427-BA86-B7E1906789B4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfExtensions.Mvvm.FluentValidation", "WpfExtensions.Mvvm.FluentValidation\WpfExtensions.Mvvm.FluentValidation.csproj", "{738E7597-F79E-4762-934E-350991F8D523}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -51,6 +53,14 @@ Global
 		{FC57466C-69CD-4427-BA86-B7E1906789B4}.Release|Any CPU.Build.0 = Release|Any CPU
 		{FC57466C-69CD-4427-BA86-B7E1906789B4}.Release|x86.ActiveCfg = Release|Any CPU
 		{FC57466C-69CD-4427-BA86-B7E1906789B4}.Release|x86.Build.0 = Release|Any CPU
+		{738E7597-F79E-4762-934E-350991F8D523}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{738E7597-F79E-4762-934E-350991F8D523}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{738E7597-F79E-4762-934E-350991F8D523}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{738E7597-F79E-4762-934E-350991F8D523}.Debug|x86.Build.0 = Debug|Any CPU
+		{738E7597-F79E-4762-934E-350991F8D523}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{738E7597-F79E-4762-934E-350991F8D523}.Release|Any CPU.Build.0 = Release|Any CPU
+		{738E7597-F79E-4762-934E-350991F8D523}.Release|x86.ActiveCfg = Release|Any CPU
+		{738E7597-F79E-4762-934E-350991F8D523}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
