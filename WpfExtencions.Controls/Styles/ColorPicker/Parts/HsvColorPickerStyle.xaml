@@ -4,7 +4,7 @@
     xmlns:attachedDependencyProperties1="clr-namespace:WpfExtensions.AttachedDependencyProperties;assembly=WpfExtensions"
     xmlns:b="http://schemas.microsoft.com/xaml/behaviors"
     xmlns:behaviors="clr-namespace:WpfExtensions.Behaviors;assembly=WpfExtensions"
-    xmlns:brushes="clr-namespace:WpfExtensions.Controls.Styles.Brushes"
+    xmlns:brushes="clr-namespace:WpfExtensions.Controls.Resources.Brushes"
     xmlns:converters="clr-namespace:WpfExtensions.Converters;assembly=WpfExtensions"
     xmlns:parts="clr-namespace:WpfExtensions.Controls.ColorPicker.Parts">
     <Style TargetType="{x:Type parts:HsvColorPicker}">

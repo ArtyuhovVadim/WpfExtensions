@@ -1,7 +1,7 @@
 ﻿<ResourceDictionary
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:b="clr-namespace:WpfExtensions.Controls.Styles.Brushes"
+    xmlns:b="clr-namespace:WpfExtensions.Controls.Resources.Brushes"
     xmlns:beh="http://schemas.microsoft.com/xaml/behaviors"
     xmlns:colorPicker="clr-namespace:WpfExtensions.Controls.ColorPicker"
     xmlns:parts="clr-namespace:WpfExtensions.Controls.ColorPicker.Parts">

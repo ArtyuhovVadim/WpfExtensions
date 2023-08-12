@@ -1,6 +1,6 @@
 ﻿using System.Windows;
 
-namespace WpfExtensions.Controls.Styles.Brushes;
+namespace WpfExtensions.Controls.Resources.Brushes;
 
 public static class BrushesKeys
 {
@@ -258,7 +258,7 @@ public static class BrushesKeys
 
         public static readonly ComponentResourceKey BorderBrush = CreateInstance();
     }
-    
+
     public static class Separator
     {
         public static readonly ComponentResourceKey VerticalBackground = CreateInstance();
@@ -282,7 +282,7 @@ public static class BrushesKeys
         public static readonly ComponentResourceKey ArrowBrush = CreateInstance();
 
         public static readonly ComponentResourceKey DisabledArrowBrush = CreateInstance();
-     
+
         public static readonly ComponentResourceKey DisabledForeground = CreateInstance();
     }
 
@@ -319,22 +319,22 @@ public static class BrushesKeys
     public static class GroupBox
     {
         public static readonly ComponentResourceKey Background = CreateInstance();
-        
+
         public static readonly ComponentResourceKey Foreground = CreateInstance();
-     
+
         public static readonly ComponentResourceKey BorderBrush = CreateInstance();
     }
 
     public static class Slider
     {
         public static readonly ComponentResourceKey Background = CreateInstance();
-        
+
         public static readonly ComponentResourceKey BorderBrush = CreateInstance();
 
         public static readonly ComponentResourceKey FocusedBorderBrush = CreateInstance();
 
         public static readonly ComponentResourceKey ThumbBackground = CreateInstance();
-        
+
         public static readonly ComponentResourceKey ThumbBorderBrush = CreateInstance();
 
         public static readonly ComponentResourceKey MouseOverThumbBorderBrush = CreateInstance();
@@ -342,7 +342,7 @@ public static class BrushesKeys
         public static readonly ComponentResourceKey DraggingThumbBorderBrush = CreateInstance();
 
         public static readonly ComponentResourceKey DisableThumbBackground = CreateInstance();
-        
+
         public static readonly ComponentResourceKey DisableThumbBorderBrush = CreateInstance();
 
         public static readonly ComponentResourceKey SelectionRangeBrush = CreateInstance();
@@ -441,7 +441,7 @@ public static class BrushesKeys
         public static readonly ComponentResourceKey Foreground = CreateInstance();
 
         public static readonly ComponentResourceKey BorderBrush = CreateInstance();
-        
+
         public static readonly ComponentResourceKey MouseOverBackground = CreateInstance();
 
         public static readonly ComponentResourceKey SelectedBackground = CreateInstance();
@@ -541,7 +541,7 @@ public static class BrushesKeys
         public static readonly ComponentResourceKey SelectionAllButtonBackground = CreateInstance();
 
         public static readonly ComponentResourceKey MouseOverSelectionAllButtonBackground = CreateInstance();
-        
+
         public static readonly ComponentResourceKey SelectionAllButtonIconBrush = CreateInstance();
 
         public static readonly ComponentResourceKey DropLocationSeparatorBrush = CreateInstance();
@@ -557,7 +557,7 @@ public static class BrushesKeys
         public static readonly ComponentResourceKey KeyboardFocusedDataGridCellBorderBrush = CreateInstance();
 
         public static readonly ComponentResourceKey ActiveSelectionDataGridCellBackground = CreateInstance();
-        
+
         public static readonly ComponentResourceKey ActiveSelectionDataGridCellForeground = CreateInstance();
     }
 
