@@ -20,4 +20,8 @@
 		<Resource Include="Resources\Images\TransparentBackground.png" />
 	</ItemGroup>
 
+	<ItemGroup>
+	  <Folder Include="Resources\Icons\" />
+	</ItemGroup>
+
 </Project>
