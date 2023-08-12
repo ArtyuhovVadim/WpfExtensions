@@ -6,7 +6,7 @@
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="/WpfExtensions.Controls;component/Styles/Brushes/DarkBrushes.xaml" />
+                <ResourceDictionary Source="/WpfExtensions.Controls;component/Resources/Brushes/DarkBrushes.xaml" />
                 <ResourceDictionary Source="/WpfExtensions.Controls;component/Themes/Generic.xaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
