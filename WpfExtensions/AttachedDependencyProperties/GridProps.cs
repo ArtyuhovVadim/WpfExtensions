@@ -41,9 +41,9 @@ public static class GridProps
         SetShowGridLinesByVisualTree(element, GetShowGridLinesEx(element));
     }
 
-    public static void SetShowGridLinesEx(DependencyObject o, bool value) => o.SetValue(ShowGridLinesExProperty, value);
+    public static void SetShowGridLinesEx(FrameworkElement o, bool value) => o.SetValue(ShowGridLinesExProperty, value);
 
-    public static bool GetShowGridLinesEx(DependencyObject o) => (bool)o.GetValue(ShowGridLinesExProperty);
+    public static bool GetShowGridLinesEx(FrameworkElement o) => (bool)o.GetValue(ShowGridLinesExProperty);
 
     #endregion
 
@@ -96,14 +96,14 @@ public static class GridProps
     /// <param name="value">ColumnsDefinition as string</param>
     /// <exception cref="InvalidOperationException">An exception is thrown if you try to set a property other than <see cref="Grid"/></exception>
     /// <exception cref="ArgumentException">An exception is thrown if input <see cref="string"/> incorrect</exception>
-    public static void SetColumnDefinitionsEx(DependencyObject o, string value) => o.SetValue(ColumnDefinitionsExProperty, value);
+    public static void SetColumnDefinitionsEx(Grid o, string value) => o.SetValue(ColumnDefinitionsExProperty, value);
 
     /// <summary>
     /// Returns <see cref="Grid.ColumnDefinitions"/> as string.
     /// </summary>
     /// <param name="o">Grid object</param>
     /// <returns><see cref="Grid.ColumnDefinitions"/> as string</returns>
-    public static string GetColumnDefinitionsEx(DependencyObject o) => (string)o.GetValue(ColumnDefinitionsExProperty);
+    public static string GetColumnDefinitionsEx(Grid o) => (string)o.GetValue(ColumnDefinitionsExProperty);
 
     #endregion
 
@@ -156,14 +156,14 @@ public static class GridProps
     /// <param name="value">RowsDefinition as string</param>
     /// <exception cref="InvalidOperationException">An exception is thrown if you try to set a property other than <see cref="Grid"/></exception>
     /// <exception cref="ArgumentException">An exception is thrown if input <see cref="string"/> incorrect</exception>
-    public static void SetRowDefinitionsEx(DependencyObject o, string value) => o.SetValue(RowDefinitionsExProperty, value);
+    public static void SetRowDefinitionsEx(Grid o, string value) => o.SetValue(RowDefinitionsExProperty, value);
 
     /// <summary>
     /// Returns <see cref="Grid.RowDefinitions"/> as string.
     /// </summary>
     /// <param name="o">Grid object</param>
     /// <returns><see cref="Grid.RowDefinitions"/> as string</returns>
-    public static string GetRowDefinitionsEx(DependencyObject o) => (string)o.GetValue(RowDefinitionsExProperty);
+    public static string GetRowDefinitionsEx(Grid o) => (string)o.GetValue(RowDefinitionsExProperty);
 
     #endregion
 

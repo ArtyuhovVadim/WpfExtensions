@@ -28,9 +28,9 @@ public static class ListBoxProps
         listBox.ScrollIntoView(listBox.SelectedItem);
     }
 
-    public static void SetAutoScrollToSelectedItem(DependencyObject o, bool value) => o.SetValue(AutoScrollToSelectedItemProperty, value);
+    public static void SetAutoScrollToSelectedItem(ListBox o, bool value) => o.SetValue(AutoScrollToSelectedItemProperty, value);
 
-    public static bool GetAutoScrollToSelectedItem(DependencyObject o) => (bool)o.GetValue(AutoScrollToSelectedItemProperty);
+    public static bool GetAutoScrollToSelectedItem(ListBox o) => (bool)o.GetValue(AutoScrollToSelectedItemProperty);
 
     #endregion
 }

@@ -30,9 +30,9 @@ public static class GridViewHeaderRowPresenterProps
         SetBackground(presenter);
     }
 
-    public static void SetFloatingIndicatorBrush(DependencyObject element, Brush value) => element.SetValue(FloatingIndicatorBrushProperty, value);
+    public static void SetFloatingIndicatorBrush(GridViewHeaderRowPresenter element, Brush value) => element.SetValue(FloatingIndicatorBrushProperty, value);
 
-    public static Brush GetFloatingIndicatorBrush(DependencyObject element) => (Brush)element.GetValue(FloatingIndicatorBrushProperty);
+    public static Brush GetFloatingIndicatorBrush(GridViewHeaderRowPresenter element) => (Brush)element.GetValue(FloatingIndicatorBrushProperty);
 
     #endregion
 
@@ -59,9 +59,9 @@ public static class GridViewHeaderRowPresenterProps
         SetWidth(presenter);
     }
 
-    public static void SetFloatingIndicatorWidth(DependencyObject element, double value) => element.SetValue(FloatingIndicatorWidthProperty, value);
+    public static void SetFloatingIndicatorWidth(GridViewHeaderRowPresenter element, double value) => element.SetValue(FloatingIndicatorWidthProperty, value);
 
-    public static double GetFloatingIndicatorWidth(DependencyObject element) => (double)element.GetValue(FloatingIndicatorWidthProperty);
+    public static double GetFloatingIndicatorWidth(GridViewHeaderRowPresenter element) => (double)element.GetValue(FloatingIndicatorWidthProperty);
 
     #endregion
 
@@ -88,9 +88,9 @@ public static class GridViewHeaderRowPresenterProps
         SetMargin(presenter);
     }
 
-    public static void SetFloatingIndicatorMargin(DependencyObject element, Thickness value) => element.SetValue(FloatingIndicatorMarginProperty, value);
+    public static void SetFloatingIndicatorMargin(GridViewHeaderRowPresenter element, Thickness value) => element.SetValue(FloatingIndicatorMarginProperty, value);
 
-    public static Thickness GetFloatingIndicatorMargin(DependencyObject element) => (Thickness)element.GetValue(FloatingIndicatorMarginProperty);
+    public static Thickness GetFloatingIndicatorMargin(GridViewHeaderRowPresenter element) => (Thickness)element.GetValue(FloatingIndicatorMarginProperty);
 
     #endregion
 
