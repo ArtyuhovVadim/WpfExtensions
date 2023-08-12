@@ -266,6 +266,65 @@
         o:Freeze="True"
         Color="#333333" />
 
+    <SolidColorBrush
+        x:Key="{x:Static b:BrushesKeys+TextBox.ErrorBorderBrush}"
+        o:Freeze="True"
+        Color="#AD5454" />
+
+    <!--#endregion-->
+
+    <!--#region TextBoxEx-->
+
+    <SolidColorBrush
+        x:Key="{x:Static b:BrushesKeys+TextBoxEx.Background}"
+        o:Freeze="True"
+        Color="#2E2E2E" />
+
+    <SolidColorBrush
+        x:Key="{x:Static b:BrushesKeys+TextBoxEx.Foreground}"
+        o:Freeze="True"
+        Color="#FFFFFF" />
+
+    <SolidColorBrush
+        x:Key="{x:Static b:BrushesKeys+TextBoxEx.BorderBrush}"
+        o:Freeze="True"
+        Color="#222222" />
+
+    <SolidColorBrush
+        x:Key="{x:Static b:BrushesKeys+TextBoxEx.SelectionBrush}"
+        o:Freeze="True"
+        Color="#949494" />
+
+    <SolidColorBrush
+        x:Key="{x:Static b:BrushesKeys+TextBoxEx.CaretBrush}"
+        o:Freeze="True"
+        Color="#D1D1D1" />
+
+    <SolidColorBrush
+        x:Key="{x:Static b:BrushesKeys+TextBoxEx.FocusedBorderBrush}"
+        o:Freeze="True"
+        Color="#A2D2FD" />
+
+    <SolidColorBrush
+        x:Key="{x:Static b:BrushesKeys+TextBoxEx.DisabledBackground}"
+        o:Freeze="True"
+        Color="#353535" />
+
+    <SolidColorBrush
+        x:Key="{x:Static b:BrushesKeys+TextBoxEx.DisabledForeground}"
+        o:Freeze="True"
+        Color="#868686" />
+
+    <SolidColorBrush
+        x:Key="{x:Static b:BrushesKeys+TextBoxEx.DisabledBorderBrush}"
+        o:Freeze="True"
+        Color="#333333" />
+
+    <SolidColorBrush
+        x:Key="{x:Static b:BrushesKeys+TextBoxEx.ErrorBorderBrush}"
+        o:Freeze="True"
+        Color="#AD5454" />
+
     <!--#endregion-->
 
     <!--#region CheckBox-->

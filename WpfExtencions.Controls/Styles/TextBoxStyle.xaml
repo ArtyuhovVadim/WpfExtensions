@@ -2,6 +2,9 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:b="clr-namespace:WpfExtensions.Controls.Styles.Brushes">
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="ErrorTemplates.xaml" />
+    </ResourceDictionary.MergedDictionaries>
     <ContextMenu x:Key="TextBoxContextMenu">
         <MenuItem Command="ApplicationCommands.Cut" />
         <MenuItem Command="ApplicationCommands.Copy" />
@@ -16,6 +19,7 @@
         <Setter Property="BorderThickness" Value="1" />
         <Setter Property="KeyboardNavigation.TabNavigation" Value="None" />
         <Setter Property="ContextMenu" Value="{StaticResource TextBoxContextMenu}" />
+        <Setter Property="Validation.ErrorTemplate" Value="{StaticResource DefaultRightErrorTemplate}" />
         <Setter Property="HorizontalContentAlignment" Value="Left" />
         <Setter Property="FocusVisualStyle" Value="{x:Null}" />
         <Setter Property="AllowDrop" Value="True" />
@@ -52,6 +56,15 @@
                         </Trigger>
                         <Trigger Property="IsKeyboardFocused" Value="True">
                             <Setter Property="BorderBrush" Value="{DynamicResource {x:Static b:BrushesKeys+TextBox.FocusedBorderBrush}}" />
+                        </Trigger>
+                        <Trigger Property="IsKeyboardFocused" Value="True">
+                            <Setter Property="BorderBrush" Value="{DynamicResource {x:Static b:BrushesKeys+TextBox.FocusedBorderBrush}}" />
+                        </Trigger>
+                        <Trigger Property="Validation.HasError" Value="True">
+                            <Setter Property="BorderBrush" Value="{DynamicResource {x:Static b:BrushesKeys+TextBox.FocusedBorderBrush}}" />
+                        </Trigger>
+                        <Trigger Property="HorizontalContentAlignment" Value="Right">
+                            <Setter Property="Validation.ErrorTemplate" Value="{StaticResource DefaultLeftErrorTemplate}" />
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>

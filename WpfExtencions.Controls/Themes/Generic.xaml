@@ -2,6 +2,7 @@
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="../Styles/ButtonStyle.xaml" />
         <ResourceDictionary Source="../Styles/TextBoxStyle.xaml" />
+        <ResourceDictionary Source="../Styles/TextBoxExStyle.xaml" />
         <ResourceDictionary Source="../Styles/CheckBoxStyle.xaml" />
         <ResourceDictionary Source="../Styles/ComboBoxStyle.xaml" />
         <ResourceDictionary Source="../Styles/TextBlockStyle.xaml" />
