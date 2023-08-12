@@ -561,6 +561,13 @@ public static class BrushesKeys
         public static readonly ComponentResourceKey ActiveSelectionDataGridCellForeground = CreateInstance();
     }
 
+    public static class ValidationError
+    {
+        public static readonly ComponentResourceKey Background = CreateInstance();
+
+        public static readonly ComponentResourceKey Foreground = CreateInstance();
+    }
+
     private static ComponentResourceKey CreateInstance() =>
         new(typeof(BrushesKeys), Guid.NewGuid());
 }

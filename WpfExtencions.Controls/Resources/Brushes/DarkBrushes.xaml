@@ -1265,4 +1265,18 @@
 
     <!--#endregion-->
 
+    <!--#region ValidationError-->
+
+    <SolidColorBrush
+        x:Key="{x:Static b:BrushesKeys+ValidationError.Background}"
+        o:Freeze="True"
+        Color="#FFFFFF" />
+
+    <SolidColorBrush
+        x:Key="{x:Static b:BrushesKeys+ValidationError.Foreground}"
+        o:Freeze="True"
+        Color="#906161" />
+
+    <!--#endregion-->
+
 </ResourceDictionary>
