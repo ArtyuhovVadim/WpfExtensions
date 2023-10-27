@@ -1,7 +1,7 @@
 ﻿using System.Globalization;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Media;
+using WpfExtensions.Utils;
 
 namespace WpfExtensions.AttachedDependencyProperties;
 
@@ -252,23 +252,9 @@ public static class GridProps
             grid.ShowGridLines = showGridlines;
         }
 
-        var visualTree = new Stack<DependencyObject>(new[] { root });
-
-        while (visualTree.Count != 0)
+        root.ProcessVisualTreeNodes<Grid>(gridNode =>
         {
-            var current = visualTree.Pop();
-
-            for (var i = 0; i < VisualTreeHelper.GetChildrenCount(current); i++)
-            {
-                var child = VisualTreeHelper.GetChild(current, i);
-
-                if (child is Grid newGrid)
-                {
-                    newGrid.ShowGridLines = showGridlines;
-                }
-
-                visualTree.Push(child);
-            }
-        }
+            gridNode.ShowGridLines = showGridlines;
+        });
     }
 }

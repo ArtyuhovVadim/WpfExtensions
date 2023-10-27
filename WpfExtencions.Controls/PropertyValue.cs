@@ -1,6 +1,6 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Media;
+using WpfExtensions.Utils;
 
 namespace WpfExtensions.Controls;
 
@@ -82,23 +82,9 @@ public class PropertyValue : ContentControl
 
     private static void SetGroupNameByVisualTree(Panel root, string name)
     {
-        var visualTree = new Stack<DependencyObject>(new[] { root });
-
-        while (visualTree.Count != 0)
+        root.ProcessVisualTreeNodes<PropertyValue>(propertyValue =>
         {
-            var current = visualTree.Pop();
-
-            for (var i = 0; i < VisualTreeHelper.GetChildrenCount(current); i++)
-            {
-                var child = VisualTreeHelper.GetChild(current, i);
-
-                if (child is PropertyValue propertyValue)
-                {
-                    SetGroupName(propertyValue, name);
-                }
-
-                visualTree.Push(child);
-            }
-        }
+            SetGroupName(propertyValue, name);
+        });
     }
 }
