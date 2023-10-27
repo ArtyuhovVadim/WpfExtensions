@@ -36,7 +36,12 @@ public class StackPanelEx : StackPanel
             }
 
             InternalChildren.RemoveAt(i);
-            InternalChildren.Insert(i, new StackPanelExDecorator { Child = child, Margin = GetGap(child, i) });
+
+            var newDecorator = new StackPanelExDecorator { Child = child, Margin = GetGap(child, i) };
+
+            Grid.SetIsSharedSizeScope(newDecorator, Grid.GetIsSharedSizeScope(child));
+            
+            InternalChildren.Insert(i, newDecorator);
         }
 
         return base.MeasureOverride(constraint);
