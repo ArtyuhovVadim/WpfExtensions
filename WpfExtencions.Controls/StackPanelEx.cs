@@ -21,6 +21,9 @@ public class StackPanelEx : StackPanel
 
     protected override Size MeasureOverride(Size constraint)
     {
+        if (Gap == 0)
+            return base.MeasureOverride(constraint);
+
         var count = InternalChildren.Count;
 
         for (var i = 0; i < count; i++)
@@ -30,24 +33,24 @@ public class StackPanelEx : StackPanel
             if (child is StackPanelExDecorator decorator)
             {
                 if (Math.Abs(decorator.Margin.Top - Gap) > 0.001d || Math.Abs(decorator.Margin.Left - Gap) > 0.001d)
-                    decorator.Margin = GetGap(decorator.Child, i);
+                    decorator.Margin = GetGap(i);
 
                 continue;
             }
 
             InternalChildren.RemoveAt(i);
 
-            var newDecorator = new StackPanelExDecorator { Child = child, Margin = GetGap(child, i) };
+            var newDecorator = new StackPanelExDecorator { Child = child, Margin = GetGap(i) };
 
             Grid.SetIsSharedSizeScope(newDecorator, Grid.GetIsSharedSizeScope(child));
-            
+
             InternalChildren.Insert(i, newDecorator);
         }
 
         return base.MeasureOverride(constraint);
     }
 
-    private Thickness GetGap(UIElement child, int childIndex)
+    private Thickness GetGap(int childIndex)
     {
         if (childIndex == 0) return new Thickness();
 

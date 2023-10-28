@@ -33,6 +33,9 @@ public class GridEx : Grid
 
     protected override Size MeasureOverride(Size constraint)
     {
+        if (ColumnGap == 0 && RowGap == 0)
+            return base.MeasureOverride(constraint);
+
         var count = InternalChildren.Count;
 
         for (var i = 0; i < count; i++)
