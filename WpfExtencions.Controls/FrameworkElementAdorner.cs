@@ -10,12 +10,6 @@ public class FrameworkElementAdorner : Adorner
 {
     private readonly FrameworkElement _child;
 
-    public AdornerPlacement HorizontalAdornerPlacement { get; set; } = AdornerPlacement.Inside;
-    public AdornerPlacement VerticalAdornerPlacement { get; set; } = AdornerPlacement.Inside;
-
-    public double OffsetX { get; set; }
-    public double OffsetY { get; set; }
-
     private new FrameworkElement AdornedElement => (FrameworkElement)base.AdornedElement;
 
     public FrameworkElementAdorner(FrameworkElement adornerChildElement, UIElement adornedElement) : base(adornedElement)
@@ -41,8 +35,13 @@ public class FrameworkElementAdorner : Adorner
         AddVisualChild(adornerChildElement);
     }
 
-    public double PositionX { get; set; } = double.NaN;
+    public AdornerPlacement HorizontalAdornerPlacement { get; set; } = AdornerPlacement.Inside;
+    public AdornerPlacement VerticalAdornerPlacement { get; set; } = AdornerPlacement.Inside;
 
+    public double OffsetX { get; set; }
+    public double OffsetY { get; set; }
+
+    public double PositionX { get; set; } = double.NaN;
     public double PositionY { get; set; } = double.NaN;
 
     public void DisconnectChild()
