@@ -14,6 +14,14 @@ public static class VisualTreeUtils
         return target as T;
     }
 
+    public static T? FindLogicalParent<T>(this DependencyObject? obj) where T : class
+    {
+        if (obj is null) return null;
+        var target = obj;
+        do { target = LogicalTreeHelper.GetParent(target); } while (target != null && target is not T);
+        return target as T;
+    }
+
     public static DependencyObject? FindLogicalRoot(this DependencyObject? obj)
     {
         if (obj is null) return null;
@@ -36,12 +44,52 @@ public static class VisualTreeUtils
         } while (true);
     }
 
-    public static T? FindLogicalParent<T>(this DependencyObject? obj) where T : class
+    public static T? FindVisualChild<T>(this DependencyObject root) where T : DependencyObject
     {
-        if (obj is null) return null;
-        var target = obj;
-        do { target = LogicalTreeHelper.GetParent(target); } while (target != null && target is not T);
-        return target as T;
+        var visualTree = new Stack<DependencyObject>(new[] { root });
+
+        while (visualTree.Count != 0)
+        {
+            var current = visualTree.Pop();
+
+            for (var i = 0; i < VisualTreeHelper.GetChildrenCount(current); i++)
+            {
+                var child = VisualTreeHelper.GetChild(current, i);
+
+                if (child is T childT)
+                {
+                    return childT;
+                }
+
+                visualTree.Push(child);
+            }
+        }
+
+        return null;
+    }
+
+    public static T? FindVisualChildByName<T>(this DependencyObject root, string name) where T : FrameworkElement
+    {
+        var visualTree = new Stack<DependencyObject>(new[] { root });
+
+        while (visualTree.Count != 0)
+        {
+            var current = visualTree.Pop();
+
+            for (var i = 0; i < VisualTreeHelper.GetChildrenCount(current); i++)
+            {
+                var child = VisualTreeHelper.GetChild(current, i);
+
+                if (child is T childT && childT.Name == name)
+                {
+                    return childT;
+                }
+
+                visualTree.Push(child);
+            }
+        }
+
+        return null;
     }
 
     public static IEnumerable<DependencyObject> GetAllVisualChildren(this DependencyObject? obj)
