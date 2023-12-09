@@ -1,6 +1,6 @@
 ﻿using System.Windows;
 
-namespace WpfExtensions;
+namespace WpfExtensions.AttachedDependencyProperties;
 
 public class DataPipe : Freezable
 {
