@@ -8,6 +8,7 @@
     xmlns:parts="clr-namespace:WpfExtensions.Controls.ColorPicker.Parts">
     <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
     <converters:EnumerableToCountConverter x:Key="EnumerableToCountConverter" />
+    <converters:ColorToSolidColorBrushConverter x:Key="ColorToSolidColorBrushConverter" />
     <Style x:Key="ColorPickerToggleButtonStyle" TargetType="{x:Type ToggleButton}">
         <Setter Property="FocusVisualStyle" Value="{x:Null}" />
         <Setter Property="Template">
@@ -59,12 +60,10 @@
                             <Grid>
                                 <Border
                                     Margin="2"
+                                    Background="{TemplateBinding SelectedColor,
+                                                                 Converter={StaticResource ColorToSolidColorBrushConverter}}"
                                     BorderBrush="{DynamicResource {x:Static b:BrushesKeys+MinimizedColorPickerControl.MinimizedBorderBrush}}"
-                                    BorderThickness="1">
-                                    <Border.Background>
-                                        <SolidColorBrush Color="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=SelectedColor}" />
-                                    </Border.Background>
-                                </Border>
+                                    BorderThickness="1" />
                                 <Border
                                     Margin="2"
                                     Panel.ZIndex="-10"

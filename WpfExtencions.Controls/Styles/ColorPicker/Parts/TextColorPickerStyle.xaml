@@ -16,6 +16,7 @@
                 <converters:ByteToStringConverter x:Key="ByteToStringConverter" />
                 <converters:ColorToStringConverter x:Key="ColorToStringConverterNoTransp" />
                 <converters:ColorToStringConverter x:Key="ColorToStringConverter" IsTransparencySupported="True" />
+                <converters:ColorToSolidColorBrushConverter x:Key="ColorToSolidColorBrushConverter" />
 
                 <Style TargetType="{x:Type TextBlock}">
                     <Setter Property="HorizontalAlignment" Value="Center" />
@@ -105,14 +106,12 @@
                                     ViewportUnits="Absolute" />
                             </controls:ClippingBorder.Background>
                             <Border
+                                Background="{TemplateBinding Color,
+                                                             Converter={StaticResource ColorToSolidColorBrushConverter}}"
                                 CornerRadius="0"
                                 RenderOptions.EdgeMode="Aliased"
                                 SnapsToDevicePixels="True"
-                                UseLayoutRounding="True">
-                                <Border.Background>
-                                    <SolidColorBrush Color="{Binding Path=Color, RelativeSource={RelativeSource TemplatedParent}}" />
-                                </Border.Background>
-                            </Border>
+                                UseLayoutRounding="True" />
                         </controls:ClippingBorder>
                     </Grid>
                     <ControlTemplate.Triggers>
