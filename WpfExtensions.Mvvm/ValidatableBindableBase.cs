@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
+using System.Windows.Controls;
 
 namespace WpfExtensions.Mvvm;
 
@@ -13,6 +14,18 @@ public abstract class ValidatableBindableBase : BindableBase, INotifyDataErrorIn
     public bool HasErrors => _errors.Values.Any(x => x.Count > 0);
 
     IEnumerable INotifyDataErrorInfo.GetErrors(string? propertyName) => GetErrors(propertyName);
+
+    public bool IsPropertyHasErrors([CallerMemberName] string? propertyName = null)
+    {
+        ArgumentNullException.ThrowIfNull(propertyName);
+
+        if (_errors.TryGetValue(propertyName, out var errors))
+        {
+            return errors.Count != 0;
+        }
+
+        return false;
+    }
 
     public IEnumerable<string> GetErrors(string? propertyName)
     {
