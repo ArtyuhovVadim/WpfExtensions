@@ -19,43 +19,30 @@ public class StackPanelEx : StackPanel
 
     #endregion
 
-    protected override Size MeasureOverride(Size constraint)
+    protected override Size ArrangeOverride(Size arrangeSize)
     {
         if (Gap == 0)
-            return base.MeasureOverride(constraint);
+            return base.ArrangeOverride(arrangeSize);
 
-        var count = InternalChildren.Count;
+        var acc = 0d;
 
-        for (var i = 0; i < count; i++)
+        foreach (UIElement child in InternalChildren)
         {
-            var child = InternalChildren[i];
-
-            if (child is StackPanelExDecorator decorator)
+            var rect = Orientation switch
             {
-                if (Math.Abs(decorator.Margin.Top - Gap) > 0.001d || Math.Abs(decorator.Margin.Left - Gap) > 0.001d)
-                    decorator.Margin = GetGap(i);
+                Orientation.Horizontal => new Rect(new Point(acc, 0), new Size(child.DesiredSize.Width, arrangeSize.Height)),
+                Orientation.Vertical => new Rect(new Point(0, acc), new Size(arrangeSize.Width, child.DesiredSize.Height)),
+            };
 
-                continue;
-            }
+            child.Arrange(rect);
 
-            InternalChildren.RemoveAt(i);
-
-            var newDecorator = new StackPanelExDecorator { Child = child, Margin = GetGap(i) };
-
-            Grid.SetIsSharedSizeScope(newDecorator, Grid.GetIsSharedSizeScope(child));
-
-            InternalChildren.Insert(i, newDecorator);
+            acc += Orientation switch
+            {
+                Orientation.Horizontal => rect.Width + Gap,
+                Orientation.Vertical => rect.Height + Gap,
+            };
         }
 
-        return base.MeasureOverride(constraint);
-    }
-
-    private Thickness GetGap(int childIndex)
-    {
-        if (childIndex == 0) return new Thickness();
-
-        return Orientation is Orientation.Horizontal ?
-               new Thickness(Gap, 0, 0, 0) :
-               new Thickness(0, Gap, 0, 0);
+        return arrangeSize;
     }
 }
