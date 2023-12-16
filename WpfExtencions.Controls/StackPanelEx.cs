@@ -19,6 +19,22 @@ public class StackPanelEx : StackPanel
 
     #endregion
 
+    protected override Size MeasureOverride(Size constraint)
+    {
+        if (Gap == 0)
+            return base.MeasureOverride(constraint);
+
+        var baseSize = base.MeasureOverride(constraint);
+
+        var resultSize = Orientation switch
+        {
+            Orientation.Horizontal => new Size(baseSize.Width + (InternalChildren.Count - 1) * Gap, baseSize.Height),
+            Orientation.Vertical => new Size(baseSize.Width, baseSize.Height + (InternalChildren.Count - 1) * Gap),
+        };
+
+        return resultSize;
+    }
+
     protected override Size ArrangeOverride(Size arrangeSize)
     {
         if (Gap == 0)
