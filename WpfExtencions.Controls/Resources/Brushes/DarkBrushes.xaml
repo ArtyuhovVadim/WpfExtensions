@@ -219,6 +219,15 @@
 
     <!--#endregion-->
 
+    <!--#region TextBlock-->
+
+    <SolidColorBrush
+        x:Key="{x:Static b:BrushesKeys+TextBlock.Foreground}"
+        o:Freeze="True"
+        Color="#FFFFFF" />
+
+    <!--#endregion-->
+
     <!--#region TextBox-->
 
     <SolidColorBrush

@@ -1,6 +1,10 @@
-﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:b="clr-namespace:WpfExtensions.Controls.Resources.Brushes">
     <Style TargetType="{x:Type TextBlock}">
         <Setter Property="TextWrapping" Value="NoWrap" />
         <Setter Property="TextTrimming" Value="None" />
+        <Setter Property="Foreground" Value="{DynamicResource {x:Static b:BrushesKeys+TextBoxEx.Foreground}}" />
     </Style>
 </ResourceDictionary>
