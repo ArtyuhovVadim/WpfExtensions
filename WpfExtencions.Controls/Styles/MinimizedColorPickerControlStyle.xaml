@@ -26,7 +26,7 @@
                         <Trigger Property="IsMouseOver" Value="True">
                             <Setter TargetName="Border" Property="BorderBrush" Value="{DynamicResource {x:Static b:BrushesKeys+MinimizedColorPickerControl.MouseOverBrush}}" />
                         </Trigger>
-                        <Trigger Property="IsFocused" Value="True">
+                        <Trigger Property="IsKeyboardFocused" Value="True">
                             <Setter TargetName="Border" Property="BorderBrush" Value="{DynamicResource {x:Static b:BrushesKeys+MinimizedColorPickerControl.FocusedBrush}}" />
                         </Trigger>
                     </ControlTemplate.Triggers>
@@ -189,6 +189,9 @@
                         <Trigger Property="IsRecentColorsEmpty" Value="True">
                             <Setter TargetName="RecentBrushes" Property="Visibility" Value="Collapsed" />
                             <Setter TargetName="RecentBrushesSeparator" Property="Visibility" Value="Collapsed" />
+                        </Trigger>
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter Property="Opacity" Value="0.7" />
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
