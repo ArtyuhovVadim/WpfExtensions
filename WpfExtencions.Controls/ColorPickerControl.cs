@@ -1,5 +1,4 @@
-﻿using System.Collections.ObjectModel;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Input;
 using System.Windows.Media;
 using WpfExtensions.Controls.ColorPicker;
@@ -8,14 +7,10 @@ namespace WpfExtensions.Controls;
 
 public class ColorPickerControl : BaseColorPickerControl
 {
-    private readonly ObservableCollection<SolidColorBrush> _recentBrushes = new();
-
     static ColorPickerControl()
     {
         DefaultStyleKeyProperty.OverrideMetadata(typeof(ColorPickerControl), new FrameworkPropertyMetadata(typeof(ColorPickerControl)));
     }
-
-    public override IEnumerable<SolidColorBrush> RecentBrushes => _recentBrushes;
 
     protected override void OnLostFocus(RoutedEventArgs e)
     {
@@ -34,15 +29,17 @@ public class ColorPickerControl : BaseColorPickerControl
 
     private void UpdateRecentColors(Color color)
     {
-        if (_recentBrushes.Any(x => x.Color == color))
+        var recentBrushes = GetRecentBrushes(RecentBrushesGroupName!);
+
+        if (recentBrushes.Any(x => x.Color == color))
             return;
 
-        if (_recentBrushes.Count >= RecentBrushesMaxCount)
-            _recentBrushes.RemoveAt(RecentBrushesMaxCount - 1);
+        if (recentBrushes.Count >= RecentBrushesMaxCount)
+            recentBrushes.RemoveAt(RecentBrushesMaxCount - 1);
 
         var brush = new SolidColorBrush(color);
 
-        _recentBrushes.Insert(0, brush);
+        recentBrushes.Insert(0, brush);
 
         IsRecentColorsEmpty = false;
     }

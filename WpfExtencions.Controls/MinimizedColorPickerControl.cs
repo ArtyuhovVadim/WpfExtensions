@@ -1,5 +1,4 @@
-﻿using System.Collections.ObjectModel;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Automation;
 using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
@@ -17,8 +16,6 @@ public class MinimizedColorPickerControl : BaseColorPickerControl
     private Button? _applyButton;
     private Button? _cancelButton;
     private Popup? _rootPopup;
-
-    private readonly ObservableCollection<SolidColorBrush> _recentBrushes = new();
 
     static MinimizedColorPickerControl()
     {
@@ -71,8 +68,6 @@ public class MinimizedColorPickerControl : BaseColorPickerControl
 
     #endregion
 
-    public override IEnumerable<SolidColorBrush> RecentBrushes => _recentBrushes;
-
     public override void OnApplyTemplate()
     {
         base.OnApplyTemplate();
@@ -113,15 +108,17 @@ public class MinimizedColorPickerControl : BaseColorPickerControl
 
     private void UpdateRecentColors(Color color)
     {
-        if (_recentBrushes.Any(x => x.Color == color))
+        var recentBrushes = GetRecentBrushes(RecentBrushesGroupName!);
+
+        if (recentBrushes.Any(x => x.Color == color))
             return;
 
-        if (_recentBrushes.Count >= RecentBrushesMaxCount)
-            _recentBrushes.RemoveAt(RecentBrushesMaxCount - 1);
+        if (recentBrushes.Count >= RecentBrushesMaxCount)
+            recentBrushes.RemoveAt(RecentBrushesMaxCount - 1);
 
         var brush = new SolidColorBrush(color);
 
-        _recentBrushes.Insert(0, brush);
+        recentBrushes.Insert(0, brush);
 
         IsRecentColorsEmpty = false;
     }
