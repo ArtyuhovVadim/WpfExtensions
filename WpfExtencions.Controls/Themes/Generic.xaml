@@ -5,7 +5,7 @@
         <ResourceDictionary Source="../Styles/TextBoxExStyle.xaml" />
         <ResourceDictionary Source="../Styles/CheckBoxStyle.xaml" />
         <ResourceDictionary Source="../Styles/ComboBoxStyle.xaml" />
-        <ResourceDictionary Source="../Styles/TextBlockStyle.xaml" />
+        
         <ResourceDictionary Source="../Styles/MenuStyle.xaml" />
         <ResourceDictionary Source="../Styles/MenuItemStyle.xaml" />
         <ResourceDictionary Source="../Styles/ScrollBarStyle.xaml" />
@@ -36,5 +36,6 @@
         <ResourceDictionary Source="../Styles/ColorPicker/Parts/RecentBrushesStyle.xaml" />
         <ResourceDictionary Source="../Styles/ColorPickerControlStyle.xaml" />
         <ResourceDictionary Source="../Styles/MinimizedColorPickerControlStyle.xaml" />
+        <ResourceDictionary Source="../Styles/TextBlockStyle.xaml" />
     </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>
