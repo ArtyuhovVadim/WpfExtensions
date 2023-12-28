@@ -441,7 +441,7 @@
         Color="#424242" />
 
     <SolidColorBrush
-        x:Key="{x:Static b:BrushesKeys+MenuItem.Foreground}"
+        x:Key="{x:Static b:BrushesKeys+MenuItem.IconsBrush}"
         o:Freeze="True"
         Color="#FFFFFF" />
 
