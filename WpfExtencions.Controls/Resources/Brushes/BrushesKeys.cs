@@ -573,6 +573,27 @@ public static class BrushesKeys
         public static readonly ComponentResourceKey Foreground = CreateInstance();
     }
 
+    public static class WindowEx
+    {
+        public static readonly ComponentResourceKey Background = CreateInstance();
+
+        public static readonly ComponentResourceKey Foreground = CreateInstance();
+
+        public static readonly ComponentResourceKey BorderBrush = CreateInstance();
+
+        public static readonly ComponentResourceKey FocusedBorderBrush = CreateInstance();
+
+        public static readonly ComponentResourceKey ButtonBackground = CreateInstance();
+
+        public static readonly ComponentResourceKey ButtonMouseOverBackground = CreateInstance();
+
+        public static readonly ComponentResourceKey ButtonForeground = CreateInstance();
+
+        public static readonly ComponentResourceKey CloseButtonBackground = CreateInstance();
+
+        public static readonly ComponentResourceKey CloseButtonMouseOverBackground = CreateInstance();
+    }
+
     private static ComponentResourceKey CreateInstance() =>
         new(typeof(BrushesKeys), Guid.NewGuid());
 }

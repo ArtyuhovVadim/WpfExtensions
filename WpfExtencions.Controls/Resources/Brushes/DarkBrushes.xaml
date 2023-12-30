@@ -1288,4 +1288,53 @@
 
     <!--#endregion-->
 
+    <!--#region WindowEx-->
+
+    <SolidColorBrush
+        x:Key="{x:Static b:BrushesKeys+WindowEx.Background}"
+        o:Freeze="True"
+        Color="#353535" />
+
+    <SolidColorBrush
+        x:Key="{x:Static b:BrushesKeys+WindowEx.Foreground}"
+        o:Freeze="True"
+        Color="White" />
+
+    <SolidColorBrush
+        x:Key="{x:Static b:BrushesKeys+WindowEx.BorderBrush}"
+        o:Freeze="True"
+        Color="#474747" />
+
+    <SolidColorBrush
+        x:Key="{x:Static b:BrushesKeys+WindowEx.FocusedBorderBrush}"
+        o:Freeze="True"
+        Color="#4E4E4E" />
+
+    <SolidColorBrush
+        x:Key="{x:Static b:BrushesKeys+WindowEx.ButtonBackground}"
+        o:Freeze="True"
+        Color="Transparent" />
+
+    <SolidColorBrush
+        x:Key="{x:Static b:BrushesKeys+WindowEx.ButtonMouseOverBackground}"
+        o:Freeze="True"
+        Color="#6283A2" />
+
+    <SolidColorBrush
+        x:Key="{x:Static b:BrushesKeys+WindowEx.ButtonForeground}"
+        o:Freeze="True"
+        Color="White" />
+
+    <SolidColorBrush
+        x:Key="{x:Static b:BrushesKeys+WindowEx.CloseButtonBackground}"
+        o:Freeze="True"
+        Color="#A00000" />
+
+    <SolidColorBrush
+        x:Key="{x:Static b:BrushesKeys+WindowEx.CloseButtonMouseOverBackground}"
+        o:Freeze="True"
+        Color="#C00000" />
+
+    <!--#endregion-->
+
 </ResourceDictionary>
