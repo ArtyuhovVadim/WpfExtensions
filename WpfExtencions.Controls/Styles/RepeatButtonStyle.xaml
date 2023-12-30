@@ -20,6 +20,7 @@
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type RepeatButton}">
                     <Border
+                        x:Name="Border"
                         Background="{TemplateBinding Background}"
                         BorderBrush="{TemplateBinding BorderBrush}"
                         BorderThickness="{TemplateBinding BorderThickness}"
@@ -27,6 +28,7 @@
                         SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
                         UseLayoutRounding="{TemplateBinding UseLayoutRounding}">
                         <ContentPresenter
+                            x:Name="ContentPresenter"
                             Margin="{TemplateBinding Padding}"
                             HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
                             VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
@@ -37,8 +39,8 @@
                     </Border>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsFocused" Value="True">
-                            <Setter Property="Background" Value="{DynamicResource {x:Static b:BrushesKeys+RepeatButton.FocusedBackground}}" />
-                            <Setter Property="BorderBrush" Value="{DynamicResource {x:Static b:BrushesKeys+RepeatButton.FocusedBorderBrush}}" />
+                            <Setter TargetName="Border" Property="Background" Value="{DynamicResource {x:Static b:BrushesKeys+RepeatButton.FocusedBackground}}" />
+                            <Setter TargetName="Border" Property="BorderBrush" Value="{DynamicResource {x:Static b:BrushesKeys+RepeatButton.FocusedBorderBrush}}" />
                         </Trigger>
                         <MultiTrigger>
                             <MultiTrigger.Conditions>
@@ -46,22 +48,22 @@
                                 <Condition Property="IsFocused" Value="False" />
                             </MultiTrigger.Conditions>
                             <MultiTrigger.Setters>
-                                <Setter Property="Background" Value="{DynamicResource {x:Static b:BrushesKeys+RepeatButton.MouseOverBackground}}" />
-                                <Setter Property="BorderBrush" Value="{DynamicResource {x:Static b:BrushesKeys+RepeatButton.MouseOverBorderBrush}}" />
+                                <Setter TargetName="Border" Property="Background" Value="{DynamicResource {x:Static b:BrushesKeys+RepeatButton.MouseOverBackground}}" />
+                                <Setter TargetName="Border" Property="BorderBrush" Value="{DynamicResource {x:Static b:BrushesKeys+RepeatButton.MouseOverBorderBrush}}" />
                             </MultiTrigger.Setters>
                         </MultiTrigger>
                         <Trigger Property="IsPressed" Value="True">
-                            <Setter Property="Background" Value="{DynamicResource {x:Static b:BrushesKeys+RepeatButton.PressedBackground}}" />
-                            <Setter Property="BorderBrush" Value="{DynamicResource {x:Static b:BrushesKeys+RepeatButton.PressedBorderBrush}}" />
+                            <Setter TargetName="Border" Property="Background" Value="{DynamicResource {x:Static b:BrushesKeys+RepeatButton.PressedBackground}}" />
+                            <Setter TargetName="Border" Property="BorderBrush" Value="{DynamicResource {x:Static b:BrushesKeys+RepeatButton.PressedBorderBrush}}" />
                         </Trigger>
                         <Trigger Property="Button.IsDefaulted" Value="True">
-                            <Setter Property="Background" Value="{DynamicResource {x:Static b:BrushesKeys+RepeatButton.DefaultedBackground}}" />
-                            <Setter Property="BorderBrush" Value="{DynamicResource {x:Static b:BrushesKeys+RepeatButton.DefaultedBorderBrush}}" />
+                            <Setter TargetName="Border" Property="Background" Value="{DynamicResource {x:Static b:BrushesKeys+RepeatButton.DefaultedBackground}}" />
+                            <Setter TargetName="Border" Property="BorderBrush" Value="{DynamicResource {x:Static b:BrushesKeys+RepeatButton.DefaultedBorderBrush}}" />
                         </Trigger>
                         <Trigger Property="IsEnabled" Value="False">
-                            <Setter Property="Background" Value="{DynamicResource {x:Static b:BrushesKeys+RepeatButton.DisabledBackground}}" />
-                            <Setter Property="Foreground" Value="{DynamicResource {x:Static b:BrushesKeys+RepeatButton.DisabledForeground}}" />
-                            <Setter Property="BorderBrush" Value="{DynamicResource {x:Static b:BrushesKeys+RepeatButton.DisabledBorderBrush}}" />
+                            <Setter TargetName="Border" Property="Background" Value="{DynamicResource {x:Static b:BrushesKeys+RepeatButton.DisabledBackground}}" />
+                            <Setter TargetName="ContentPresenter" Property="TextElement.Foreground" Value="{DynamicResource {x:Static b:BrushesKeys+RepeatButton.DisabledForeground}}" />
+                            <Setter TargetName="Border" Property="BorderBrush" Value="{DynamicResource {x:Static b:BrushesKeys+RepeatButton.DisabledBorderBrush}}" />
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>

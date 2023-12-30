@@ -160,7 +160,8 @@
 
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsActive" Value="True">
-                            <Setter Property="BorderBrush" Value="{DynamicResource {x:Static b:BrushesKeys+WindowEx.FocusedBorderBrush}}" />
+                            <Setter TargetName="Grid" Property="Background" Value="{DynamicResource {x:Static b:BrushesKeys+WindowEx.FocusedBorderBrush}}" />
+                            <Setter TargetName="Border" Property="BorderBrush" Value="{DynamicResource {x:Static b:BrushesKeys+WindowEx.FocusedBorderBrush}}" />
                         </Trigger>
                         <Trigger Property="ResizeMode" Value="NoResize">
                             <Setter TargetName="PART_MaximizeButton" Property="Visibility" Value="Hidden" />

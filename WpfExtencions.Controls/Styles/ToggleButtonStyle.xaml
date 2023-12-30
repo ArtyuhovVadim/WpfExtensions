@@ -20,6 +20,7 @@
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type ToggleButton}">
                     <Border
+                        x:Name="Border"
                         Background="{TemplateBinding Background}"
                         BorderBrush="{TemplateBinding BorderBrush}"
                         BorderThickness="{TemplateBinding BorderThickness}"
@@ -27,6 +28,7 @@
                         SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
                         UseLayoutRounding="{TemplateBinding UseLayoutRounding}">
                         <ContentPresenter
+                            x:Name="ContentPresenter"
                             Margin="{TemplateBinding Padding}"
                             HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
                             VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
@@ -42,26 +44,26 @@
                                 <Condition Property="IsChecked" Value="False" />
                             </MultiTrigger.Conditions>
                             <MultiTrigger.Setters>
-                                <Setter Property="Background" Value="{DynamicResource {x:Static b:BrushesKeys+ToggleButton.MouseOverBackground}}" />
+                                <Setter TargetName="Border" Property="Background" Value="{DynamicResource {x:Static b:BrushesKeys+ToggleButton.MouseOverBackground}}" />
                             </MultiTrigger.Setters>
                         </MultiTrigger>
                         <Trigger Property="IsChecked" Value="True">
-                            <Setter Property="Background" Value="{DynamicResource {x:Static b:BrushesKeys+ToggleButton.CheckedBackground}}" />
+                            <Setter TargetName="Border" Property="Background" Value="{DynamicResource {x:Static b:BrushesKeys+ToggleButton.CheckedBackground}}" />
                         </Trigger>
                         <Trigger Property="IsPressed" Value="True">
-                            <Setter Property="Background" Value="{DynamicResource {x:Static b:BrushesKeys+ToggleButton.PressedBackground}}" />
+                            <Setter TargetName="Border" Property="Background" Value="{DynamicResource {x:Static b:BrushesKeys+ToggleButton.PressedBackground}}" />
                         </Trigger>
                         <Trigger Property="IsFocused" Value="True">
-                            <Setter Property="BorderBrush" Value="{DynamicResource {x:Static b:BrushesKeys+ToggleButton.FocusedBorderBrush}}" />
+                            <Setter TargetName="Border" Property="BorderBrush" Value="{DynamicResource {x:Static b:BrushesKeys+ToggleButton.FocusedBorderBrush}}" />
                         </Trigger>
                         <Trigger Property="Button.IsDefaulted" Value="True">
-                            <Setter Property="Background" Value="{DynamicResource {x:Static b:BrushesKeys+ToggleButton.DefaultedBackground}}" />
-                            <Setter Property="BorderBrush" Value="{DynamicResource {x:Static b:BrushesKeys+ToggleButton.DefaultedBorderBrush}}" />
+                            <Setter TargetName="Border" Property="Background" Value="{DynamicResource {x:Static b:BrushesKeys+ToggleButton.DefaultedBackground}}" />
+                            <Setter TargetName="Border" Property="BorderBrush" Value="{DynamicResource {x:Static b:BrushesKeys+ToggleButton.DefaultedBorderBrush}}" />
                         </Trigger>
                         <Trigger Property="IsEnabled" Value="False">
-                            <Setter Property="Background" Value="{DynamicResource {x:Static b:BrushesKeys+ToggleButton.DisabledBackground}}" />
-                            <Setter Property="Foreground" Value="{DynamicResource {x:Static b:BrushesKeys+ToggleButton.DisabledForeground}}" />
-                            <Setter Property="BorderBrush" Value="{DynamicResource {x:Static b:BrushesKeys+ToggleButton.DisabledBorderBrush}}" />
+                            <Setter TargetName="Border" Property="Background" Value="{DynamicResource {x:Static b:BrushesKeys+ToggleButton.DisabledBackground}}" />
+                            <Setter TargetName="ContentPresenter" Property="TextElement.Foreground" Value="{DynamicResource {x:Static b:BrushesKeys+ToggleButton.DisabledForeground}}" />
+                            <Setter TargetName="Border" Property="BorderBrush" Value="{DynamicResource {x:Static b:BrushesKeys+ToggleButton.DisabledBorderBrush}}" />
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>

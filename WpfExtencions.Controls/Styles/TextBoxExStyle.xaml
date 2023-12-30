@@ -82,9 +82,9 @@
                     </Border>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsEnabled" Value="False">
-                            <Setter Property="Background" Value="{DynamicResource {x:Static b:BrushesKeys+TextBoxEx.DisabledBackground}}" />
-                            <Setter Property="Foreground" Value="{DynamicResource {x:Static b:BrushesKeys+TextBoxEx.DisabledForeground}}" />
-                            <Setter Property="BorderBrush" Value="{DynamicResource {x:Static b:BrushesKeys+TextBoxEx.DisabledBorderBrush}}" />
+                            <Setter TargetName="border" Property="Background" Value="{DynamicResource {x:Static b:BrushesKeys+TextBoxEx.DisabledBackground}}" />
+                            <Setter TargetName="PART_ContentHost" Property="Foreground" Value="{DynamicResource {x:Static b:BrushesKeys+TextBoxEx.DisabledForeground}}" />
+                            <Setter TargetName="border" Property="BorderBrush" Value="{DynamicResource {x:Static b:BrushesKeys+TextBoxEx.DisabledBorderBrush}}" />
                         </Trigger>
                         <Trigger Property="Text" Value="">
                             <Setter TargetName="WatermarkTextBlock" Property="Visibility" Value="Visible" />
@@ -93,7 +93,7 @@
                             <Setter TargetName="WatermarkTextBlock" Property="Visibility" Value="Visible" />
                         </Trigger>
                         <Trigger Property="IsKeyboardFocused" Value="True">
-                            <Setter Property="BorderBrush" Value="{DynamicResource {x:Static b:BrushesKeys+TextBoxEx.FocusedBorderBrush}}" />
+                            <Setter TargetName="border" Property="BorderBrush" Value="{DynamicResource {x:Static b:BrushesKeys+TextBoxEx.FocusedBorderBrush}}" />
                             <Setter TargetName="WatermarkTextBlock" Property="Visibility" Value="Collapsed" />
                         </Trigger>
                         <Trigger Property="Watermark" Value="">
@@ -106,7 +106,7 @@
                             <Setter TargetName="IconRoot" Property="DockPanel.Dock" Value="Right" />
                         </Trigger>
                         <Trigger Property="Validation.HasError" Value="True">
-                            <Setter Property="BorderBrush" Value="{DynamicResource {x:Static b:BrushesKeys+TextBoxEx.ErrorBorderBrush}}" />
+                            <Setter TargetName="border" Property="BorderBrush" Value="{DynamicResource {x:Static b:BrushesKeys+TextBoxEx.ErrorBorderBrush}}" />
                         </Trigger>
                         <Trigger Property="HorizontalContentAlignment" Value="Right">
                             <Setter Property="Validation.ErrorTemplate" Value="{StaticResource DefaultLeftErrorTemplate}" />

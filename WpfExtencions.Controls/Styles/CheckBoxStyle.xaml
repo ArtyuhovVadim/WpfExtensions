@@ -75,13 +75,13 @@
                             <Setter Property="Padding" Value="0" />
                         </Trigger>
                         <Trigger Property="IsMouseOver" Value="True">
-                            <Setter Property="Background" Value="{DynamicResource {x:Static b:BrushesKeys+CheckBox.MouseOverBackground}}" />
+                            <Setter TargetName="checkBoxBorder" Property="Background" Value="{DynamicResource {x:Static b:BrushesKeys+CheckBox.MouseOverBackground}}" />
                         </Trigger>
                         <Trigger Property="IsEnabled" Value="False">
                             <Setter Property="Opacity" Value="0.6" />
                         </Trigger>
                         <Trigger Property="IsFocused" Value="True">
-                            <Setter Property="BorderBrush" Value="{DynamicResource {x:Static b:BrushesKeys+CheckBox.FocusedBorderBrush}}" />
+                            <Setter TargetName="checkBoxBorder" Property="BorderBrush" Value="{DynamicResource {x:Static b:BrushesKeys+CheckBox.FocusedBorderBrush}}" />
                         </Trigger>
                         <Trigger Property="IsChecked" Value="True">
                             <Setter TargetName="optionMark" Property="Opacity" Value="1" />

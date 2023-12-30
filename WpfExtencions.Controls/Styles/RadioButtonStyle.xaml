@@ -49,18 +49,18 @@
                     </Grid>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsFocused" Value="true">
-                            <Setter Property="BorderBrush" Value="{DynamicResource {x:Static b:BrushesKeys+RadioButton.FocusedBorderBrush}}" />
+                            <Setter TargetName="radioButtonBorder" Property="BorderBrush" Value="{DynamicResource {x:Static b:BrushesKeys+RadioButton.FocusedBorderBrush}}" />
                         </Trigger>
                         <Trigger Property="HasContent" Value="true">
                             <Setter Property="Padding" Value="4,0,0,0" />
                         </Trigger>
                         <Trigger Property="IsMouseOver" Value="true">
-                            <Setter Property="Background" Value="{DynamicResource {x:Static b:BrushesKeys+RadioButton.MouseOverBackground}}" />
+                            <Setter TargetName="radioButtonBorder" Property="Background" Value="{DynamicResource {x:Static b:BrushesKeys+RadioButton.MouseOverBackground}}" />
                         </Trigger>
                         <Trigger Property="IsEnabled" Value="false">
                             <Setter TargetName="radioButtonBorder" Property="Background" Value="{DynamicResource {x:Static b:BrushesKeys+RadioButton.DisabledBackground}}" />
                             <Setter TargetName="radioButtonBorder" Property="BorderBrush" Value="{DynamicResource {x:Static b:BrushesKeys+RadioButton.DisabledBorderBrush}}" />
-                            <Setter Property="Foreground" Value="{DynamicResource {x:Static b:BrushesKeys+RadioButton.DisabledForeground}}" />
+                            <Setter TargetName="contentPresenter" Property="TextElement.Foreground" Value="{DynamicResource {x:Static b:BrushesKeys+RadioButton.DisabledForeground}}" />
                             <Setter TargetName="optionMark" Property="Fill" Value="{DynamicResource {x:Static b:BrushesKeys+RadioButton.DisabledMarkBrush}}" />
                         </Trigger>
                         <Trigger Property="IsChecked" Value="true">

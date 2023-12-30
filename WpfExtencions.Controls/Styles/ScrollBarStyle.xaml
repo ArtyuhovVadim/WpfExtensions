@@ -111,7 +111,10 @@
                                 <RowDefinition Height="0.00001*" />
                                 <RowDefinition MaxHeight="12" />
                             </Grid.RowDefinitions>
-                            <Border Grid.Row="1" Background="{TemplateBinding Background}" />
+                            <Border
+                                x:Name="Border"
+                                Grid.Row="1"
+                                Background="{TemplateBinding Background}" />
                             <RepeatButton
                                 x:Name="PART_LineUpButton"
                                 Grid.Row="0"
@@ -159,7 +162,9 @@
                     </Border>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsMouseOver" Value="True">
-                            <Setter Property="Background" Value="{DynamicResource {x:Static b:BrushesKeys+ScrollBar.MouseOverBackground}}" />
+                            <Setter TargetName="Border" Property="Background" Value="{DynamicResource {x:Static b:BrushesKeys+ScrollBar.MouseOverBackground}}" />
+                            <Setter TargetName="PART_LineUpButton" Property="Background" Value="{DynamicResource {x:Static b:BrushesKeys+ScrollBar.MouseOverBackground}}" />
+                            <Setter TargetName="PART_LineDownButton" Property="Background" Value="{DynamicResource {x:Static b:BrushesKeys+ScrollBar.MouseOverBackground}}" />
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
@@ -185,7 +190,10 @@
                                         <ColumnDefinition Width="0.00001*" />
                                         <ColumnDefinition MaxWidth="12" />
                                     </Grid.ColumnDefinitions>
-                                    <Border Grid.Column="1" Background="{TemplateBinding Background}" />
+                                    <Border
+                                        x:Name="Border"
+                                        Grid.Column="1"
+                                        Background="{TemplateBinding Background}" />
                                     <RepeatButton
                                         x:Name="PART_LineLeftButton"
                                         Grid.Column="0"
@@ -232,7 +240,9 @@
                             </Border>
                             <ControlTemplate.Triggers>
                                 <Trigger Property="IsMouseOver" Value="True">
-                                    <Setter Property="Background" Value="{DynamicResource {x:Static b:BrushesKeys+ScrollBar.MouseOverBackground}}" />
+                                    <Setter TargetName="Border" Property="Background" Value="{DynamicResource {x:Static b:BrushesKeys+ScrollBar.MouseOverBackground}}" />
+                                    <Setter TargetName="PART_LineLeftButton" Property="Background" Value="{DynamicResource {x:Static b:BrushesKeys+ScrollBar.MouseOverBackground}}" />
+                                    <Setter TargetName="PART_LineRightButton" Property="Background" Value="{DynamicResource {x:Static b:BrushesKeys+ScrollBar.MouseOverBackground}}" />
                                 </Trigger>
                             </ControlTemplate.Triggers>
                         </ControlTemplate>

@@ -59,6 +59,7 @@
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type Button}">
                     <Border
+                        x:Name="Border"
                         Background="{TemplateBinding Background}"
                         BorderBrush="{TemplateBinding BorderBrush}"
                         BorderThickness="{TemplateBinding BorderThickness}">
@@ -73,7 +74,7 @@
                     </Border>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsMouseOver" Value="True">
-                            <Setter Property="Background" Value="{DynamicResource {x:Static b:BrushesKeys+DataGrid.MouseOverSelectionAllButtonBackground}}" />
+                            <Setter TargetName="Border" Property="Background" Value="{DynamicResource {x:Static b:BrushesKeys+DataGrid.MouseOverSelectionAllButtonBackground}}" />
                         </Trigger>
                         <Trigger Property="IsEnabled" Value="False">
                             <Setter TargetName="Arrow" Property="Opacity" Value="0.7" />
@@ -243,10 +244,10 @@
                     </Border>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsSelected" Value="True">
-                            <Setter Property="Background" Value="{DynamicResource {x:Static b:BrushesKeys+DataGrid.SelectedDataGridCellBackground}}" />
+                            <Setter TargetName="border" Property="Background" Value="{DynamicResource {x:Static b:BrushesKeys+DataGrid.SelectedDataGridCellBackground}}" />
                         </Trigger>
                         <Trigger Property="IsKeyboardFocusWithin" Value="True">
-                            <Setter Property="BorderBrush" Value="{DynamicResource {x:Static b:BrushesKeys+DataGrid.KeyboardFocusedDataGridCellBorderBrush}}" />
+                            <Setter TargetName="border" Property="BorderBrush" Value="{DynamicResource {x:Static b:BrushesKeys+DataGrid.KeyboardFocusedDataGridCellBorderBrush}}" />
                             <Setter Property="BorderThickness" Value="1" />
                             <Setter TargetName="ContentPresenter" Property="Margin" Value="-1" />
                         </Trigger>
@@ -256,8 +257,8 @@
                                 <Condition Property="Selector.IsSelectionActive" Value="False" />
                             </MultiTrigger.Conditions>
                             <MultiTrigger.Setters>
-                                <Setter Property="Background" Value="{DynamicResource {x:Static b:BrushesKeys+DataGrid.ActiveSelectionDataGridCellBackground}}" />
-                                <Setter Property="Foreground" Value="{DynamicResource {x:Static b:BrushesKeys+DataGrid.ActiveSelectionDataGridCellForeground}}" />
+                                <Setter TargetName="border" Property="Background" Value="{DynamicResource {x:Static b:BrushesKeys+DataGrid.ActiveSelectionDataGridCellBackground}}" />
+                                <Setter TargetName="border" Property="TextElement.Foreground" Value="{DynamicResource {x:Static b:BrushesKeys+DataGrid.ActiveSelectionDataGridCellForeground}}" />
                             </MultiTrigger.Setters>
                         </MultiTrigger>
                     </ControlTemplate.Triggers>
