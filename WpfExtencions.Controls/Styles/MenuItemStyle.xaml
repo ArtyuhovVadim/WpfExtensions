@@ -437,7 +437,7 @@
         <Setter Property="VerticalContentAlignment" Value="{Binding VerticalContentAlignment, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}" />
         <Setter Property="Background" Value="Transparent" />
         <Setter Property="BorderBrush" Value="Transparent" />
-        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="BorderThickness" Value="0" />
         <Setter Property="ScrollViewer.PanningMode" Value="Both" />
         <Setter Property="Template" Value="{StaticResource SubmenuItemTemplate}" />
         <Style.Triggers>
