@@ -515,6 +515,32 @@ public static class BrushesKeys
         public static readonly ComponentResourceKey DisabledBackground = CreateInstance();
     }
 
+    public static class TreeView
+    {
+        public static readonly ComponentResourceKey Background = CreateInstance();
+
+        public static readonly ComponentResourceKey Foreground = CreateInstance();
+
+        public static readonly ComponentResourceKey BorderBrush = CreateInstance();
+    }
+
+    public static class TreeViewItem
+    {
+        public static readonly ComponentResourceKey Background = CreateInstance();
+
+        public static readonly ComponentResourceKey BorderBrush = CreateInstance();
+
+        public static readonly ComponentResourceKey MouseOverBackground = CreateInstance();
+
+        public static readonly ComponentResourceKey SelectedBackground = CreateInstance();
+
+        public static readonly ComponentResourceKey InactiveSelectedBackground = CreateInstance();
+
+        public static readonly ComponentResourceKey ExpanderIconBrush = CreateInstance();
+
+        public static readonly ComponentResourceKey DisabledForeground = CreateInstance();
+    }
+
     public static class DataGrid
     {
         public static readonly ComponentResourceKey Background = CreateInstance();
