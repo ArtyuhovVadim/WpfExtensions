@@ -266,11 +266,6 @@
         Color="#353535" />
 
     <SolidColorBrush
-        x:Key="{x:Static b:BrushesKeys+TextBox.DisabledForeground}"
-        o:Freeze="True"
-        Color="#868686" />
-
-    <SolidColorBrush
         x:Key="{x:Static b:BrushesKeys+TextBox.DisabledBorderBrush}"
         o:Freeze="True"
         Color="#333333" />
@@ -318,11 +313,6 @@
         x:Key="{x:Static b:BrushesKeys+TextBoxEx.DisabledBackground}"
         o:Freeze="True"
         Color="#353535" />
-
-    <SolidColorBrush
-        x:Key="{x:Static b:BrushesKeys+TextBoxEx.DisabledForeground}"
-        o:Freeze="True"
-        Color="#868686" />
 
     <SolidColorBrush
         x:Key="{x:Static b:BrushesKeys+TextBoxEx.DisabledBorderBrush}"

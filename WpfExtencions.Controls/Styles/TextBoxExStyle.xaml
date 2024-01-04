@@ -83,8 +83,8 @@
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsEnabled" Value="False">
                             <Setter TargetName="border" Property="Background" Value="{DynamicResource {x:Static b:BrushesKeys+TextBoxEx.DisabledBackground}}" />
-                            <Setter TargetName="PART_ContentHost" Property="Foreground" Value="{DynamicResource {x:Static b:BrushesKeys+TextBoxEx.DisabledForeground}}" />
                             <Setter TargetName="border" Property="BorderBrush" Value="{DynamicResource {x:Static b:BrushesKeys+TextBoxEx.DisabledBorderBrush}}" />
+                            <Setter TargetName="PART_ContentHost" Property="Opacity" Value="0.6" />
                         </Trigger>
                         <Trigger Property="Text" Value="">
                             <Setter TargetName="WatermarkTextBlock" Property="Visibility" Value="Visible" />

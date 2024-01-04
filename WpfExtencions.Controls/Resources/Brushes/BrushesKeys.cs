@@ -123,8 +123,6 @@ public static class BrushesKeys
 
         public static readonly ComponentResourceKey DisabledBackground = CreateInstance();
 
-        public static readonly ComponentResourceKey DisabledForeground = CreateInstance();
-
         public static readonly ComponentResourceKey DisabledBorderBrush = CreateInstance();
 
         public static readonly ComponentResourceKey ErrorBorderBrush = CreateInstance();
@@ -145,8 +143,6 @@ public static class BrushesKeys
         public static readonly ComponentResourceKey FocusedBorderBrush = CreateInstance();
 
         public static readonly ComponentResourceKey DisabledBackground = CreateInstance();
-
-        public static readonly ComponentResourceKey DisabledForeground = CreateInstance();
 
         public static readonly ComponentResourceKey DisabledBorderBrush = CreateInstance();
 
