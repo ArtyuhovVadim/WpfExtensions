@@ -480,7 +480,7 @@ public static class BrushesKeys
 
         public static readonly ComponentResourceKey InactiveSelectedBackground = CreateInstance();
 
-        public static readonly ComponentResourceKey DisabledBackground = CreateInstance();
+        public static readonly ComponentResourceKey DisabledForeground = CreateInstance();
     }
 
     public static class ListView

@@ -1071,7 +1071,7 @@
         Color="#4F5F6F" />
 
     <SolidColorBrush
-        x:Key="{x:Static b:BrushesKeys+ListBoxItem.DisabledBackground}"
+        x:Key="{x:Static b:BrushesKeys+ListBoxItem.DisabledForeground}"
         o:Freeze="True"
         Color="#A3A3A3" />
 

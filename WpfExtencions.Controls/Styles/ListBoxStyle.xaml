@@ -83,7 +83,7 @@
                             <Setter TargetName="Bd" Property="Background" Value="{DynamicResource {x:Static b:BrushesKeys+ListBoxItem.SelectedBackground}}" />
                         </MultiTrigger>
                         <Trigger Property="IsEnabled" Value="False">
-                            <Setter TargetName="Bd" Property="TextElement.Foreground" Value="{DynamicResource {x:Static b:BrushesKeys+ListBoxItem.DisabledBackground}}" />
+                            <Setter TargetName="Bd" Property="TextElement.Foreground" Value="{DynamicResource {x:Static b:BrushesKeys+ListBoxItem.DisabledForeground}}" />
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
