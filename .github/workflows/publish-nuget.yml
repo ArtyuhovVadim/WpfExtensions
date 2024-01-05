@@ -1,0 +1,38 @@
+name: Publish nuget
+
+on:
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
+
+jobs:
+  build:
+    name: Publish nuget
+    runs-on: windows-latest
+    steps:
+    
+    - name: Checkout
+      uses: actions/checkout@v4.1.1
+      with:
+        fetch-depth: 0
+    
+    - name: Install .NET Core
+      uses: actions/setup-dotnet@v3
+      with:
+        dotnet-version: 7.0.x
+    
+    - name: Restore
+      run: dotnet restore
+      
+    - name: Build
+      run: dotnet build --configuration Release --no-restore
+
+    - name: Packing
+      run: |
+        dotnet pack WpfExtensions --no-build --configuration Release -o out-dir
+        dotnet pack WpfExtensions.Controls --no-build --configuration Release -o out-dir
+        dotnet pack WpfExtensions.Mvvm --no-build --configuration Release -o out-dir
+
+    - name: Publishing
+      run: dotnet nuget push out-dir/*.nupkg -S https://api.nuget.org/v3/index.json -n --skip-duplicate -k ${{ secrets.NUGET_API_KEY }}
