@@ -35,4 +35,4 @@ jobs:
         dotnet pack WpfExtensions.Mvvm --no-build --configuration Release -o out-dir
 
     - name: Publishing
-      run: dotnet nuget push WpfExtensions\out-dir\*.nupkg -s https://api.nuget.org/v3/index.json -n --skip-duplicate -k ${{ secrets.NUGET_API_KEY }}
+      run: dotnet nuget push out-dir/*.nupkg -s https://api.nuget.org/v3/index.json -n --skip-duplicate -k ${{ secrets.NUGET_API_KEY }}
