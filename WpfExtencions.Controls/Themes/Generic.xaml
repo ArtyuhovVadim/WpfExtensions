@@ -1,0 +1,42 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="../Styles/WindowExStyle.xaml" />
+        <ResourceDictionary Source="../Styles/ButtonStyle.xaml" />
+        <ResourceDictionary Source="../Styles/TextBoxStyle.xaml" />
+        <ResourceDictionary Source="../Styles/TextBoxExStyle.xaml" />
+        <ResourceDictionary Source="../Styles/CheckBoxStyle.xaml" />
+        <ResourceDictionary Source="../Styles/ComboBoxStyle.xaml" />
+        <ResourceDictionary Source="../Styles/MenuStyle.xaml" />
+        <ResourceDictionary Source="../Styles/MenuItemStyle.xaml" />
+        <ResourceDictionary Source="../Styles/ScrollBarStyle.xaml" />
+        <ResourceDictionary Source="../Styles/ScrollViewerStyle.xaml" />
+        <ResourceDictionary Source="../Styles/PropertyValueStyle.xaml" />
+        <ResourceDictionary Source="../Styles/StatusBarStyle.xaml" />
+        <ResourceDictionary Source="../Styles/ContextMenuStyle.xaml" />
+        <ResourceDictionary Source="../Styles/ToolTipStyle.xaml" />
+        <ResourceDictionary Source="../Styles/SeparatorStyle.xaml" />
+        <ResourceDictionary Source="../Styles/ResizeGripStyle.xaml" />
+        <ResourceDictionary Source="../Styles/ExpanderStyle.xaml" />
+        <ResourceDictionary Source="../Styles/RadioButtonStyle.xaml" />
+        <ResourceDictionary Source="../Styles/GridSplitterStyle.xaml" />
+        <ResourceDictionary Source="../Styles/GroupBoxStyle.xaml" />
+        <ResourceDictionary Source="../Styles/SliderStyle.xaml" />
+        <ResourceDictionary Source="../Styles/PasswordBoxStyle.xaml" />
+        <ResourceDictionary Source="../Styles/ToggleButtonStyle.xaml" />
+        <ResourceDictionary Source="../Styles/RepeatButtonStyle.xaml" />
+        <ResourceDictionary Source="../Styles/TabControlStyle.xaml" />
+        <ResourceDictionary Source="../Styles/ProgressBarStyle.xaml" />
+        <ResourceDictionary Source="../Styles/ListBoxStyle.xaml" />
+        <ResourceDictionary Source="../Styles/ListViewStyle.xaml" />
+        <ResourceDictionary Source="../Styles/TreeViewStyle.xaml" />
+        <ResourceDictionary Source="../Styles/DataGridStyle.xaml" />
+        <ResourceDictionary Source="../Styles/ColorPicker/Parts/HsvColorPickerStyle.xaml" />
+        <ResourceDictionary Source="../Styles/ColorPicker/Parts/TextColorPickerStyle.xaml" />
+        <ResourceDictionary Source="../Styles/ColorPicker/Parts/ColorSliderStyle.xaml" />
+        <ResourceDictionary Source="../Styles/ColorPicker/Parts/ColorPaletteStyle.xaml" />
+        <ResourceDictionary Source="../Styles/ColorPicker/Parts/RecentBrushesStyle.xaml" />
+        <ResourceDictionary Source="../Styles/ColorPickerControlStyle.xaml" />
+        <ResourceDictionary Source="../Styles/MinimizedColorPickerControlStyle.xaml" />
+        <ResourceDictionary Source="../Styles/TextBlockStyle.xaml" />
+    </ResourceDictionary.MergedDictionaries>
+</ResourceDictionary>

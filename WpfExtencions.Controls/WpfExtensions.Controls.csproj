@@ -12,9 +12,9 @@
 		<Authors>Artyuhov Vadim</Authors>
 		<PackageProjectUrl>https://github.com/ArtyuhovVadim/WpfExtensions</PackageProjectUrl>
 		<RepositoryUrl>https://github.com/ArtyuhovVadim/WpfExtensions</RepositoryUrl>
-		<PackageTags>WpfExtensions;wpf;extensions;xaml;controls;behaviors;converters;markup extensions;attached dependency properties</PackageTags>
-		<Title>DotNet.WpfExtensions</Title>
-		<Description>Library providing useful behaviors, attached dependency properties, converters and markup extensions.</Description>
+		<PackageTags>WpfExtensions;wpf;extensions;xaml;controls;styles;theme</PackageTags>
+		<Title>DotNet.WpfExtensions.Controls</Title>
+		<Description>Wpf control styles library.</Description>
 		<PackageReleaseNotes>First publication</PackageReleaseNotes>
 		<PackageReadmeFile>README.md</PackageReadmeFile>
 		<Copyright>ArtyuhovVadim</Copyright>
@@ -25,10 +25,20 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-		<Compile Remove="Resources\**" />
-		<EmbeddedResource Remove="Resources\**" />
-		<None Remove="Resources\**" />
-		<Page Remove="Resources\**" />
+		<None Remove="Resources\Images\TransparentBackground.png" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\WpfExtensions.Mvvm\WpfExtensions.Mvvm.csproj" />
+		<ProjectReference Include="..\WpfExtensions\WpfExtensions.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<Resource Include="Resources\Images\TransparentBackground.png" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Folder Include="Resources\Icons\" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -36,14 +46,6 @@
 	    <Pack>True</Pack>
 	    <PackagePath>\</PackagePath>
 	  </None>
-	</ItemGroup>
-
-	<ItemGroup>
-		<PackageReference Include="Microsoft.Xaml.Behaviors.Wpf" Version="1.1.39" />
-	</ItemGroup>
-
-	<ItemGroup>
-		<ProjectReference Include="..\WpfExtensions.Mvvm\WpfExtensions.Mvvm.csproj" />
 	</ItemGroup>
 
 </Project>

@@ -1,0 +1,143 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:attachedDependencyProperties1="clr-namespace:WpfExtensions.AttachedDependencyProperties;assembly=WpfExtensions"
+    xmlns:b="http://schemas.microsoft.com/xaml/behaviors"
+    xmlns:behaviors="clr-namespace:WpfExtensions.Behaviors;assembly=WpfExtensions"
+    xmlns:brushes="clr-namespace:WpfExtensions.Controls.Resources.Brushes"
+    xmlns:converters="clr-namespace:WpfExtensions.Converters;assembly=WpfExtensions"
+    xmlns:parts="clr-namespace:WpfExtensions.Controls.ColorPicker.Parts">
+    <Style TargetType="{x:Type parts:HsvColorPicker}">
+        <Style.Resources>
+            <ResourceDictionary>
+                <converters:HueValueToColorConverter x:Key="HueValueToColorConverter" />
+                <converters:LinearConverter
+                    x:Key="Linear"
+                    B="1"
+                    K="-1" />
+            </ResourceDictionary>
+        </Style.Resources>
+
+        <Setter Property="BorderBrush" Value="{DynamicResource {x:Static brushes:BrushesKeys+HsvColorPicker.BorderBrush}}" />
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="Background" Value="{DynamicResource {x:Static brushes:BrushesKeys+HsvColorPicker.Background}}" />
+        <Setter Property="UseLayoutRounding" Value="True" />
+        <Setter Property="Focusable" Value="False" />
+        <Setter Property="SnapsToDevicePixels" Value="True" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type parts:HsvColorPicker}">
+                    <Grid attachedDependencyProperties1:GridProps.RowDefinitionsEx="* auto auto" Background="{TemplateBinding Background}">
+                        <Border
+                            Grid.Row="0"
+                            Margin="0,0,0,6"
+                            Background="Black"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            CornerRadius="4">
+                            <Grid>
+                                <Rectangle RadiusX="3" RadiusY="3">
+                                    <Rectangle.Fill>
+                                        <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
+                                            <LinearGradientBrush.GradientStops>
+                                                <GradientStop Offset="0" Color="White" />
+                                                <GradientStop Offset="1" Color="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Hue, Converter={StaticResource HueValueToColorConverter}}" />
+                                            </LinearGradientBrush.GradientStops>
+                                        </LinearGradientBrush>
+                                    </Rectangle.Fill>
+                                    <Rectangle.OpacityMask>
+                                        <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                                            <LinearGradientBrush.GradientStops>
+                                                <GradientStop Offset="0" Color="#FFFFFFFF" />
+                                                <GradientStop Offset="1" Color="#00000000" />
+                                            </LinearGradientBrush.GradientStops>
+                                        </LinearGradientBrush>
+                                    </Rectangle.OpacityMask>
+                                </Rectangle>
+                                <Canvas Background="Transparent" ClipToBounds="True">
+                                    <b:Interaction.Behaviors>
+                                        <behaviors:CanvasDragAndDropBehavior
+                                            NormalizedX="{Binding RelativeSource={RelativeSource TemplatedParent},
+                                                                  Path=Saturation}"
+                                            NormalizedY="{Binding RelativeSource={RelativeSource TemplatedParent},
+                                                                  Path=Value,
+                                                                  Converter={StaticResource Linear}}"
+                                            ObjectToDrag="{Binding ElementName=Crosshair}" />
+                                    </b:Interaction.Behaviors>
+                                    <parts:Crosshair x:Name="Crosshair" />
+                                </Canvas>
+                            </Grid>
+                        </Border>
+                        <parts:ColorSlider
+                            Grid.Row="1"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            Maximum="360"
+                            Minimum="0"
+                            Value="{Binding Path=Hue,
+                                            RelativeSource={RelativeSource TemplatedParent}}">
+                            <parts:ColorSlider.ThumbBrush>
+                                <SolidColorBrush Color="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Hue, Converter={StaticResource HueValueToColorConverter}}" />
+                            </parts:ColorSlider.ThumbBrush>
+                            <parts:ColorSlider.Background>
+                                <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
+                                    <LinearGradientBrush.RelativeTransform>
+                                        <RotateTransform Angle="90" CenterX="0.5" CenterY="0.5" />
+                                    </LinearGradientBrush.RelativeTransform>
+                                    <GradientStop Offset="0" Color="Red" />
+                                    <GradientStop Offset="0.1666" Color="Fuchsia" />
+                                    <GradientStop Offset="0.3333" Color="Blue" />
+                                    <GradientStop Offset="0.5" Color="Aqua" />
+                                    <GradientStop Offset="0.6666" Color="Lime" />
+                                    <GradientStop Offset="0.8333" Color="Yellow" />
+                                    <GradientStop Offset="1" Color="Red" />
+                                </LinearGradientBrush>
+                            </parts:ColorSlider.Background>
+                        </parts:ColorSlider>
+                        <Grid
+                            x:Name="AlphaGrid"
+                            Grid.Row="2"
+                            Margin="0,6,0,0"
+                            Visibility="Collapsed">
+                            <parts:ColorSlider
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                Maximum="255"
+                                Minimum="0"
+                                ThumbBrush="White"
+                                Value="{Binding RelativeSource={RelativeSource TemplatedParent},
+                                                Path=Alpha}">
+                                <parts:ColorSlider.Background>
+                                    <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
+                                        <LinearGradientBrush.RelativeTransform>
+                                            <RotateTransform Angle="90" CenterX="0.5" CenterY="0.5" />
+                                        </LinearGradientBrush.RelativeTransform>
+                                        <GradientStop Offset="1" Color="Transparent" />
+                                        <GradientStop Offset="0" Color="Black" />
+                                    </LinearGradientBrush>
+                                </parts:ColorSlider.Background>
+                            </parts:ColorSlider>
+                            <Border
+                                Panel.ZIndex="-10"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="1"
+                                CornerRadius="3 5 5 3"
+                                RenderOptions.BitmapScalingMode="NearestNeighbor">
+                                <Border.Background>
+                                    <ImageBrush
+                                        ImageSource="../../../Resources/Images/TransparentBackground.png"
+                                        TileMode="Tile"
+                                        Viewport="1,1,6,6"
+                                        ViewportUnits="Absolute" />
+                                </Border.Background>
+                            </Border>
+                        </Grid>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsTransparencySupported" Value="True">
+                            <Setter TargetName="AlphaGrid" Property="Visibility" Value="Visible" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+</ResourceDictionary>

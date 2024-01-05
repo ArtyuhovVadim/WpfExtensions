@@ -1,0 +1,17 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<OutputType>WinExe</OutputType>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<TargetFramework>net7.0-windows</TargetFramework>
+		<Nullable>enable</Nullable>
+		<UseWPF>true</UseWPF>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\WpfExtencions.Controls\WpfExtensions.Controls.csproj" />
+		<ProjectReference Include="..\WpfExtensions.Mvvm\WpfExtensions.Mvvm.csproj" />
+		<ProjectReference Include="..\WpfExtensions\WpfExtensions.csproj" />
+	</ItemGroup>
+
+</Project>
