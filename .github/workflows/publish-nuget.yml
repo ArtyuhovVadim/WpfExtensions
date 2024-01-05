@@ -30,9 +30,9 @@ jobs:
 
     - name: Packing
       run: |
-        dotnet pack WpfExtensions --no-build --configuration Release -o out-dir
-        dotnet pack WpfExtensions.Controls --no-build --configuration Release -o out-dir
-        dotnet pack WpfExtensions.Mvvm --no-build --configuration Release -o out-dir
+        dotnet pack WpfExtensions --no-build --configuration Release -o .
+        dotnet pack WpfExtensions.Controls --no-build --configuration Release -o .
+        dotnet pack WpfExtensions.Mvvm --no-build --configuration Release -o .
 
     - name: Publishing
-      run: dotnet nuget push out-dir/*.nupkg -s https://api.nuget.org/v3/index.json -n --skip-duplicate -k ${{ secrets.NUGET_API_KEY }}
+      run: dotnet nuget push *.nupkg -s https://api.nuget.org/v3/index.json -n --skip-duplicate -k ${{ secrets.NUGET_API_KEY }}
