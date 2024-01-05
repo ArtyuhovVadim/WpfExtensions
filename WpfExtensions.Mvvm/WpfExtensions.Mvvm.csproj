@@ -7,4 +7,28 @@
 		<UseWpf>true</UseWpf>
 	</PropertyGroup>
 
+	<PropertyGroup>
+		<PackageId>DotNet.$(AssemblyName)</PackageId>
+		<Authors>Artyuhov Vadim</Authors>
+		<PackageProjectUrl>https://github.com/ArtyuhovVadim/WpfExtensions</PackageProjectUrl>
+		<RepositoryUrl>https://github.com/ArtyuhovVadim/WpfExtensions</RepositoryUrl>
+		<PackageTags>WpfExtensions;wpf;extensions;xaml;mvvm;command;binding</PackageTags>
+		<Title>DotNet.WpfExtensions.Mvvm</Title>
+		<Description>Library providing classes for MVVM implementation.</Description>
+		<PackageReleaseNotes>First publication</PackageReleaseNotes>
+		<PackageReadmeFile>README.md</PackageReadmeFile>
+		<Copyright>ArtyuhovVadim</Copyright>
+		<PackageLicenseExpression>MIT</PackageLicenseExpression>
+		<Version>1.0.0</Version>
+		<SignAssembly>False</SignAssembly>
+		<DelaySign>False</DelaySign>
+	</PropertyGroup>
+
+	<ItemGroup>
+	  <None Include="..\README.md">
+	    <Pack>True</Pack>
+	    <PackagePath>\</PackagePath>
+	  </None>
+	</ItemGroup>
+
 </Project>
