@@ -1,5 +1,6 @@
 ﻿using System.Globalization;
 using System.Text.RegularExpressions;
+using System.Windows;
 using System.Windows.Data;
 using System.Windows.Markup;
 using System.Windows.Media;
@@ -36,14 +37,14 @@ public partial class ColorToStringConverter : BaseConverter
             : RegexWithoutTransparency().Match(str);
 
         if (!matchResult.Success)
-            return Binding.DoNothing;
+            return DependencyProperty.UnsetValue;
 
         return (Color)ColorConverter.ConvertFromString(str)!;
     }
 
-    [GeneratedRegex("#[0-9A-Fa-f]{8}$")]
+    [GeneratedRegex("^#[0-9A-Fa-f]{8}$")]
     private static partial Regex RegexWithTransparency();
 
-    [GeneratedRegex("#[0-9A-Fa-f]{6}$")]
+    [GeneratedRegex("^#[0-9A-Fa-f]{6}$")]
     private static partial Regex RegexWithoutTransparency();
 }

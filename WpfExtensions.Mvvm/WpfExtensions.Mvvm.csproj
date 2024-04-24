@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
-		<TargetFramework>net7.0-windows</TargetFramework>
+		<TargetFramework>net8.0-windows</TargetFramework>
 		<ImplicitUsings>enable</ImplicitUsings>
 		<Nullable>enable</Nullable>
 		<UseWpf>true</UseWpf>
@@ -15,11 +15,11 @@
 		<PackageTags>WpfExtensions;wpf;extensions;xaml;mvvm;command;binding</PackageTags>
 		<Title>WpfExtensions.Mvvm.DotNet</Title>
 		<Description>Library providing classes for MVVM implementation.</Description>
-		<PackageReleaseNotes>First publication</PackageReleaseNotes>
+		<PackageReleaseNotes>Second publication</PackageReleaseNotes>
 		<PackageReadmeFile>README.md</PackageReadmeFile>
 		<Copyright>ArtyuhovVadim</Copyright>
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>
-		<Version>1.0.0</Version>
+		<Version>1.1.0</Version>
 		<SignAssembly>False</SignAssembly>
 		<DelaySign>False</DelaySign>
 	</PropertyGroup>

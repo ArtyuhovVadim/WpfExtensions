@@ -2,6 +2,7 @@
 using System.Windows.Automation;
 using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
+using System.Windows.Input;
 using System.Windows.Media;
 using WpfExtensions.Controls.ColorPicker;
 
@@ -82,7 +83,7 @@ public class MinimizedColorPickerControl : BaseColorPickerControl
         _rootPopup.Closed += OnRootPopupClosed;
     }
 
-    private void OnRootPopupOpened(object? sender, EventArgs e) => Focus();
+    private void OnRootPopupOpened(object? sender, EventArgs e) => Keyboard.Focus(_rootPopup!.Child);
 
     private void OnRootPopupClosed(object? sender, EventArgs e) => Color = SelectedColor;
 
