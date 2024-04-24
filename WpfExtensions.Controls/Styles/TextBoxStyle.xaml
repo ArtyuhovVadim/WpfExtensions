@@ -61,7 +61,7 @@
                             <Setter TargetName="border" Property="BorderBrush" Value="{DynamicResource {x:Static b:BrushesKeys+TextBox.FocusedBorderBrush}}" />
                         </Trigger>
                         <Trigger Property="Validation.HasError" Value="True">
-                            <Setter TargetName="border" Property="BorderBrush" Value="{DynamicResource {x:Static b:BrushesKeys+TextBox.FocusedBorderBrush}}" />
+                            <Setter TargetName="border" Property="BorderBrush" Value="{DynamicResource {x:Static b:BrushesKeys+TextBox.ErrorBorderBrush}}" />
                         </Trigger>
                         <Trigger Property="HorizontalContentAlignment" Value="Right">
                             <Setter Property="Validation.ErrorTemplate" Value="{StaticResource DefaultLeftErrorTemplate}" />
