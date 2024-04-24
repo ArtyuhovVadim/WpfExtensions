@@ -15,11 +15,11 @@
 		<PackageTags>WpfExtensions;wpf;extensions;xaml;controls;styles;theme</PackageTags>
 		<Title>WpfExtensions.Controls.DotNet</Title>
 		<Description>Wpf control styles library.</Description>
-		<PackageReleaseNotes>First publication</PackageReleaseNotes>
+		<PackageReleaseNotes>Second publication</PackageReleaseNotes>
 		<PackageReadmeFile>README.md</PackageReadmeFile>
 		<Copyright>ArtyuhovVadim</Copyright>
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>
-		<Version>1.0.0</Version>
+		<Version>1.1.0</Version>
 		<SignAssembly>False</SignAssembly>
 		<DelaySign>False</DelaySign>
 	</PropertyGroup>
