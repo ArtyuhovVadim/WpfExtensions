@@ -30,6 +30,7 @@ public class StackPanelEx : StackPanel
         {
             Orientation.Horizontal => new Size(baseSize.Width + (InternalChildren.Count - 1) * Gap, baseSize.Height),
             Orientation.Vertical => new Size(baseSize.Width, baseSize.Height + (InternalChildren.Count - 1) * Gap),
+            _ => throw new NotSupportedException()
         };
 
         return resultSize;
@@ -48,6 +49,7 @@ public class StackPanelEx : StackPanel
             {
                 Orientation.Horizontal => new Rect(new Point(acc, 0), new Size(child.DesiredSize.Width, arrangeSize.Height)),
                 Orientation.Vertical => new Rect(new Point(0, acc), new Size(arrangeSize.Width, child.DesiredSize.Height)),
+                _ => throw new NotSupportedException()
             };
 
             child.Arrange(rect);
@@ -56,6 +58,7 @@ public class StackPanelEx : StackPanel
             {
                 Orientation.Horizontal => rect.Width + Gap,
                 Orientation.Vertical => rect.Height + Gap,
+                _ => throw new NotSupportedException()
             };
         }
 
