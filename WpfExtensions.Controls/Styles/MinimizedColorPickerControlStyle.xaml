@@ -95,6 +95,8 @@
                                 BorderThickness="{TemplateBinding BorderThickness}"
                                 CornerRadius="3"
                                 FocusManager.IsFocusScope="True"
+                                Focusable="True"
+                                KeyboardNavigation.TabNavigation="Cycle"
                                 SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
                                 TextBlock.Foreground="{TemplateBinding TextBlock.Foreground}"
                                 UseLayoutRounding="{TemplateBinding UseLayoutRounding}">
