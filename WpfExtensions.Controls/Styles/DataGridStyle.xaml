@@ -108,7 +108,8 @@
                         Background="{TemplateBinding Background}"
                         BorderBrush="{TemplateBinding BorderBrush}"
                         BorderThickness="{TemplateBinding BorderThickness}"
-                        SnapsToDevicePixels="True">
+                        SnapsToDevicePixels="True"
+                        UseLayoutRounding="True">
                         <ScrollViewer x:Name="DG_ScrollViewer" Focusable="false">
                             <ScrollViewer.Template>
                                 <ControlTemplate TargetType="{x:Type ScrollViewer}">
@@ -167,7 +168,10 @@
                                                             Mode=OneWay,
                                                             RelativeSource={RelativeSource TemplatedParent}}" />
 
-                                        <Grid Grid.Row="2" Grid.Column="1">
+                                        <Grid
+                                            Grid.Row="2"
+                                            Grid.Column="0"
+                                            Grid.ColumnSpan="2">
                                             <Grid.ColumnDefinitions>
                                                 <ColumnDefinition Width="{Binding NonFrozenColumnsViewportHorizontalOffset, RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}}" />
                                                 <ColumnDefinition Width="*" />
@@ -188,14 +192,6 @@
                                                                 Mode=OneWay,
                                                                 RelativeSource={RelativeSource TemplatedParent}}" />
                                         </Grid>
-
-                                        <Border
-                                            Grid.Row="2"
-                                            Grid.Column="0"
-                                            Background="{DynamicResource {x:Static b:BrushesKeys+DataGrid.RowHeaderBackground}}"
-                                            BorderBrush="{Binding RelativeSource={RelativeSource AncestorType={x:Type DataGrid}},
-                                                                  Path=BorderBrush}"
-                                            BorderThickness="0,0,1,0" />
                                     </Grid>
                                     <ControlTemplate.Triggers>
                                         <DataTrigger Binding="{Binding RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}, Path=HeadersVisibility}" Value="Column">
