@@ -8,27 +8,25 @@ namespace WpfExtensions.Converters;
 
 [ValueConversion(typeof(byte), typeof(string))]
 [MarkupExtensionReturnType(typeof(ByteToStringConverter))]
-public partial class ByteToStringConverter : BaseConverter
+public partial class ByteToStringConverter : BaseConverter<byte, string>
 {
     [GeneratedRegex("[^.0-9]")]
     private static partial Regex IsDigitRegex();
 
-    public override object Convert(object? value, Type targetType, object? parameter, CultureInfo culture)
-    {
-        return value?.ToString() ?? string.Empty;
-    }
+    public override string Convert(byte value, object? parameter, CultureInfo culture) => value.ToString();
 
-    public override object? ConvertBack(object? value, Type targetType, object? parameter, CultureInfo culture)
+    public override byte ConvertBack(string? value, object? parameter, CultureInfo culture)
     {
-        if (value is not string str) return value;
+        if (value is null)
+            return 0;
 
-        var res = int.TryParse(IsDigitRegex().Replace(str, ""), out var result) ? result : 0;
+        var res = int.TryParse(IsDigitRegex().Replace(value, ""), out var result) ? result : 0;
 
         return res switch
         {
             > 255 => 255,
             < 0 => 0,
-            _ => res
+            _ => (byte)res
         };
     }
 }

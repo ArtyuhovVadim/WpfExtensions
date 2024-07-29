@@ -8,9 +8,9 @@ namespace WpfExtensions.Converters;
 
 [ValueConversion(typeof(Color), typeof(SolidColorBrush))]
 [MarkupExtensionReturnType(typeof(ColorToSolidColorBrushConverter))]
-public class ColorToSolidColorBrushConverter : BaseConverter
+public class ColorToSolidColorBrushConverter : BaseConverter<Color, SolidColorBrush>
 {
-    public override object? Convert(object? value, Type targetType, object? parameter, CultureInfo culture) => new SolidColorBrush((Color)value!);
+    public override SolidColorBrush Convert(Color value, object? parameter, CultureInfo culture) => new(value);
 
-    public override object? ConvertBack(object? value, Type targetType, object? parameter, CultureInfo culture) => ((SolidColorBrush)value!).Color;
+    public override Color ConvertBack(SolidColorBrush? value, object? parameter, CultureInfo culture) => value?.Color ?? Colors.Transparent;
 };
