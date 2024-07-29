@@ -583,9 +583,9 @@ public static class BrushesKeys
 
         public static readonly ComponentResourceKey KeyboardFocusedDataGridCellBorderBrush = CreateInstance();
 
-        public static readonly ComponentResourceKey ActiveSelectionDataGridCellBackground = CreateInstance();
+        public static readonly ComponentResourceKey InactiveSelectionDataGridCellBackground = CreateInstance();
 
-        public static readonly ComponentResourceKey ActiveSelectionDataGridCellForeground = CreateInstance();
+        public static readonly ComponentResourceKey InactiveSelectionDataGridCellForeground = CreateInstance();
     }
 
     public static class ValidationError
