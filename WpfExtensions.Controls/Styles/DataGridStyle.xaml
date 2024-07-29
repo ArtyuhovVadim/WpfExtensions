@@ -253,8 +253,8 @@
                                 <Condition Property="Selector.IsSelectionActive" Value="False" />
                             </MultiTrigger.Conditions>
                             <MultiTrigger.Setters>
-                                <Setter TargetName="border" Property="Background" Value="{DynamicResource {x:Static b:BrushesKeys+DataGrid.ActiveSelectionDataGridCellBackground}}" />
-                                <Setter TargetName="border" Property="TextElement.Foreground" Value="{DynamicResource {x:Static b:BrushesKeys+DataGrid.ActiveSelectionDataGridCellForeground}}" />
+                                <Setter TargetName="border" Property="Background" Value="{DynamicResource {x:Static b:BrushesKeys+DataGrid.InactiveSelectionDataGridCellBackground}}" />
+                                <Setter TargetName="border" Property="TextElement.Foreground" Value="{DynamicResource {x:Static b:BrushesKeys+DataGrid.InactiveSelectionDataGridCellForeground}}" />
                             </MultiTrigger.Setters>
                         </MultiTrigger>
                     </ControlTemplate.Triggers>
