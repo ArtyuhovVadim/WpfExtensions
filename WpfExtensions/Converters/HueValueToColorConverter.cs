@@ -9,15 +9,7 @@ namespace WpfExtensions.Converters;
 
 [ValueConversion(typeof(double), typeof(Color))]
 [MarkupExtensionReturnType(typeof(HueValueToColorConverter))]
-public class HueValueToColorConverter : BaseConverter
+public class HueValueToColorConverter : BaseConverter<double, Color>
 {
-    public override object Convert(object? value, Type targetType, object? parameter, CultureInfo culture)
-    {
-        if (value is double d)
-        {
-            return ColorUtils.HsvToRgb(d, 1, 1);
-        }
-
-        return Binding.DoNothing;
-    }
+    public override Color Convert(double value, object? parameter, CultureInfo culture) => ColorUtils.HsvToRgb(value, 1, 1);
 }

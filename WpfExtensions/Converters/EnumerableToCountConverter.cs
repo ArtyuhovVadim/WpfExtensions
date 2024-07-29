@@ -7,13 +7,7 @@ namespace WpfExtensions.Converters;
 
 [ValueConversion(typeof(IEnumerable<>), typeof(int))]
 [MarkupExtensionReturnType(typeof(EnumerableToCountConverter))]
-public class EnumerableToCountConverter : BaseConverter
+public class EnumerableToCountConverter : BaseConverter<IEnumerable<object>, int>
 {
-    public override object Convert(object? value, Type targetType, object? parameter, CultureInfo culture)
-    {
-        if (value is not IEnumerable<object> enumerable)
-            return Binding.DoNothing;
-
-        return enumerable.Count();
-    }
+    public override int Convert(IEnumerable<object>? value, object? parameter, CultureInfo culture) => value?.Count() ?? 0;
 }
