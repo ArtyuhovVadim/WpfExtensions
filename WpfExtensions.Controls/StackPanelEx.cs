@@ -72,9 +72,15 @@ public class StackPanelEx : StackPanel
     {
         foreach (var element in InternalChildren.Cast<UIElement>().Where(uiElement => uiElement.Visibility != Visibility.Collapsed))
         {
-            element.Measure(InfinitySize);
-            
-            if (element.DesiredSize is not { Width: > 0, Height: > 0 }) 
+            if (element is not FrameworkElement frameworkElement)
+            {
+                yield return element;
+                continue;
+            }   
+
+            frameworkElement.Measure(InfinitySize);
+
+            if (frameworkElement is { IsLoaded: true, DesiredSize: not { Width: > 0, Height: > 0 } })
                 continue;
 
             yield return element;
