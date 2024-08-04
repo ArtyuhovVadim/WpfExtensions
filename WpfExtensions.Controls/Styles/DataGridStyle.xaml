@@ -143,7 +143,7 @@
                                             Margin="0"
                                             BorderBrush="{Binding RelativeSource={RelativeSource AncestorType={x:Type DataGrid}},
                                                                   Path=BorderBrush}"
-                                            BorderThickness="0">
+                                            BorderThickness="0,0,0,1">
                                             <DataGridColumnHeadersPresenter x:Name="PART_ColumnHeadersPresenter" Visibility="{Binding HeadersVisibility, ConverterParameter={x:Static DataGridHeadersVisibility.Column}, Converter={x:Static DataGrid.HeadersVisibilityConverter}, RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}}" />
                                         </Border>
 
@@ -193,15 +193,6 @@
                                                                 RelativeSource={RelativeSource TemplatedParent}}" />
                                         </Grid>
                                     </Grid>
-                                    <ControlTemplate.Triggers>
-                                        <DataTrigger Binding="{Binding RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}, Path=HeadersVisibility}" Value="Column">
-                                            <Setter TargetName="DataGridColumnHeadersPresenterBorder" Property="BorderThickness" Value="0,0,0,1" />
-                                            <Setter TargetName="DataGridColumnHeadersPresenterBorder" Property="Margin" Value="-1,0,0,0" />
-                                        </DataTrigger>
-                                        <DataTrigger Binding="{Binding RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}, Path=HeadersVisibility}" Value="All">
-                                            <Setter TargetName="DataGridColumnHeadersPresenterBorder" Property="BorderThickness" Value="0,0,0,1" />
-                                        </DataTrigger>
-                                    </ControlTemplate.Triggers>
                                 </ControlTemplate>
                             </ScrollViewer.Template>
                             <ItemsPresenter SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
