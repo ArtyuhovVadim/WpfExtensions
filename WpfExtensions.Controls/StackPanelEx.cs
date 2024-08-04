@@ -5,6 +5,8 @@ namespace WpfExtensions.Controls;
 
 public class StackPanelEx : StackPanel
 {
+    private static readonly Size InfinitySize = new(double.PositiveInfinity, double.PositiveInfinity);
+
     #region Gap
 
     public double Gap
@@ -25,11 +27,12 @@ public class StackPanelEx : StackPanel
             return base.MeasureOverride(constraint);
 
         var baseSize = base.MeasureOverride(constraint);
+        var childrenCount = GetNonZeroSizeChildren().Count();
 
         var resultSize = Orientation switch
         {
-            Orientation.Horizontal => new Size(baseSize.Width + (InternalChildren.Count - 1) * Gap, baseSize.Height),
-            Orientation.Vertical => new Size(baseSize.Width, baseSize.Height + (InternalChildren.Count - 1) * Gap),
+            Orientation.Horizontal => new Size(baseSize.Width + Math.Max(0, childrenCount - 1) * Gap, baseSize.Height),
+            Orientation.Vertical => new Size(baseSize.Width, baseSize.Height + Math.Max(0, childrenCount - 1) * Gap),
             _ => throw new NotSupportedException()
         };
 
@@ -43,7 +46,7 @@ public class StackPanelEx : StackPanel
 
         var acc = 0d;
 
-        foreach (UIElement child in InternalChildren)
+        foreach (var child in GetNonZeroSizeChildren())
         {
             var rect = Orientation switch
             {
@@ -63,5 +66,18 @@ public class StackPanelEx : StackPanel
         }
 
         return arrangeSize;
+    }
+
+    private IEnumerable<UIElement> GetNonZeroSizeChildren()
+    {
+        foreach (var element in InternalChildren.Cast<UIElement>().Where(uiElement => uiElement.Visibility != Visibility.Collapsed))
+        {
+            element.Measure(InfinitySize);
+            
+            if (element.DesiredSize is not { Width: > 0, Height: > 0 }) 
+                continue;
+
+            yield return element;
+        }
     }
 }

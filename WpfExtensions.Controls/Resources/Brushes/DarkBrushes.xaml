@@ -1311,12 +1311,12 @@
         Color="#A2D2FD" />
 
     <SolidColorBrush
-        x:Key="{x:Static b:BrushesKeys+DataGrid.ActiveSelectionDataGridCellBackground}"
+        x:Key="{x:Static b:BrushesKeys+DataGrid.InactiveSelectionDataGridCellBackground}"
         o:Freeze="True"
         Color="#4F5F6F" />
 
     <SolidColorBrush
-        x:Key="{x:Static b:BrushesKeys+DataGrid.ActiveSelectionDataGridCellForeground}"
+        x:Key="{x:Static b:BrushesKeys+DataGrid.InactiveSelectionDataGridCellForeground}"
         o:Freeze="True"
         Color="#FFFFFF" />
 

@@ -8,7 +8,7 @@ namespace WpfExtensions.Converters;
 
 [ValueConversion(typeof(object), typeof(Visibility))]
 [MarkupExtensionReturnType(typeof(NullToVisibilityConverter))]
-public class NullToVisibilityConverter : BaseConverter
+public class NullToVisibilityConverter : BaseConverter<object, Visibility>
 {
-    public override object Convert(object? value, Type targetType, object? parameter, CultureInfo culture) => value is null ? Visibility.Collapsed : Visibility.Visible;
+    public override Visibility Convert(object? value, object? parameter, CultureInfo culture) => value is null ? Visibility.Collapsed : Visibility.Visible;
 }
