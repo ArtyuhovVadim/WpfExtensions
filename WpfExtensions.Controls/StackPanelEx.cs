@@ -5,8 +5,6 @@ namespace WpfExtensions.Controls;
 
 public class StackPanelEx : StackPanel
 {
-    private static readonly Size InfinitySize = new(double.PositiveInfinity, double.PositiveInfinity);
-
     #region Gap
 
     public double Gap
@@ -44,6 +42,8 @@ public class StackPanelEx : StackPanel
         if (Gap == 0)
             return base.ArrangeOverride(arrangeSize);
 
+        _ = base.ArrangeOverride(arrangeSize);
+
         var acc = 0d;
 
         foreach (var child in GetNonZeroSizeChildren())
@@ -68,22 +68,8 @@ public class StackPanelEx : StackPanel
         return arrangeSize;
     }
 
-    private IEnumerable<UIElement> GetNonZeroSizeChildren()
-    {
-        foreach (var element in InternalChildren.Cast<UIElement>().Where(uiElement => uiElement.Visibility != Visibility.Collapsed))
-        {
-            if (element is not FrameworkElement frameworkElement)
-            {
-                yield return element;
-                continue;
-            }   
-
-            frameworkElement.Measure(InfinitySize);
-
-            if (frameworkElement is { IsLoaded: true, DesiredSize: not { Width: > 0, Height: > 0 } })
-                continue;
-
-            yield return element;
-        }
-    }
+    private IEnumerable<UIElement> GetNonZeroSizeChildren() => InternalChildren
+        .Cast<UIElement>()
+        .Where(uiElement => uiElement.Visibility != Visibility.Collapsed)
+        .Where(element => element is not { DesiredSize: not { Width: > 0, Height: > 0 } });
 }
