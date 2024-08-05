@@ -19,7 +19,7 @@
 		<PackageReadmeFile>README.md</PackageReadmeFile>
 		<Copyright>ArtyuhovVadim</Copyright>
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>
-		<Version>1.2.1</Version>
+		<Version>1.2.2</Version>
 		<SignAssembly>False</SignAssembly>
 		<DelaySign>False</DelaySign>
 	</PropertyGroup>
