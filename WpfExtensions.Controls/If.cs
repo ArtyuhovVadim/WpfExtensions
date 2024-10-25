@@ -5,6 +5,8 @@ namespace WpfExtensions.Controls;
 
 public class If : ContentControl
 {
+    public If() => Focusable = false;
+
     #region True
 
     public object True

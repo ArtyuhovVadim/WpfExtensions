@@ -12,7 +12,7 @@ public abstract class ValidatableBindableBase : BindableBase, INotifyDataErrorIn
 
     public bool HasErrors => _errors.Values.Any(x => x.Count > 0);
 
-    IEnumerable INotifyDataErrorInfo.GetErrors(string? propertyName) => GetErrors(propertyName);
+    IEnumerable INotifyDataErrorInfo.GetErrors(string? propertyName) => propertyName is null ? [] : GetErrors(propertyName);
 
     public bool IsPropertyHasErrors([CallerMemberName] string? propertyName = null)
     {
@@ -26,27 +26,28 @@ public abstract class ValidatableBindableBase : BindableBase, INotifyDataErrorIn
         return false;
     }
 
-    public IEnumerable<string> GetErrors(string? propertyName)
-    {
-        ArgumentNullException.ThrowIfNull(propertyName);
-
-        return _errors.GetValueOrDefault(propertyName, Enumerable.Empty<string>().ToList());
-    }
+    public IEnumerable<string> GetErrors(string propertyName) =>
+        _errors.GetValueOrDefault(propertyName, []);
 
     protected void ClearErrors([CallerMemberName] string? propertyName = null)
     {
         ArgumentNullException.ThrowIfNull(propertyName);
 
-        if (_errors.TryGetValue(propertyName, out var errors)) errors.Clear();
+        if (_errors.TryGetValue(propertyName, out var errors))
+        {
+            errors.Clear();
+            OnErrorsChanged(nameof(propertyName));
+        }
     }
 
     protected IEnumerable<string> GetAllValidatedProperties() => _errors.Keys;
 
     protected void ClearAllErrors()
     {
-        foreach (var errors in _errors.Values)
+        foreach (var (propName, errors) in _errors)
         {
             errors.Clear();
+            OnErrorsChanged(propName);
         }
     }
 
@@ -56,11 +57,12 @@ public abstract class ValidatableBindableBase : BindableBase, INotifyDataErrorIn
 
         if (!_errors.TryGetValue(propertyName, out var cachedErrors))
         {
-            cachedErrors = new List<string>();
+            cachedErrors = [];
             _errors[propertyName] = cachedErrors;
         }
 
         cachedErrors.Add(message);
+        OnErrorsChanged(nameof(propertyName));
     }
 
     protected virtual void OnErrorsChanged([CallerMemberName] string? propertyName = null)
