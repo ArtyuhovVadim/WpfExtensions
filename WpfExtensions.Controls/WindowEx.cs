@@ -17,6 +17,19 @@ public class WindowEx : Window
     private Button? _maximizeButton;
     private Button? _closeButton;
 
+    #region IconMargin
+
+    public Thickness IconMargin
+    {
+        get => (Thickness)GetValue(IconMarginProperty);
+        set => SetValue(IconMarginProperty, value);
+    }
+
+    public static readonly DependencyProperty IconMarginProperty =
+        DependencyProperty.Register(nameof(IconMargin), typeof(Thickness), typeof(WindowEx), new PropertyMetadata(default(Thickness)));
+
+    #endregion
+
     static WindowEx()
     {
         DefaultStyleKeyProperty.OverrideMetadata(typeof(WindowEx), new FrameworkPropertyMetadata(typeof(WindowEx)));
