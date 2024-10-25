@@ -133,6 +133,32 @@ public class TextBoxEx : TextBox
 
     #endregion
 
+    #region ConfirmedRoutedEvent
+
+    public static readonly RoutedEvent ConfirmedRoutedEvent =
+        EventManager.RegisterRoutedEvent(nameof(Confirmed), RoutingStrategy.Bubble, typeof(RoutedEventHandler), typeof(TextBoxEx));
+
+    public event RoutedEventHandler Confirmed
+    {
+        add => AddHandler(ConfirmedRoutedEvent, value);
+        remove => RemoveHandler(ConfirmedRoutedEvent, value);
+    }
+
+    #endregion
+
+    #region RejectedRoutedEvent
+
+    public static readonly RoutedEvent RejectedRoutedEvent =
+        EventManager.RegisterRoutedEvent(nameof(Rejected), RoutingStrategy.Bubble, typeof(RoutedEventHandler), typeof(TextBoxEx));
+
+    public event RoutedEventHandler Rejected
+    {
+        add => AddHandler(RejectedRoutedEvent, value);
+        remove => RemoveHandler(RejectedRoutedEvent, value);
+    }
+
+    #endregion
+
     public override void OnApplyTemplate()
     {
         base.OnApplyTemplate();
@@ -164,9 +190,9 @@ public class TextBoxEx : TextBox
         }
     }
 
-    protected virtual void OnConfirm() { }
+    protected virtual void OnConfirm() => RaiseEvent(new RoutedEventArgs(ConfirmedRoutedEvent, this));
 
-    protected virtual void OnReject() { }
+    protected virtual void OnReject() => RaiseEvent(new RoutedEventArgs(RejectedRoutedEvent, this));
 
     protected override void OnGotFocus(RoutedEventArgs e)
     {
