@@ -15,11 +15,11 @@
 		<PackageTags>WpfExtensions;wpf;extensions;xaml;mvvm;command;binding</PackageTags>
 		<Title>WpfExtensions.Mvvm.DotNet</Title>
 		<Description>Library providing classes for MVVM implementation.</Description>
-		<PackageReleaseNotes>Third publication</PackageReleaseNotes>
+		<PackageReleaseNotes>Fourth publication</PackageReleaseNotes>
 		<PackageReadmeFile>README.md</PackageReadmeFile>
 		<Copyright>ArtyuhovVadim</Copyright>
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>
-		<Version>1.2.0</Version>
+		<Version>1.2.1</Version>
 		<SignAssembly>False</SignAssembly>
 		<DelaySign>False</DelaySign>
 	</PropertyGroup>
