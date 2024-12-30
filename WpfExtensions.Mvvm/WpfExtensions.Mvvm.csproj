@@ -1,34 +1,34 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-	<PropertyGroup>
-		<TargetFramework>net8.0-windows</TargetFramework>
-		<ImplicitUsings>enable</ImplicitUsings>
-		<Nullable>enable</Nullable>
-		<UseWpf>true</UseWpf>
-	</PropertyGroup>
+    <PropertyGroup>
+        <TargetFrameworks>net8.0-windows;net9.0-windows</TargetFrameworks>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+        <UseWpf>true</UseWpf>
+    </PropertyGroup>
 
-	<PropertyGroup>
-		<PackageId>$(AssemblyName).DotNet</PackageId>
-		<Authors>Artyuhov Vadim</Authors>
-		<PackageProjectUrl>https://github.com/ArtyuhovVadim/WpfExtensions</PackageProjectUrl>
-		<RepositoryUrl>https://github.com/ArtyuhovVadim/WpfExtensions</RepositoryUrl>
-		<PackageTags>WpfExtensions;wpf;extensions;xaml;mvvm;command;binding</PackageTags>
-		<Title>WpfExtensions.Mvvm.DotNet</Title>
-		<Description>Library providing classes for MVVM implementation.</Description>
-		<PackageReleaseNotes>Fourth publication</PackageReleaseNotes>
-		<PackageReadmeFile>README.md</PackageReadmeFile>
-		<Copyright>ArtyuhovVadim</Copyright>
-		<PackageLicenseExpression>MIT</PackageLicenseExpression>
-		<Version>1.2.1</Version>
-		<SignAssembly>False</SignAssembly>
-		<DelaySign>False</DelaySign>
-	</PropertyGroup>
+    <PropertyGroup>
+        <PackageId>$(AssemblyName).DotNet</PackageId>
+        <Authors>Artyuhov Vadim</Authors>
+        <PackageProjectUrl>https://github.com/ArtyuhovVadim/WpfExtensions</PackageProjectUrl>
+        <RepositoryUrl>https://github.com/ArtyuhovVadim/WpfExtensions</RepositoryUrl>
+        <PackageTags>WpfExtensions;wpf;extensions;xaml;mvvm;command;binding</PackageTags>
+        <Title>WpfExtensions.Mvvm.DotNet</Title>
+        <Description>Library providing classes for MVVM implementation.</Description>
+        <PackageReleaseNotes></PackageReleaseNotes>
+        <PackageReadmeFile>README.md</PackageReadmeFile>
+        <Copyright>ArtyuhovVadim</Copyright>
+        <PackageLicenseExpression>MIT</PackageLicenseExpression>
+        <Version>1.2.2</Version>
+        <SignAssembly>False</SignAssembly>
+        <DelaySign>False</DelaySign>
+    </PropertyGroup>
 
-	<ItemGroup>
-	  <None Include="..\README.md">
-	    <Pack>True</Pack>
-	    <PackagePath>\</PackagePath>
-	  </None>
-	</ItemGroup>
+    <ItemGroup>
+        <None Include="..\README.md">
+            <Pack>True</Pack>
+            <PackagePath>\</PackagePath>
+        </None>
+    </ItemGroup>
 
 </Project>
