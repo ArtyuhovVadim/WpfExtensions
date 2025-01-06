@@ -17,5 +17,7 @@ public interface IAsyncRelayCommand : ICommand, INotifyPropertyChanged
 
     bool CanExecute();
 
+    void NotifyCanExecuteChanged();
+
     void Cancel();
 }

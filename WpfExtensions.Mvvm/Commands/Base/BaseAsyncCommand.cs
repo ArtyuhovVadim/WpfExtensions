@@ -9,11 +9,7 @@ public abstract class BaseAsyncCommand : BindableBase, IAsyncRelayCommand
     private bool _isCancellationRequested;
     private bool _isRunning;
 
-    public event EventHandler? CanExecuteChanged
-    {
-        add => CommandManager.RequerySuggested += value;
-        remove => CommandManager.RequerySuggested -= value;
-    }
+    public event EventHandler? CanExecuteChanged;
 
     public Task? ExecutionTask
     {
@@ -29,7 +25,7 @@ public abstract class BaseAsyncCommand : BindableBase, IAsyncRelayCommand
             if (Set(ref _isCancellationRequested, value))
             {
                 OnPropertyChanged(nameof(CanBeCanceled));
-                CommandManager.InvalidateRequerySuggested();
+                NotifyCanExecuteChanged();
             }
         }
     }
@@ -42,7 +38,7 @@ public abstract class BaseAsyncCommand : BindableBase, IAsyncRelayCommand
             if (Set(ref _isRunning, value))
             {
                 OnPropertyChanged(nameof(CanBeCanceled));
-                CommandManager.InvalidateRequerySuggested();
+                NotifyCanExecuteChanged();
             }
         }
     }
@@ -56,6 +52,8 @@ public abstract class BaseAsyncCommand : BindableBase, IAsyncRelayCommand
     public async Task ExecuteAsync() => await ExecuteAsyncInternal();
 
     public bool CanExecute() => CanExecuteInternal();
+
+    public void NotifyCanExecuteChanged() => CanExecuteChanged?.Invoke(this, EventArgs.Empty);
 
     public void Cancel()
     {

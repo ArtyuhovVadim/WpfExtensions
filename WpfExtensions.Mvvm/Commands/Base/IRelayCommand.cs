@@ -7,5 +7,7 @@ public interface IRelayCommand : ICommand, INotifyPropertyChanged
 {
     bool CanExecute();
 
+    void NotifyCanExecuteChanged();
+
     void Execute();
 }
