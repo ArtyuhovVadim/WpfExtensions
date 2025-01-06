@@ -4,11 +4,7 @@ namespace WpfExtensions.Mvvm.Commands.Base;
 
 public abstract class BaseCommand<T> : BindableBase, IRelayCommand<T>
 {
-    public event EventHandler? CanExecuteChanged
-    {
-        add => CommandManager.RequerySuggested += value;
-        remove => CommandManager.RequerySuggested -= value;
-    }
+    public event EventHandler? CanExecuteChanged;
 
     bool ICommand.CanExecute(object? parameter)
     {
@@ -30,6 +26,8 @@ public abstract class BaseCommand<T> : BindableBase, IRelayCommand<T>
 
         OnExecute(parameterT);
     }
+
+    public void NotifyCanExecuteChanged() => CanExecuteChanged?.Invoke(this, EventArgs.Empty);
 
     public bool CanExecute(T? parameter) => OnCanExecute(parameter);
 
